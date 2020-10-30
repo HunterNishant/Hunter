@@ -1,0 +1,265 @@
+/*
+Author: chankruze (chankruze@geekofia.in)
+Created: Fri Oct 30 2020 13:51:01 GMT+0530 (India Standard Time)
+
+Copyright (c) Geekofia 2020 and beyond
+*/
+
+:root {
+  --navbar-height: 64px;
+  --navbar-bg-dark: #1d1d1d;
+  --navbar-bg-black: #000;
+  --navbar-text-color: rgb(217, 217, 217);
+  --navbar-text-color-focus: rgb(255, 255, 255);
+  --navbar-bg-contrast: rgb(64, 64, 64);
+}
+
+/* center element */
+.container {
+  max-width: 1000px;
+  padding-left: 1.4rem;
+  padding-right: 1.4rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* root navbar */
+.navbar {
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  height: var(--navbar-height);
+  background-color: var(--navbar-bg-dark);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  /* border-bottom: 1px solid rgb(0, 255, 149); */
+}
+
+/* navbar elements wrapper */
+.navbarContainer {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  align-items: center;
+}
+
+/* Brand Logo */
+.navbarLogo {
+  /* background-color: var(--navbar-text-color-focus); */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 0.5em;
+}
+
+/* brand name */
+.brandName {
+  font-size: 2rem;
+  font-family: 'Pacifico', cursive;
+  text-transform: capitalize;
+  color: var(--color-green);
+  /* background: -webkit-linear-gradient(#c31432,#240b36);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+  /* animation: updateGradient 3s linear infinite; */
+}
+
+/* list item */
+.navbarItem {
+  margin: 0.4em;
+  width: 100%;
+}
+
+/* list logo */
+.navbarItem svg {
+    margin-right: 0.25rem;
+}
+
+/* links */
+.homeLink,
+.navbarLink {
+  color: var(--navbar-text-color);
+  transition: color 0.2s ease-in-out;
+  text-decoration: none;
+  display: flex;
+  font-weight: 400;
+  align-items: center;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+/* links (focus, hover) */
+.homeLink:focus,
+.homeLink:hover {
+  color: var(--navbar-text-color-focus);
+}
+
+/* routes/links (a/Link) */
+.navbarLink {
+  justify-content: center;
+  width: 100%;
+  padding: 0.4em 0.8em;
+  border-radius: 5px;
+}
+
+/* routes/links (a/Link) (focus, hover) */
+.navbarLink:focus,
+.navbarLink:hover {
+  color: var(--navbar-text-color-focus);
+  background-color: var(--navbar-bg-contrast);
+}
+
+/* hamburger button */
+.navbarToggle {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* hamburger bar */
+.iconBar {
+  display: block;
+  width: 25px;
+  height: 4px;
+  margin: 2px;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out,
+    opacity 0.2s ease-in-out;
+  background-color: var(--navbar-text-color);
+}
+
+/* hamburger button (focus, hover) */
+.navbarToggle:focus .iconBar,
+.navbarToggle:hover .iconBar {
+  background-color: var(--navbar-text-color-focus);
+}
+
+/* when nav bar is opened increase width for diagonal length from [=] to [X] */
+.navbar.opened .navbarToggle .iconBar:first-child,
+.navbar.opened .navbarToggle .iconBar:last-child {
+  position: absolute;
+  margin: 0;
+  width: 30px;
+}
+
+/* rotate first bar to +45° */
+.navbar.opened .navbarToggle .iconBar:first-child {
+  transform: rotate(45deg);
+}
+
+/* hide middle bar */
+.navbar.opened .navbarToggle .iconBar:nth-child(2) {
+  opacity: 0;
+}
+
+/* rotate first bar to -45° */
+.navbar.opened .navbarToggle .iconBar:last-child {
+  transform: rotate(-45deg);
+}
+
+/* nav links menu (not opened) */
+.navbarMenu {
+  width: 150px;
+  top: var(--navbar-height);
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+}
+
+/* nav links menu (opened) */
+.navbar.opened .navbarMenu {
+  /* background-color: rgba(0, 0, 0, 0.4); */
+  opacity: 1;
+  visibility: visible;
+}
+
+/* nav links unordered list (not opened) */
+.navbarLinks {
+  left: 0;
+  right: 0;
+  max-height: 0;
+  list-style-type: none;
+  overflow: hidden;
+  position: absolute;
+  background-color: var(--navbar-bg-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* detached */
+  margin-top: 1rem;
+  margin-right: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 0px 20px rgba(0, 0, 0, 0.3);
+  /* margin: 1.4rem;
+    border-radius: 5px; 
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3); */
+}
+
+/* nav links unordered list (opened) */
+.navbar.opened .navbarLinks {
+  padding: 1em;
+  max-height: none;
+}
+
+/* Desktop UI */
+
+/* when width is 700px and above */
+@media screen and (min-width: 700px) {
+  /* hides hamburger button */
+  .navbarToggle {
+    display: none;
+  }
+
+  /* show menu whether it's opened or not */
+  .navbar .navbarMenu,
+  .navbar.opened .navbarMenu {
+    width: auto;
+    visibility: visible;
+    opacity: 1;
+    position: static;
+    display: block;
+    height: 100%;
+  }
+
+  /* nav links unordered list (not opened) */
+  .navbar .navbarLinks,
+  .navbar.opened .navbarLinks {
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    position: static; /* from fixed to static */
+    flex-direction: row; /* from column to row */
+    list-style-type: none;
+    max-height: max-content;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+  }
+  .navbar .navbarLink,
+  .navbar.opened .navbarLink {
+    font-family: Poppins;
+    color: var(--color-dark-link);
+  }
+
+  .navbar .navbarLink:hover,
+  .navbar .navbarLink:active,
+  .navbar.opened .navbarLink:hover,
+  .navbar.opened .navbarLink:active {
+    color: #fff;
+    /* transform: scale(1.1); */
+    transition: all 0.2s ease-in-out;
+    text-shadow: 1px 1px 10px #fff;
+  }
+
+  .navbar .navbarLink:last-child {
+    margin-right: 0;
+  }
+}

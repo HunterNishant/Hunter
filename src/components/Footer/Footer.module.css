@@ -1,0 +1,106 @@
+/*
+Author: chankruze (chankruze@geekofia.in)
+Created: Fri Oct 30 2020 14:44:49 GMT+0530 (India Standard Time)
+
+Copyright (c) Geekofia 2020 and beyond
+*/
+
+.footer_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgb(46, 46, 46);
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+  margin-top: 4rem;
+  border-bottom: 5px solid royalblue;
+}
+
+.footer {
+  /* flex: 1; */
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background: rgb(36, 36, 36);
+  justify-content: space-evenly;
+  color: rgb(201, 201, 201);
+}
+
+.footer > * {
+  padding: 2rem;
+}
+
+.left p {
+  font-size: 1rem;
+  max-width: 600px;
+  font-family: "Poppins";
+}
+
+.li {
+  list-style-type: none;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  font-family: "Poppins";
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.li a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  font-weight: 400;
+  line-height: 2;
+  transition: all 200ms ease-in-out;
+}
+
+.li a:hover {
+  color: #fff;
+}
+
+/* .li svg {
+    margin-right: 0.5rem;
+} */
+
+.sec_title {
+  font-size: 1.5rem;
+  letter-spacing: 1.3px;
+  color: #009e47;
+  font-family: "Alata", sans-serif;
+  margin-bottom: 1rem;
+}
+
+/* .mid, */
+.mid {
+  /* background: royalblue; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.credits {
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: rosybrown;
+}
+
+.ul_horizontal {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.ul_horizontal li + li {
+  margin-left: 1.5rem;
+}

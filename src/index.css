@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Alata&family=Poppins&family=Righteous&family=Roboto&family=Pacifico&family=Arimo:wght@700&display=swap");
+
+:root {
+  --color-green: #6ac045;
+  --color-title: #6ac045;
+  --color-primary-link: #d4d4d4;
+  --color-dark-link: #bebebe;
+  --bg-dark: #1d1d1d;
+  --bg-black: #000;
+  --bg-primary: #663399;
+  --bg-light-green: #6ac045;
+  --bg-green: #2e9b00;
+  --navbar-height: 64px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  background-color: var(--bg-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #00aa0e;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #00740a;
+}
