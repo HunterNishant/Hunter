@@ -255,7 +255,7 @@ Copyright (c) Geekofia 2020 and beyond
     color: #fff;
     /* transform: scale(1.1); */
     transition: all 0.2s ease-in-out;
-    text-shadow: 1px 1px 10px #fff;
+    /* text-shadow: 1px 1px 10px #fff; */
   }
 
   .navbar .navbarLink:last-child {
