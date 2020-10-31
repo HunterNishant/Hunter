@@ -32,29 +32,29 @@ export const SiteLinks = [
 
 export const SocialLinks = [
   {
+    name: "Discord",
+    url: "https://discord.gg/yZnZwznBdh",
+    icon: <FaDiscord size={32} />,
+  },
+  {
     name: "Youtube",
-    url: "https://youtube.com/xyz",
+    url: "https://www.youtube.com/channel/UCKY63DWhXZpqQ-JD4XoxVVQ",
     icon: <FaYoutube size={32} />,
   },
   {
     name: "Facebook",
-    url: "https://facebook.com/xyz",
+    url: "https://www.facebook.com/nishant.hunter.7",
     icon: <FaFacebook size={32} />,
-  },
-  {
-    name: "Instagram",
-    url: "https://instagram.com/xyz",
-    icon: <FaInstagram size={32} />,
-  },
-  {
-    name: "Discord",
-    url: "https://example.com",
-    icon: <FaDiscord size={32} />,
   },
   {
     name: "Telegram",
     url: "https://t.me/channel_name",
     icon: <FaTelegram size={32} />,
+  },
+  {
+    name: "Instagram",
+    url: "https://instagram.com/hunternishant",
+    icon: <FaInstagram size={32} />,
   },
   {
     name: "Twitter",
