@@ -4,6 +4,7 @@ Created: Sat Oct 31 2020 05:23:29 GMT+0530 (India Standard Time)
 
 Copyright (c) Geekofia 2020 and beyond
 */
+
 import axios from "axios";
 
 export const loadScript = (src) => {
@@ -20,14 +21,7 @@ export const loadScript = (src) => {
   });
 };
 
-// checkout_api_url = https://checkout.razorpay.com/v1/checkout.js
-// razpay_order_url = https://razpay.herokuapp.com/order
-// logo = "https://sdsds.png"
-// name
-// description
-
 export const initRazorpay = async (props) => {
-  // destructuring param
   const {
     amount,
     currency,
