@@ -13,23 +13,24 @@ import styles from "./ItemCard.module.css";
 
 function ItemCard(props) {
   // imageUrl, name, id, price, mrp
-  const { data, handleBuy } = props;
+  const { data, initTransaction } = props;
   const { id, name, mrp, price, currency, description, image } = data;
   const [quantity, setQuantity] = useState(0);
 
   const handleBuyNow = () => {
     if (quantity > 0) {
-      alert(quantity);
       const productData = {
         id,
         name,
         mrp,
-        price: price * 100,
+        amount: price * 100,
         currency,
         receipt: `${nanoid()}`,
       };
 
-      handleBuy(productData);
+      console.log("[ItemCard] Init payment ");
+
+      initTransaction(productData);
     }
   };
 
