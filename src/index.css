@@ -46,10 +46,10 @@ code {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #00aa0e;
+  background: rgb(48, 48, 48);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #00740a;
+  background: rgb(99, 99, 99);
 }
