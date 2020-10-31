@@ -25,12 +25,8 @@ export const SiteLinks = [
     path: "/store",
   },
   {
-    title: "Cart",
-    path: "/cart",
-  },
-  {
-    title: "About",
-    path: "/about",
+    title: "Download",
+    path: "/download",
   },
 ];
 
