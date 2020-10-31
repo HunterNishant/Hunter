@@ -11,10 +11,6 @@ Copyright (c) Geekofia 2020 and beyond
   align-items: center;
   justify-content: center;
   background: rgb(46, 46, 46);
-  width: 100vw;
-  position: absolute;
-  bottom: 0;
-  margin-top: 4rem;
   border-bottom: 5px solid royalblue;
 }
 
