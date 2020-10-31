@@ -5,3 +5,124 @@ Created: Sat Oct 31 2020 04:23:00 GMT+0530 (India Standard Time)
 Copyright (c) Geekofia 2020 and beyond
 */
 
+:root {
+  --card-width: 20rem;
+}
+
+.card {
+  width: var(--card-width);
+  margin: 1rem;
+  background: rgb(41, 39, 39);
+  color: #fff;
+  padding: 0rem 1rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+}
+
+.card_img_top {
+  max-width: var(--card-width);
+  max-height: var(--card-width);
+  background: rgb(46, 44, 44);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.card_body {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.card_title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--color-green);
+}
+
+.card_sub_title {
+  margin-top: 0.25rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.card_text {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 10rem;
+  color: rgb(175, 175, 175);
+}
+
+.card_action_group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.item_quantity_wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background: rgb(44, 44, 43);
+}
+
+.btn_quantity {
+  width: 2.5rem;
+  height: 2.5rem;
+  outline: 0;
+  border: 0;
+  background: rgb(66, 64, 64);
+  color: #fff;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 200ms ease-in-out;
+}
+
+.btn_quantity:hover {
+  background: rgba(66, 64, 64, 0.5);
+  cursor: pointer;
+}
+
+.input_quantity {
+  width: 3rem;
+  height: 2.5rem;
+  outline: 0;
+  border: 0;
+  text-align: center;
+  background: rgb(78, 78, 78);
+  color: #fff;
+  font-size: 1.3rem;
+  caret-color: transparent;
+}
+
+.card_button {
+  padding: 0.5rem 1.5rem;
+  font-size: 1.1rem;
+  font-family: "Poppins";
+  color: #fff;
+  border: 0;
+  outline: 0;
+  background: rgb(65, 65, 65);
+  /* background: var(--bg-green); */
+  border-radius: 0.5rem;
+  transition: all 200ms ease-in-out;
+  box-shadow: 0 0 0.5rem  rgb(0, 0, 0, 0.4);
+}
+
+.card_button:hover {
+  background: rgba(65, 65, 65, 0.5);
+  cursor: pointer;
+}

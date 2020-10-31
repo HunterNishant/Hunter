@@ -6,12 +6,12 @@ Copyright (c) Geekofia 2020 and beyond
 */
 
 .store_root {
-    margin-top: --var(--navbar-height);
+  margin-top: --var(--navbar-height);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background: chocolate;
+  /* background: chocolate; */
   min-height: 100vh;
   /* overflow-x: hidden; */
   overflow-y: auto;
@@ -24,13 +24,21 @@ Copyright (c) Geekofia 2020 and beyond
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+
 }
 
 .products_wrapper {
-  flex: 1;
   display: flex;
+  /* justify-content: flex-start;
+  align-items: flex-start; */
+}
+.list_vertical {
+  flex-direction: column;
+}
+
+.products_wrapper.list_horizontal {
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
 }

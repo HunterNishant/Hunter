@@ -6,6 +6,7 @@ Copyright (c) Geekofia 2020 and beyond
 */
 
 import React, { useState } from "react";
+import ItemCard from "./ItemCard";
 // import ItemCard from "./ItemCard";
 import ItemDiv from "./ItemDiv";
 import styles from "./Store.module.css";
@@ -13,7 +14,7 @@ import styles from "./Store.module.css";
 import { products } from "./StoreItems";
 
 function Store() {
-  const [listVertical, setListVertical] = useState(true);
+  const [listVertical, setListVertical] = useState(false);
 
   const toggleListDirection = () => {
     setListVertical(!listVertical);
@@ -30,7 +31,7 @@ function Store() {
         }`}
       >
         {products &&
-          products.map((data, index) => <ItemDiv key={index} details={data} />)}
+          products.map((data, index) => <ItemCard key={index} data={data} />)}
         {/* {products &&
           products.map((data, index) => (
             <ItemCard key={index} details={data} />
