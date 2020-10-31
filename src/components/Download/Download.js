@@ -9,7 +9,7 @@ import React from "react";
 import styles from "./Download.module.css";
 
 function Download() {
-  return <div></div>;
+  return <div className={styles.download}></div>;
 }
 
 export default Download;

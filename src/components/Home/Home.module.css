@@ -5,6 +5,6 @@ Created: Fri Oct 30 2020 18:55:34 GMT+0530 (India Standard Time)
 Copyright (c) Geekofia 2020 and beyond
 */
 
-/* .home {
-    margin-top: 5rem;
-} */
+.home {
+  min-height: 100vh;
+}
