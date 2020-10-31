@@ -9,17 +9,16 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ItemCard from "./ItemCard";
 import { loadScript } from "../../utils";
+
+// iocns
+import { MdViewStream, MdViewWeek } from "react-icons/md";
+
 import styles from "./Store.module.css";
 
 import { products } from "./StoreItems";
 
 const initTransaction = async (props) => {
-  console.log("[Store] Init Transaction ");
   const { amount, currency, receipt, name, description, logo } = props;
-
-  console.log(process.env.REACT_APP_RAZPAY_ORDER_URL);
-  console.log(process.env.REACT_APP_RAZPAY_CHECK_URL);
-  console.log(process.env.REACT_APP_RAZPAY_KEY);
 
   await axios
     .post(process.env.REACT_APP_RAZPAY_ORDER_URL, {
@@ -39,7 +38,6 @@ const initTransaction = async (props) => {
         description,
         image: logo,
         handler: async (response) => {
-          console.log("Checking payment");
           const data = {
             orderCreationId: res.data.id,
             razorpayPaymentId: response.razorpay_payment_id,
@@ -83,7 +81,9 @@ function Store() {
   return (
     <div className={styles.store_root}>
       <div className={styles.filter_wrapper}>
-        <button onClick={toggleListDirection}>Toggle List Direction</button>
+        <button onClick={toggleListDirection} className={styles.btn_list_direction}>
+          {!listVertical ? <MdViewStream /> : <MdViewWeek />}
+        </button>
       </div>
       <div
         className={`${styles.products_wrapper} ${

@@ -14,31 +14,51 @@ import styles from "./ItemCard.module.css";
 function ItemCard(props) {
   // imageUrl, name, id, price, mrp
   const { data, initTransaction } = props;
-  const { id, name, mrp, price, currency, description, image } = data;
+  const { id, name, mrp, price, currency, description, image, tag } = data;
   const [quantity, setQuantity] = useState(0);
 
   const handleBuyNow = () => {
-    if (quantity > 0) {
-      const productData = {
-        id,
-        name,
-        mrp,
-        amount: price * 100,
-        currency,
-        receipt: `${nanoid()}`,
-      };
+    const productData = {
+      id,
+      name,
+      mrp,
+      amount: price * 100,
+      currency,
+      receipt: `${nanoid()}`,
+    };
 
-      console.log("[ItemCard] Init payment ");
+    console.log("[ItemCard] Init payment ");
 
-      initTransaction(productData);
-    }
+    initTransaction(productData);
   };
 
   return (
     <div className={styles.card}>
-      <img className={styles.card_img_top} src={image} alt="Product Pic" />
+      {tag && (
+        <span
+          className={styles.card_tag}
+          style={{ backgroundColor: `${tag === "hot" ? "red" : "blue"}` }}
+        >
+          {tag}
+        </span>
+      )}
+
+      <div className={styles.card_img_wrapper}>
+        <img className={styles.card_img_top} src={image} alt="Product Pic" />
+      </div>
+
       <div className={styles.card_body}>
-        <p className={styles.card_title}>{name}</p>
+        <p className={styles.card_title}>
+          {name}
+          {/* {tag && (
+            <span
+              className={styles.card_title_tag}
+              style={{ backgroundColor: `${tag === "hot" ? "red" : "blue"}` }}
+            >
+              {tag}
+            </span>
+          )} */}
+        </p>
         <p className={styles.card_sub_title}>
           <p className={styles.mrp}>{mrp}</p>
           <p className={styles.price}>{price}</p>
@@ -64,7 +84,11 @@ function ItemCard(props) {
               <FaPlus />
             </button>
           </div>
-          <button onClick={handleBuyNow} className={styles.card_button}>
+          <button
+            onClick={handleBuyNow}
+            className={styles.card_button}
+            disabled={quantity === 0 ? true : false}
+          >
             Buy Now
           </button>
         </div>

@@ -6,15 +6,16 @@ Copyright (c) Geekofia 2020 and beyond
 */
 
 :root {
-  --card-width: 20rem;
+  --card-width: 22rem;
+  --card-width-mob: 21rem;
 }
 
 .card {
+  position: relative;
   width: var(--card-width);
-  margin: 1rem;
+  margin: 1rem 0.5rem 1rem 0.5rem;
   background: rgb(41, 39, 39);
   color: #fff;
-  padding: 0rem 1rem 1rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,26 +23,56 @@ Copyright (c) Geekofia 2020 and beyond
   border-radius: 0.5rem;
 }
 
-.card_img_top {
-  max-width: var(--card-width);
-  max-height: var(--card-width);
+.card_img_wrapper {
+  height: 15rem;
+  width: 100%;
   background: rgb(46, 44, 44);
   border-radius: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.card_img_top {
+  max-width: 100%;
+  max-height: 100%;
   padding: 1rem;
 }
 
 .card_body {
   margin-top: 0.5rem;
+  padding: 0rem 1rem 1rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
 .card_title {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 700;
-  letter-spacing: 0.5px;
   color: var(--color-green);
+  text-overflow: ellipsis;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.card_title_tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1.1rem;
+  letter-spacing: normal;
+  text-transform: uppercase;
+  padding: 0rem 0.5rem;
+  margin-left: 0.5rem;
+  color: #fff;
+  border-radius: 0.25rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: min-content;
 }
 
 .card_sub_title {
@@ -63,7 +94,7 @@ Copyright (c) Geekofia 2020 and beyond
 }
 
 .price {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-left: 0.5rem;
   font-weight: 600;
 }
@@ -77,7 +108,7 @@ Copyright (c) Geekofia 2020 and beyond
   margin-bottom: 1rem;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 10rem;
+  height: 8rem;
   color: rgb(175, 175, 175);
 }
 
@@ -137,7 +168,7 @@ Copyright (c) Geekofia 2020 and beyond
   color: #fff;
   border: 0;
   outline: 0;
-  background: rgb(65, 65, 65);
+  background: rgb(83, 83, 83);
   /* background: var(--bg-green); */
   border-radius: 0.5rem;
   transition: all 200ms ease-in-out;
@@ -145,6 +176,87 @@ Copyright (c) Geekofia 2020 and beyond
 }
 
 .card_button:hover {
-  background: rgba(65, 65, 65, 0.5);
+  background: rgb(65, 65, 65);
+  text-shadow: 0px 0px 5px #fff;
   cursor: pointer;
+}
+
+.card_button:disabled {
+  cursor: not-allowed;
+  background: transparent;
+  box-shadow: none;
+  color: #777777;
+  text-shadow: none;
+}
+
+/* 
+  Device: Desktops
+  Screen: 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+}
+
+/* 
+Device: Laptops, Desktops
+Screen: B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+}
+
+/* 
+Device: Tablets, Ipads (portrait)
+Screen: B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+}
+
+/* 
+Device: Tablets, Ipads (landscape)
+Screen: B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+}
+
+/* 
+Device: Low Resolution Tablets, Mobiles (Landscape)
+Screen: B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+}
+
+/* 
+Device: Most of the Smartphones Mobiles (Portrait)
+Screen: B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .card {
+    width: var(--card-width-mob);
+  }
+
+  .card_title {
+    font-size: 1.6rem;
+  }
+
+  .card_title_tag {
+    font-size: 0.6rem;
+  }
+}
+
+.card_tag {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-bottom-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: rgb(36, 36, 36);
 }

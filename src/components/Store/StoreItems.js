@@ -17,6 +17,7 @@ export const products = [
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro doloremque odio iste odit obcaecati, nam nostrum corporis, possimus reprehenderit beatae quod unde ducimus expedita iusto nihil suscipit adipisci quisquam? Ipsum.",
     image,
+    tag: "",
   },
   {
     id: "SX_VIP_W",
@@ -27,6 +28,7 @@ export const products = [
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro doloremque odio iste odit obcaecati, nam nostrum corporis, possimus reprehenderit beatae quod unde ducimus expedita iusto nihil suscipit adipisci quisquam? Ipsum.",
     image,
+    tag: "hot",
   },
   {
     id: "SX_VIP_M",
@@ -37,6 +39,7 @@ export const products = [
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro doloremque odio iste odit obcaecati, nam nostrum corporis, possimus reprehenderit beatae quod unde ducimus expedita iusto nihil suscipit adipisci quisquam? Ipsum.",
     image,
+    tag: "popular",
   },
   {
     id: "SX_VIP_H",
@@ -47,5 +50,6 @@ export const products = [
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro doloremque odio iste odit obcaecati, nam nostrum corporis, possimus reprehenderit beatae quod unde ducimus expedita iusto nihil suscipit adipisci quisquam? Ipsum.",
     image,
+    tag: "",
   },
 ];
