@@ -46,8 +46,30 @@ Copyright (c) Geekofia 2020 and beyond
 
 .card_sub_title {
   margin-top: 0.25rem;
-  font-size: 1.3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.mrp {
+  text-decoration: line-through;
+  font-size: 1rem;
+  color: #9c9c9c;
+}
+
+.mrp:before {
+  content: "₹ ";
+}
+
+.price {
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
   font-weight: 600;
+}
+
+.price:before {
+  content: "₹ ";
 }
 
 .card_text {
@@ -119,7 +141,7 @@ Copyright (c) Geekofia 2020 and beyond
   /* background: var(--bg-green); */
   border-radius: 0.5rem;
   transition: all 200ms ease-in-out;
-  box-shadow: 0 0 0.5rem  rgb(0, 0, 0, 0.4);
+  box-shadow: 0 0 0.5rem rgb(0, 0, 0, 0.4);
 }
 
 .card_button:hover {

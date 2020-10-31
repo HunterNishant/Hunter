@@ -19,7 +19,7 @@ function ItemCard(props) {
 
   const handleBuyNow = () => {
     if (quantity > 0) {
-      alert(quantity)
+      alert(quantity);
       const productData = {
         id,
         name,
@@ -37,8 +37,11 @@ function ItemCard(props) {
     <div className={styles.card}>
       <img className={styles.card_img_top} src={image} alt="Product Pic" />
       <div className={styles.card_body}>
-        <p className={styles.card_title}>Card title</p>
-        <p className={styles.card_sub_title}>Card Subtitle</p>
+        <p className={styles.card_title}>{name}</p>
+        <p className={styles.card_sub_title}>
+          <p className={styles.mrp}>{mrp}</p>
+          <p className={styles.price}>{price}</p>
+        </p>
         <p className={styles.card_text}>{description}</p>
         <div className={styles.card_action_group}>
           <div className={styles.item_quantity_wrapper}>
