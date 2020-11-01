@@ -48,7 +48,7 @@ export const SocialLinks = [
   },
   {
     name: "Telegram",
-    url: "https://t.me/channel_name",
+    url: "https://t.me/hunter_org_in",
     icon: <FaTelegram size={32} />,
   },
   {
