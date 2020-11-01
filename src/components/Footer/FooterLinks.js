@@ -33,7 +33,7 @@ export const SiteLinks = [
 export const SocialLinks = [
   {
     name: "Discord",
-    url: "https://discord.gg/yZnZwznBdh",
+    url: "https://discord.gg/EfUxsY7",
     icon: <FaDiscord size={32} />,
   },
   {
