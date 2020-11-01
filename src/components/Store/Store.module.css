@@ -51,7 +51,7 @@ Copyright (c) Geekofia 2020 and beyond
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {

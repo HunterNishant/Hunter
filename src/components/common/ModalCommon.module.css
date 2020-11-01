@@ -1,0 +1,58 @@
+/*
+Author: chankruze (chankruze@geekofia.in)
+Created: Sat Oct 10 2020 14:46:30 GMT+0530 (India Standard Time)
+
+Copyright (c) Geekofia 2020 and beyond
+*/
+
+.modal {
+  border: 0;
+  outline: 0;
+  border-radius: 4px;
+  max-width: 600px;
+  min-height: 300px;
+  background: #fff;
+  margin: 5rem auto;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.modalOverlay {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.close {
+  font-size: 1.4rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0rem 0.2rem;
+}
+
+/* width */
+.modal::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.modal::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.modal::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+.modal::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

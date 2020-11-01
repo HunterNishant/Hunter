@@ -5,7 +5,7 @@ Created: Sat Oct 31 2020 04:22:51 GMT+0530 (India Standard Time)
 Copyright (c) Geekofia 2020 and beyond
 */
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
 import { FaMinus, FaPlus } from "react-icons/fa";
 // css
@@ -13,7 +13,7 @@ import styles from "./ItemCard.module.css";
 
 function ItemCard(props) {
   // imageUrl, name, id, price, mrp
-  const { data, initTransaction } = props;
+  const { data, initTransaction, handleViewMore } = props;
   const { id, name, mrp, price, currency, description, image, tag } = data;
   const [quantity, setQuantity] = useState(0);
 
@@ -21,16 +21,31 @@ function ItemCard(props) {
     const productData = {
       id,
       name,
-      mrp,
       amount: price * 100,
       currency,
-      receipt: `${nanoid()}`,
+      description,
+      receipt: `receipt_${nanoid()}`,
+      image:
+        "https://res.cloudinary.com/chankruze/image/upload/v1604210061/Hunter/hunter.png",
+      notes: {
+        product_name: name,
+        product_mrp: mrp,
+        product_price: price,
+        product_discount: mrp - price,
+        product_description: description,
+      },
     };
 
     console.log("[ItemCard] Init payment ");
 
     initTransaction(productData);
   };
+
+  useEffect(() => {
+    if (tag === "popular") {
+      setQuantity(1);
+    }
+  }, [tag]);
 
   return (
     <div className={styles.card}>
@@ -60,21 +75,28 @@ function ItemCard(props) {
           )} */}
         </p>
         <p className={styles.card_sub_title}>
-          <p className={styles.mrp}>{mrp}</p>
-          <p className={styles.price}>{price}</p>
+          <span className={styles.mrp}>{mrp}</span>
+          <span className={styles.price}>{price}</span>
         </p>
         <p className={styles.card_text}>{description}</p>
+        <button
+          className={styles.card_read_more}
+          onClick={() => handleViewMore(true)}
+        >
+          full description
+        </button>
         <div className={styles.card_action_group}>
           <div className={styles.item_quantity_wrapper}>
             <button
               className={styles.btn_quantity}
-              onClick={() => setQuantity(quantity - 1 > -1 ? quantity - 1 : 0)}
+              onClick={() => setQuantity(quantity > 0 ? quantity - 1 : 0)}
             >
               <FaMinus />
             </button>
             <input
               className={styles.input_quantity}
               type="number"
+              readOnly
               value={quantity}
             />
             <button

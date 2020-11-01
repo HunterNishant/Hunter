@@ -13,12 +13,12 @@ Copyright (c) Geekofia 2020 and beyond
 .card {
   position: relative;
   width: var(--card-width);
-  margin: 1rem 0.5rem 1rem 0.5rem;
+  margin: 0.5rem;
   background: rgb(41, 39, 39);
   color: #fff;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   border-radius: 0.5rem;
 }
@@ -46,6 +46,7 @@ Copyright (c) Geekofia 2020 and beyond
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
 }
 
 .card_title {
@@ -108,8 +109,27 @@ Copyright (c) Geekofia 2020 and beyond
   margin-bottom: 1rem;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 8rem;
+  max-height: 8rem;
   color: rgb(175, 175, 175);
+}
+
+.card_read_more {
+  color: #d6d6d6;
+  padding: 0 0.5rem;
+  /* background: rgb(36, 36, 36); */
+  outline: 0;
+  background: transparent;
+  border: 1px solid #1f1f1f;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+  border-radius: 0.25rem;
+  text-transform: capitalize;
+  transition: all 200ms ease-in-out;
+}
+
+.card_read_more:hover {
+  background: #1f1f1f;
+  color: #00ffff;
 }
 
 .card_action_group {
@@ -119,7 +139,7 @@ Copyright (c) Geekofia 2020 and beyond
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
 }
 
 .item_quantity_wrapper {

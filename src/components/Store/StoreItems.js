@@ -15,7 +15,7 @@ export const products = [
     price: 135,
     currency: "INR",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro doloremque odio iste odit obcaecati, nam nostrum corporis, possimus reprehenderit beatae quod unde ducimus expedita iusto nihil suscipit adipisci quisquam? Ipsum.",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
     image,
     tag: "",
   },
@@ -26,7 +26,7 @@ export const products = [
     price: 700,
     currency: "INR",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro doloremque odio iste odit obcaecati, nam nostrum corporis, possimus reprehenderit beatae quod unde ducimus expedita iusto nihil suscipit adipisci quisquam? Ipsum.",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     image,
     tag: "hot",
   },
@@ -37,7 +37,7 @@ export const products = [
     price: 1800,
     currency: "INR",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro doloremque odio iste odit obcaecati, nam nostrum corporis, possimus reprehenderit beatae quod unde ducimus expedita iusto nihil suscipit adipisci quisquam? Ipsum.",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     image,
     tag: "popular",
   },
@@ -48,7 +48,7 @@ export const products = [
     price: 15,
     currency: "INR",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro doloremque odio iste odit obcaecati, nam nostrum corporis, possimus reprehenderit beatae quod unde ducimus expedita iusto nihil suscipit adipisci quisquam? Ipsum.",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
     image,
     tag: "",
   },

@@ -6,25 +6,30 @@ Copyright (c) Geekofia 2020 and beyond
 */
 
 import React, { useState, useEffect } from "react";
+import Modal from "react-modal";
 import axios from "axios";
+// components
 import ItemCard from "./ItemCard";
+// icons
+import { MdViewStream, MdViewWeek } from "react-icons/md";
+import { VscChromeClose } from "react-icons/vsc";
+// css
+import modalStyles from "../common/ModalCommon.module.css";
+import styles from "./Store.module.css";
+// utils
+import { products } from "./StoreItems";
 import { loadScript } from "../../utils";
 
-// iocns
-import { MdViewStream, MdViewWeek } from "react-icons/md";
-
-import styles from "./Store.module.css";
-
-import { products } from "./StoreItems";
-
+// Init Transaction
 const initTransaction = async (props) => {
-  const { amount, currency, receipt, name, description, logo } = props;
+  const { amount, currency, receipt, notes, description, image } = props;
 
   await axios
     .post(process.env.REACT_APP_RAZPAY_ORDER_URL, {
       amount,
       currency,
       receipt,
+      notes,
     })
     .then((res) => {
       console.log(res.data);
@@ -34,9 +39,8 @@ const initTransaction = async (props) => {
         currency: res.data.currency,
         amount: res.data.amount,
         order_id: res.data.id,
-        name,
         description,
-        image: logo,
+        image,
         handler: async (response) => {
           const data = {
             orderCreationId: res.data.id,
@@ -56,6 +60,11 @@ const initTransaction = async (props) => {
               alert("You're too smart to trick me!");
             });
         },
+        modal: {
+          ondismiss: () => {
+            alert("Payment form closed");
+          },
+        },
       };
 
       const paymentObject = new window.Razorpay(options);
@@ -64,8 +73,11 @@ const initTransaction = async (props) => {
     .catch((error) => console.log(error));
 };
 
+Modal.setAppElement("#react_root");
+
 function Store() {
   const [listVertical, setListVertical] = useState(false);
+  const [isProductModalOpen, setIsProductModalOpen] = useState(false);
 
   const toggleListDirection = () => {
     setListVertical(!listVertical);
@@ -81,7 +93,10 @@ function Store() {
   return (
     <div className={styles.store_root}>
       <div className={styles.filter_wrapper}>
-        <button onClick={toggleListDirection} className={styles.btn_list_direction}>
+        <button
+          onClick={toggleListDirection}
+          className={styles.btn_list_direction}
+        >
           {!listVertical ? <MdViewStream /> : <MdViewWeek />}
         </button>
       </div>
@@ -96,6 +111,7 @@ function Store() {
               key={index}
               data={data}
               initTransaction={initTransaction}
+              handleViewMore={setIsProductModalOpen}
             />
           ))}
         {/* {products &&
@@ -103,6 +119,19 @@ function Store() {
             <ItemCard key={index} details={data} />
           ))} */}
       </div>
+      <Modal
+        className={modalStyles.modal}
+        overlayClassName={modalStyles.modalOverlay}
+        isOpen={isProductModalOpen}
+      >
+        {/* Close Button */}
+        <span
+          className={modalStyles.close}
+          onClick={() => setIsProductModalOpen(false)}
+        >
+          <VscChromeClose />
+        </span>
+      </Modal>
     </div>
   );
 }
