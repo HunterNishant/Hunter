@@ -53,7 +53,7 @@ const initTransaction = async (props) => {
             .post(process.env.REACT_APP_RAZPAY_CHECK_URL, data)
             .then((res) => {
               console.log(res.data);
-              alert(res.data.msg);
+              alert("Check your email for KEY and payment receipt");
             })
             .catch((err) => {
               console.log(err);

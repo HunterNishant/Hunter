@@ -29,6 +29,7 @@ function ItemCard(props) {
         "https://res.cloudinary.com/chankruze/image/upload/v1604210061/Hunter/hunter.png",
       notes: {
         product_name: name,
+        product_duration: name.split(" ").slice(-2).join(" "),
         product_mrp: mrp,
         product_price: price,
         product_discount: mrp - price,
