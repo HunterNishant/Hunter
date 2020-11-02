@@ -56,7 +56,7 @@ function ItemCard(props) {
   };
 
   useEffect(() => {
-    if (tag === "popular") {
+    if (tag) {
       setQuantity(1);
     }
   }, [tag]);

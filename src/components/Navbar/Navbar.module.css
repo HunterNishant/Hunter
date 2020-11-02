@@ -163,7 +163,7 @@ Copyright (c) Geekofia 2020 and beyond
 
 /* nav links menu (not opened) */
 .navbarMenu {
-  width: 150px;
+  width: 50%;
   top: var(--navbar-height);
   right: 0;
   bottom: 0;

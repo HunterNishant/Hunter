@@ -5,6 +5,7 @@ Created: Fri Oct 30 2020 13:51:33 GMT+0530 (India Standard Time)
 Copyright (c) Geekofia 2020 and beyond
 */
 
+// eslint-disable-next-line
 import { MdStore, MdShoppingCart, MdInfo, MdFileDownload } from "react-icons/md";
 
 export const NavItems = [

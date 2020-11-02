@@ -6,11 +6,7 @@ Copyright (c) Geekofia 2020 and beyond
 */
 
 import {
-  FaFacebook,
   FaInstagram,
-  FaTwitch,
-  FaTwitter,
-  FaYoutube,
   FaDiscord,
   FaTelegram,
 } from "react-icons/fa";
@@ -37,16 +33,6 @@ export const SocialLinks = [
     icon: <FaDiscord size={32} />,
   },
   {
-    name: "Youtube",
-    url: "https://www.youtube.com/channel/UCKY63DWhXZpqQ-JD4XoxVVQ",
-    icon: <FaYoutube size={32} />,
-  },
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com/nishant.hunter.7",
-    icon: <FaFacebook size={32} />,
-  },
-  {
     name: "Telegram",
     url: "https://t.me/hunter_org_in",
     icon: <FaTelegram size={32} />,
@@ -55,15 +41,5 @@ export const SocialLinks = [
     name: "Instagram",
     url: "https://instagram.com/hunternishant",
     icon: <FaInstagram size={32} />,
-  },
-  {
-    name: "Twitter",
-    url: "https://twitter.com/xyz",
-    icon: <FaTwitter size={32} />,
-  },
-  {
-    name: "Twitch",
-    url: "https://twitch.com/xyz",
-    icon: <FaTwitch size={32} />,
   },
 ];

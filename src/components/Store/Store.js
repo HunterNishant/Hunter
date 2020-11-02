@@ -11,7 +11,7 @@ import axios from "axios";
 // components
 import ItemCard from "./ItemCard";
 // icons
-import { MdViewStream, MdViewWeek } from "react-icons/md";
+// import { MdViewStream, MdViewWeek } from "react-icons/md";
 import { VscChromeClose } from "react-icons/vsc";
 // css
 import modalStyles from "../common/ModalCommon.module.css";
@@ -25,7 +25,7 @@ const initTransaction = async (props) => {
   const { amount, currency, receipt, notes, description, image } = props;
 
   await axios
-    .post(`${process.env.REACT_APP_RAZPAY_URL_PROD}/order`, {
+    .post(`${process.env.REACT_APP_RAZPAY_URL_DEV}/order`, {
       amount,
       currency,
       receipt,
@@ -50,7 +50,7 @@ const initTransaction = async (props) => {
           };
 
           await axios
-            .post(`${process.env.REACT_APP_RAZPAY_URL_PROD}/check`, data)
+            .post(`${process.env.REACT_APP_RAZPAY_URL_DEV}/check`, data)
             .then((res) => {
               console.log(res.data);
               alert("Check your email for KEY and payment receipt");
@@ -76,12 +76,13 @@ const initTransaction = async (props) => {
 Modal.setAppElement("#react_root");
 
 function Store() {
+  // eslint-disable-next-line
   const [listVertical, setListVertical] = useState(false);
   const [isProductModalOpen, setIsProductModalOpen] = useState(false);
 
-  const toggleListDirection = () => {
-    setListVertical(!listVertical);
-  };
+  // const toggleListDirection = () => {
+  //   setListVertical(!listVertical);
+  // };
 
   useEffect(() => {
     // load razorpay checkout script
@@ -92,14 +93,16 @@ function Store() {
 
   return (
     <div className={styles.store_root}>
-      <div className={styles.filter_wrapper}>
+      {/* Filter Section */}
+      {/* <div className={styles.filter_wrapper}>
         <button
           onClick={toggleListDirection}
           className={styles.btn_list_direction}
         >
           {!listVertical ? <MdViewStream /> : <MdViewWeek />}
         </button>
-      </div>
+      </div> */}
+      {/* Product Listing */}
       <div
         className={`${styles.products_wrapper} ${
           listVertical ? `${styles.list_vertical}` : `${styles.list_horizontal}`

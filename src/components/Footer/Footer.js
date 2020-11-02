@@ -9,8 +9,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { SiteLinks, SocialLinks } from "./FooterLinks";
-import { GoVerified } from "react-icons/go";
-import { HiOutlineLink } from "react-icons/hi";
+// import { GoVerified } from "react-icons/go";
 
 import styles from "./Footer.module.css";
 
@@ -20,7 +19,7 @@ function Footer() {
       <footer className={styles.footer}>
         <div className={styles.left}>
           <h2 className={styles.sec_title}>
-            Hunter <GoVerified size={16} />
+            Hunter
           </h2>
           <p>
             Lorem ips facere veritatis quam voluptatibus odit asperiores fugiat
@@ -61,7 +60,7 @@ function Footer() {
         </div> */}
       </footer>
       <div className={styles.credits}>
-        <p>Copyright &copy; Hunter YT</p>
+        <p>Copyright &copy; Hunter 2020 &amp; beyond</p>
         <p>Developed with ❤ by chankruze</p>
       </div>
     </div>
