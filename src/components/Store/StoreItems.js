@@ -11,6 +11,7 @@ export const products = [
   {
     id: "SX_VIP_D",
     name: "SX VIP 1 DAY",
+    type: "daily",
     mrp: 250,
     price: 135,
     currency: "INR",
@@ -22,6 +23,7 @@ export const products = [
   {
     id: "SX_VIP_W",
     name: "SX VIP 1 WEEK",
+    type: "weekly",
     mrp: 900,
     price: 700,
     currency: "INR",
@@ -33,6 +35,7 @@ export const products = [
   {
     id: "SX_VIP_M",
     name: "SX VIP 1 MONTH",
+    type: "monthly",
     mrp: 2100,
     price: 1800,
     currency: "INR",
@@ -44,6 +47,7 @@ export const products = [
   {
     id: "SX_VIP_H",
     name: "SX VIP 2 HOURS",
+    type: "hourly",
     mrp: 35,
     price: 15,
     currency: "INR",

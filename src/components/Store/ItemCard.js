@@ -14,14 +14,24 @@ import styles from "./ItemCard.module.css";
 function ItemCard(props) {
   // imageUrl, name, id, price, mrp
   const { data, initTransaction, handleViewMore } = props;
-  const { id, name, mrp, price, currency, description, image, tag } = data;
+  const {
+    id,
+    name,
+    type,
+    mrp,
+    price,
+    currency,
+    description,
+    image,
+    tag,
+  } = data;
   const [quantity, setQuantity] = useState(0);
 
   const handleBuyNow = () => {
     const productData = {
       id,
       name,
-      amount: price * 100,
+      amount: price * quantity * 100,
       currency,
       description,
       receipt: `receipt_${nanoid()}`,
@@ -33,7 +43,10 @@ function ItemCard(props) {
         product_mrp: mrp,
         product_price: price,
         product_discount: mrp - price,
-        product_description: description,
+        product_type: type,
+        product_quantity: quantity,
+        total_price: quantity * price,
+        total_discount: (mrp - price) * quantity,
       },
     };
 
