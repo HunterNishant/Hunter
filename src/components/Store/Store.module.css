@@ -6,7 +6,7 @@ Copyright (c) Geekofia 2020 and beyond
 */
 
 .store_root {
-  margin-top: var(--navbar-height);
+  margin-top: calc(var(--navbar-height) + 1rem);
   display: flex;
   flex-direction: column;
   align-items: center;

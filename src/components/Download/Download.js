@@ -6,10 +6,18 @@ Copyright (c) Geekofia 2020 and beyond
 */
 
 import React from "react";
+import Footer from "../Footer/Footer";
+import Navbar from "../Navbar/Navbar";
 import styles from "./Download.module.css";
 
 function Download() {
-  return <div className={styles.download}></div>;
+  return (
+    <>
+      <Navbar />
+      <div className={styles.download}></div>
+      <Footer />
+    </>
+  );
 }
 
 export default Download;

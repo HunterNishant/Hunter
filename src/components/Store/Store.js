@@ -19,6 +19,8 @@ import styles from "./Store.module.css";
 // utils
 import { products } from "./StoreItems";
 import { loadScript } from "../../utils";
+import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 
 // Init Transaction
 const initTransaction = async (props) => {
@@ -92,9 +94,11 @@ function Store() {
   }, []);
 
   return (
-    <div className={styles.store_root}>
-      {/* Filter Section */}
-      {/* <div className={styles.filter_wrapper}>
+    <>
+      <Navbar />
+      <div className={styles.store_root}>
+        {/* Filter Section */}
+        {/* <div className={styles.filter_wrapper}>
         <button
           onClick={toggleListDirection}
           className={styles.btn_list_direction}
@@ -102,40 +106,44 @@ function Store() {
           {!listVertical ? <MdViewStream /> : <MdViewWeek />}
         </button>
       </div> */}
-      {/* Product Listing */}
-      <div
-        className={`${styles.products_wrapper} ${
-          listVertical ? `${styles.list_vertical}` : `${styles.list_horizontal}`
-        }`}
-      >
-        {products &&
-          products.map((data, index) => (
-            <ItemCard
-              key={index}
-              data={data}
-              initTransaction={initTransaction}
-              handleViewMore={setIsProductModalOpen}
-            />
-          ))}
-        {/* {products &&
+        {/* Product Listing */}
+        <div
+          className={`${styles.products_wrapper} ${
+            listVertical
+              ? `${styles.list_vertical}`
+              : `${styles.list_horizontal}`
+          }`}
+        >
+          {products &&
+            products.map((data, index) => (
+              <ItemCard
+                key={index}
+                data={data}
+                initTransaction={initTransaction}
+                handleViewMore={setIsProductModalOpen}
+              />
+            ))}
+          {/* {products &&
           products.map((data, index) => (
             <ItemCard key={index} details={data} />
           ))} */}
-      </div>
-      <Modal
-        className={modalStyles.modal}
-        overlayClassName={modalStyles.modalOverlay}
-        isOpen={isProductModalOpen}
-      >
-        {/* Close Button */}
-        <span
-          className={modalStyles.close}
-          onClick={() => setIsProductModalOpen(false)}
+        </div>
+        <Modal
+          className={modalStyles.modal}
+          overlayClassName={modalStyles.modalOverlay}
+          isOpen={isProductModalOpen}
         >
-          <VscChromeClose />
-        </span>
-      </Modal>
-    </div>
+          {/* Close Button */}
+          <span
+            className={modalStyles.close}
+            onClick={() => setIsProductModalOpen(false)}
+          >
+            <VscChromeClose />
+          </span>
+        </Modal>
+      </div>
+      <Footer />
+    </>
   );
 }
 

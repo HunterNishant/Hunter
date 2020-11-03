@@ -60,11 +60,11 @@ const Navbar = () => {
             className={styles.navbarLinks}
             onClick={(clickEvent) => clickEvent.stopPropagation()}
           >
-            {NavItems.map(({ title, path, icon }) => (
+            {NavItems.map(({ title, path, icon }, i) => (
               <li key={title} className={styles.navbarItem}>
                 <Link
                   to={path}
-                  key={title}
+                  key={i}
                   className={`${styles.navbarLink} ${styles.active}`}
                   onClick={closeMobileNavbar}
                 >
