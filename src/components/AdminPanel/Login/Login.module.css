@@ -1,0 +1,62 @@
+/*
+Author: chankruze (chankruze@geekofia.in)
+Created: Tue Nov 03 2020 23:17:13 GMT+0530 (India Standard Time)
+
+Copyright (c) Geekofia 2020 and beyond
+*/
+
+.admin_login_root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: #fff;
+  font-family: "Poppins";
+}
+
+.login_box {
+  min-width: 20rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.login_box div {
+  width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.login_box div p {
+  font-size: 1.1rem;
+  text-transform: capitalize;
+}
+
+.login_box div input {
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border: 0;
+  outline: 0;
+  border-radius: 0.25rem;
+  margin-top: 0.25rem;
+}
+
+.btn_login {
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  color: #fff;
+  background: rebeccapurple;
+  border: 0;
+  outline: 0;
+  border-radius: 0.25rem;
+  align-self: flex-end;
+}
+
+.footer {
+  margin-top: 1rem;
+}
