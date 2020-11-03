@@ -1,0 +1,35 @@
+/*
+Author: chankruze (chankruze@geekofia.in)
+Created: Tue Nov 03 2020 23:59:13 GMT+0530 (India Standard Time)
+
+Copyright (c) Geekofia 2020 and beyond
+*/
+
+.page_404_root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  height: 100vh;
+}
+
+.page_404_root > div {
+  font-size: 3.5rem;
+  font-family: "Alata";
+  text-align: center;
+}
+
+.btn_home {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: #fff;
+  background: rgb(0, 85, 4);
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+  transition: all 200ms ease-in-out;
+}
+.btn_home:hover {
+  background: rgb(0, 73, 4);
+}
