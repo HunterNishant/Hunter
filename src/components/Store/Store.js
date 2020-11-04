@@ -13,11 +13,13 @@ import ItemCard from "./ItemCard";
 // icons
 // import { MdViewStream, MdViewWeek } from "react-icons/md";
 import { VscChromeClose } from "react-icons/vsc";
+// spinners
+import { HashLoader } from "react-spinners";
 // css
 import modalStyles from "../common/ModalCommon.module.css";
 import styles from "./Store.module.css";
 // utils
-import { products } from "./StoreItems";
+// import { products } from "./StoreItems"; // no need now
 import { loadScript } from "../../utils";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
@@ -27,7 +29,7 @@ const initTransaction = async (props) => {
   const { amount, currency, receipt, notes, description, image } = props;
 
   await axios
-    .post(`${process.env.REACT_APP_RAZPAY_URL_PROD}/order`, {
+    .post(`${process.env.REACT_APP_BACKEND_DEV}/order`, {
       amount,
       currency,
       receipt,
@@ -52,7 +54,7 @@ const initTransaction = async (props) => {
           };
 
           await axios
-            .post(`${process.env.REACT_APP_RAZPAY_URL_PROD}/check`, data)
+            .post(`${process.env.REACT_APP_BACKEND_DEV}/check`, data)
             .then((res) => {
               console.log(res.data);
               alert("Check your email for KEY and payment receipt");
@@ -75,12 +77,21 @@ const initTransaction = async (props) => {
     .catch((error) => console.log(error));
 };
 
+// fetch latest products from database
+const getProducts = async () => {
+  const { data: products } = await axios
+    .get(`${process.env.REACT_APP_BACKEND_PROD}/store/categories`)
+    .catch((err) => console.log(err));
+  return products;
+};
+
 Modal.setAppElement("#react_root");
 
 function Store() {
   // eslint-disable-next-line
   const [listVertical, setListVertical] = useState(false);
   const [isProductModalOpen, setIsProductModalOpen] = useState(false);
+  const [products, setProducts] = useState([]);
 
   // const toggleListDirection = () => {
   //   setListVertical(!listVertical);
@@ -91,6 +102,10 @@ function Store() {
     loadScript("https://checkout.razorpay.com/v1/checkout.js")
       .then((res) => console.log("Razorpay checkout script loaded"))
       .catch((err) => console.log(err));
+  }, []);
+
+  useEffect(() => {
+    getProducts().then((res) => setProducts(res));
   }, []);
 
   return (
@@ -114,7 +129,7 @@ function Store() {
               : `${styles.list_horizontal}`
           }`}
         >
-          {products &&
+          {products.length > 0 ? (
             products.map((data, index) => (
               <ItemCard
                 key={index}
@@ -122,7 +137,12 @@ function Store() {
                 initTransaction={initTransaction}
                 handleViewMore={setIsProductModalOpen}
               />
-            ))}
+            ))
+          ) : (
+            <div className={styles.loader}>
+              <HashLoader color="green" />
+            </div>
+          )}
           {/* {products &&
           products.map((data, index) => (
             <ItemCard key={index} details={data} />

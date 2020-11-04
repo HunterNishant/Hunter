@@ -59,3 +59,8 @@ Copyright (c) Geekofia 2020 and beyond
     display: none;
   }
 }
+
+.loader {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
