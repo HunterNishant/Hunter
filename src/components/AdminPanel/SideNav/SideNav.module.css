@@ -64,7 +64,7 @@ Copyright (c) Geekofia 2020 and beyond
   width: 100%;
 }
 
-.menu_options_min div {
+.menu_option_min {
   font-size: 2rem;
   width: 100%;
   display: flex;
@@ -72,17 +72,27 @@ Copyright (c) Geekofia 2020 and beyond
   justify-content: center;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  border-radius: 0.5rem;
+  /* border-radius: 0.5rem; */
   cursor: pointer;
   color: #fff;
 }
 
-.menu_options_min div + div {
-  margin-top: 1rem;
+.menu_option_min + .menu_option_min {
+  margin-top: 0rem;
 }
 
-.menu_options_min div:hover {
-  color: #111;
+.menu_option_min:hover:not(.active) {
   background: #fff;
+  color: #111;
   transition: all 200ms ease-in-out;
 }
+
+.menu_option_min.active {
+  background: var(--bg-dark);
+}
+
+/* .menu_link {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+} */

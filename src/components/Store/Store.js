@@ -29,7 +29,7 @@ const initTransaction = async (props) => {
   const { amount, currency, receipt, notes, description, image } = props;
 
   await axios
-    .post(`${process.env.REACT_APP_BACKEND_DEV}/order`, {
+    .post(`${process.env.REACT_APP_BACKEND_PROD}/order`, {
       amount,
       currency,
       receipt,
@@ -54,7 +54,7 @@ const initTransaction = async (props) => {
           };
 
           await axios
-            .post(`${process.env.REACT_APP_BACKEND_DEV}/check`, data)
+            .post(`${process.env.REACT_APP_BACKEND_PROD}/check`, data)
             .then((res) => {
               console.log(res.data);
               alert("Check your email for KEY and payment receipt");

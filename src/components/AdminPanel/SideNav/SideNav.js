@@ -7,12 +7,14 @@ Copyright (c) Geekofia 2020 and beyond
 
 import React, { useState } from "react";
 import { MdMenu, MdClose } from "react-icons/md";
+import { Link } from "react-router-dom";
 import MenuOption from "./MenuOption";
 import { MenuOptions } from "./MenuOptions";
 import styles from "./SideNav.module.css";
 
 function SideNav() {
   const [isOpened, setIsOpened] = useState(false);
+  const [activeMenu, setActiveMenu] = useState("dashboard");
 
   const toggleIsOpened = () => {
     setIsOpened(!isOpened);
@@ -27,7 +29,18 @@ function SideNav() {
       {!isOpened && (
         <div className={styles.menu_options_min}>
           {MenuOptions &&
-            MenuOptions.map((option, i) => <div key={i}>{option.icon}</div>)}
+            MenuOptions.map((option, i) => (
+              <Link
+                key={i}
+                to={option.link}
+                onClick={() => setActiveMenu(option.name)}
+                className={`${styles.menu_option_min} ${
+                  activeMenu === option.name ? `${styles.active}` : ""
+                }`}
+              >
+                {option.icon}
+              </Link>
+            ))}
         </div>
       )}
 
