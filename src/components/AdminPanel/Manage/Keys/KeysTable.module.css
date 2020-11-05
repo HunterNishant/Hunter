@@ -1,0 +1,50 @@
+/*
+Author: chankruze (chankruze@geekofia.in)
+Created: Thu Nov 05 2020 07:04:15 GMT+0530 (India Standard Time)
+
+Copyright (c) Geekofia 2020 and beyond
+*/
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid rgb(44, 44, 44);
+}
+
+.thead th,
+.tfoot td {
+  text-align: center;
+  padding: 0.25rem;
+  font-size: 1.1rem;
+  color: rgb(255, 255, 255);
+  background: rgb(43, 43, 43);
+  font-weight: 400;
+  font-family: "Alata";
+  height: 3rem;
+  border-bottom: 1px solid rgb(44, 44, 44);
+  /* border-radius: 0.25rem; */
+}
+
+.tbody td {
+  text-align: center;
+  padding: 0.5rem;
+  border-bottom: 1px solid rgb(44, 44, 44);
+  /* border-radius: 0.25rem; */
+}
+
+.tr {
+  height: 3rem;
+  margin-top: 0.125rem;
+  margin-bottom: 0.125rem;
+  /* background: rgb(22, 22, 22); */
+  color: #fff;
+  padding: 0.25rem;
+}
+
+.tr:hover {
+  background: #000;
+  cursor: pointer;
+}
+
+.tr_header {
+}
