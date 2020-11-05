@@ -39,17 +39,14 @@ code {
   width: 5px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: var(--bg-dark);
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: rgb(48, 48, 48);
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(99, 99, 99);
 }
