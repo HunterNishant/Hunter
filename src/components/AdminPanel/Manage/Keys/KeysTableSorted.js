@@ -5,7 +5,7 @@ Created: Thu Nov 05 2020 14:12:48 GMT+0530 (India Standard Time)
 Copyright (c) Geekofia 2020 and beyond
 */
 
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import {
   useTable,
   useSortBy,
@@ -61,17 +61,19 @@ export const KeysTableSorted = () => {
 
   const { globalFilter } = state;
 
-  console.log(selectedFlatRows);
+  useEffect(() => {
+    console.log(selectedFlatRows.map((row) => row.original));
+  }, [selectedFlatRows]);
 
   return (
     <>
       <FilterBar filter={globalFilter} setFilter={setGlobalFilter} />
       <table className={styles.table} {...getTableProps()}>
         <thead className={styles.thead}>
-          {headerGroups.map((group) => (
-            <tr className={styles.tr_header} {...group.getHeaderGroupProps}>
-              {group.headers.map((column) => (
-                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+          {headerGroups.map((group, index) => (
+            <tr key={index} className={styles.tr_header} {...group.getHeaderGroupProps}>
+              {group.headers.map((column, index) => (
+                <th key={index} {...column.getHeaderProps(column.getSortByToggleProps())}>
                   {column.render("Header")}
                   <span>
                     {column.isSorted ? (column.isSortedDesc ? "🔽" : "🔼") : ""}
@@ -86,8 +88,8 @@ export const KeysTableSorted = () => {
             prepareRow(row);
             return (
               <tr className={styles.tr} {...row.getRowProps()}>
-                {row.cells.map((cell) => {
-                  return <td {...cell.getCell}>{cell.render("Cell")}</td>;
+                {row.cells.map((cell, index) => {
+                  return <td key={index} {...cell.getCell}>{cell.render("Cell")}</td>;
                 })}
               </tr>
             );
