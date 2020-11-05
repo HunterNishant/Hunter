@@ -6,12 +6,18 @@ Copyright (c) Geekofia 2020 and beyond
 */
 
 import React, { useMemo } from "react";
-import { useTable, useSortBy, useGlobalFilter } from "react-table";
+import {
+  useTable,
+  useSortBy,
+  useGlobalFilter,
+  useRowSelect,
+} from "react-table";
 import { COLUMNS } from "./KeyColumns";
 import keys from "./keys.json";
 import { FilterBar } from "../FilterBar";
 
 import styles from "./KeysTable.module.css";
+import { CheckBox } from "../CheckBox";
 
 export const KeysTableSorted = () => {
   const columns = useMemo(() => COLUMNS, []);
@@ -26,16 +32,36 @@ export const KeysTableSorted = () => {
     prepareRow,
     state,
     setGlobalFilter,
+    selectedFlatRows,
   } = useTable(
     {
       columns,
       data,
     },
     useGlobalFilter,
-    useSortBy
+    useSortBy,
+    useRowSelect,
+    (hooks) => {
+      hooks.visibleColumns.push((columns) => {
+        return [
+          {
+            id: "selection",
+            Header: ({ getToggleAllRowsSelectedProps }) => (
+              <CheckBox {...getToggleAllRowsSelectedProps()} />
+            ),
+            Cell: ({ row }) => (
+              <CheckBox {...row.getToggleRowSelectedProps()} />
+            ),
+          },
+          ...columns,
+        ];
+      });
+    }
   );
 
   const { globalFilter } = state;
+
+  console.log(selectedFlatRows);
 
   return (
     <>

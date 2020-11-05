@@ -13,8 +13,9 @@ Copyright (c) Geekofia 2020 and beyond
 
 .thead th,
 .tfoot td {
-  text-align: center;
-  padding: 0.25rem;
+  text-align: start;
+  padding: 0.5rem;
+  padding-left: 1rem;
   font-size: 1.1rem;
   color: rgb(255, 255, 255);
   background: rgb(43, 43, 43);
@@ -26,8 +27,9 @@ Copyright (c) Geekofia 2020 and beyond
 }
 
 .tbody td {
-  text-align: center;
+  /* text-align: center; */
   padding: 0.5rem;
+  padding-left: 1rem;
   border-bottom: 1px solid rgb(44, 44, 44);
   /* border-radius: 0.25rem; */
 }
@@ -42,7 +44,7 @@ Copyright (c) Geekofia 2020 and beyond
 }
 
 .tr:hover {
-  background: #000;
+  background: rgb(43, 43, 43);
   cursor: pointer;
 }
 
