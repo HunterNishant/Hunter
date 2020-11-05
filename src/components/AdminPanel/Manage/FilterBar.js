@@ -33,7 +33,7 @@ export const FilterBar = ({ filter, setFilter }) => {
             setValue(e.target.value);
             onChange(e.target.value);
           }}
-          placeholder="Filter"
+          placeholder="Search"
         />
       </div>
     </div>
