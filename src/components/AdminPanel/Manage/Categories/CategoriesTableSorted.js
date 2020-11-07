@@ -12,27 +12,18 @@ import {
   useGlobalFilter,
   useRowSelect,
 } from "react-table";
-import axios from "axios";
 // components
 import { CheckBox } from "../CheckBox";
 import { COLUMNS } from "./CategoryColumns";
 import { FilterBar } from "../FilterBar";
-// data
-import products from "./products.json"; // fetch data from server
 // css
 import styles from "./CategoriesTable.module.css";
 
-const fetchProducts = async () => {
-  const { data } = await axios.get(
-    "https://my.api.mockaroo.com/product_schema.json?key=cf5ee360"
-  );
-  return data;
-};
-
 export const CategoriesTableSorted = (props) => {
-  const { handleModalOpen } = props;
+  const { handleModalOpen, tableData } = props;
   const columns = useMemo(() => COLUMNS, []);
-  const data = useMemo(() => products, []);
+  // eslint-disable-next-line
+  const data = useMemo(() => tableData, []);
 
   const {
     getTableProps,

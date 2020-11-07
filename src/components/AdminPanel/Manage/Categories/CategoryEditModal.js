@@ -9,39 +9,14 @@ import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
 import {
   useInputText,
-  useInputCheckBox,
   useInputInt,
 } from "../../../../hooks/useGeekofia";
-import axios from "axios";
-import { generateSig } from "../../../../utils";
 // icons
 // import { MdClose } from "react-icons/md";
 import styles from "./CategoryEditModal.module.css";
 
 // import axios
 // call delete end point
-const deleteCategory = (categoryId) => {
-  const localStorage = window.localStorage;
-
-  const config = {
-    headers: {
-      "x-hunter-signature": generateSig(
-        localStorage.getItem("user"),
-        localStorage.getItem("user")
-      ),
-    },
-  };
-
-  // axios.
-};
-// call update end point
-
-// const typeOptions = [
-//   { value: "monthly", label: "Monthly" },
-//   { value: "hourly", label: "Hourly" },
-//   { value: "daily", label: "Daily" },
-//   { value: "weekly", label: "Weekly" },
-// ];
 
 function CategoryEditModal(props) {
   const { isModalOpen, setModalOpen, data } = props;
