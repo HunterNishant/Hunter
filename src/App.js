@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Store from "./components/Store/Store";
 import Download from "./components/Download/Download";
-import AdminPanel from "./components/AdminPanel/SideNav/AdminPanel";
+import AdminPanel from "./components/AdminPanel/AdminPanel";
 import Page404 from "./components/Page404/Page404";
 
 function App() {
