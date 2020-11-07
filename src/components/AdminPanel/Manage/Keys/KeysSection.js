@@ -5,23 +5,26 @@ Created: Thu Nov 05 2020 02:38:45 GMT+0530 (India Standard Time)
 Copyright (c) Geekofia 2020 and beyond
 */
 
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "react-modal";
-// custom components
-// data
-// import { KeysTable } from "./KeysTable";
-
 import { KeysTableSorted } from "./KeysTableSorted";
 
 // css
 import styles from "./KeysSection.module.css";
 import KeyEditModal from "./KeyEditModal";
+import { fetchData } from "../../../../utils";
 
 Modal.setAppElement("#react_root");
 
 function KeysSection() {
   const [isEditKeyModalOpen, setIsEditKeyModalOpen] = useState(false);
   const [rowData, setRowData] = useState(undefined);
+
+  useEffect(() => {
+    fetchData("keys").then((keys) => {
+      setRowData(keys);
+    });
+  }, []);
 
   const handleModalOpen = (data) => {
     setRowData(data);
@@ -31,8 +34,13 @@ function KeysSection() {
   return (
     <div className={styles.keys_section_root}>
       <div className={styles.keys_row_container}>
-        {/* <KeysTable /> */}
-        <KeysTableSorted handleModalOpen={handleModalOpen} />
+        {rowData && (
+          <KeysTableSorted
+            handleModalOpen={handleModalOpen}
+            tableData={rowData}
+          />
+        )}
+
         {isEditKeyModalOpen && (
           <KeyEditModal
             data={rowData}

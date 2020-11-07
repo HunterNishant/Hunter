@@ -12,23 +12,8 @@ import {
   useInputCheckBox,
   useInputInt,
 } from "../../../../hooks/useGeekofia";
-import axios from "axios";
-import { generateSig } from "../../../../utils"
 // icons
-// import { MdClose } from "react-icons/md";
 import styles from "./KeyEditModal.module.css";
-
-// import axios
-// call delete end point
-const deleteKey = (keyId) => {
-const localStorage = window.localStorage;
-
-  const config = {
-    headers: { "x-hunter-signature": generateSig(localStorage.getItem('user'), localStorage.getItem('user')) },
-  };
-
-  // axios.
-}
 
 function KeyEditModal(props) {
   const { isModalOpen, setModalOpen, data } = props;

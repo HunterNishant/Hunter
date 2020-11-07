@@ -16,15 +16,14 @@ import {
 import { CheckBox } from "../CheckBox";
 import { COLUMNS } from "./KeyColumns";
 import { FilterBar } from "../FilterBar";
-// data
-import keys from "./keys.json"; // fetch data from server
 // css
 import styles from "./KeysTable.module.css";
 
 export const KeysTableSorted = (props) => {
-  const { handleModalOpen } = props;
+  const { handleModalOpen, tableData } = props;
   const columns = useMemo(() => COLUMNS, []);
-  const data = useMemo(() => keys, []);
+  // eslint-disable-next-line
+  const data = useMemo(() => tableData, []);
 
   const {
     getTableProps,
