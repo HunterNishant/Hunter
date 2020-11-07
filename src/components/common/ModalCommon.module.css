@@ -37,6 +37,10 @@ Copyright (c) Geekofia 2020 and beyond
   padding: 0rem 0.2rem;
 }
 
+.close {
+  cursor: pointer;
+}
+
 /* width */
 .modal::-webkit-scrollbar {
   width: 10px;
