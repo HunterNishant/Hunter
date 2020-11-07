@@ -6,58 +6,23 @@ Copyright (c) Geekofia 2020 and beyond
 */
 
 import React, { useState } from "react";
-import axios from "axios";
-import { eeEncrypt, generateSig } from "../../../utils";
+import { geekofiaAuth } from "../../../utils";
 
 import styles from "./Login.module.css";
 
-const geekofiaAuth = async (user, pass) => {
-  const localStorage = window.localStorage;
-  localStorage.setItem("user", eeEncrypt(user));
-  localStorage.setItem("pass", eeEncrypt(pass));
-  // console.log(generateSig());
-
-  const { sig, timestamp } = await generateSig();
-
-  // call auth url
-  const config = {
-    headers: { "x-hunter-signature": sig },
-  };
-
-  const { data: auth } = await axios
-    .post(
-      `${process.env.REACT_APP_BACKEND_PROD}/admin/auth`,
-      { timestamp },
-      config
-    )
-    .catch((err) => {
-      if (err.response.status === 401) {
-        // console.log("You're not authorized");
-        localStorage.clear();
-        return { auth: "failed" };
-      }
-    });
-
-  if (auth) {
-    if (auth.status === 69) {
-      return { auth: "success" };
-    } else {
-      // console.log("You're not authorized");
-      localStorage.clear();
-      return { auth: "failed" };
-    }
-  } else {
-    return { auth: "failed" };
-  }
-};
-
-function Login() {
+function Login(props) {
+  const { setIsAuthenticated } = props;
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = async () => {
-    const { auth } = await geekofiaAuth(username, password);
-    console.log(auth);
+    const auth = await geekofiaAuth(username, password);
+
+    if (auth === "success") {
+      setIsAuthenticated(true);
+    } else {
+      setIsAuthenticated(false);
+    }
   };
 
   return (
