@@ -12,14 +12,17 @@ import {
   useGlobalFilter,
   useRowSelect,
 } from "react-table";
-import { COLUMNS } from "./KeyColumns";
-import keys from "./keys.json";
-import { FilterBar } from "../FilterBar";
-
-import styles from "./KeysTable.module.css";
+// components
 import { CheckBox } from "../CheckBox";
+import { COLUMNS } from "./KeyColumns";
+import { FilterBar } from "../FilterBar";
+// data
+import keys from "./keys.json"; // fetch data from server
+// css
+import styles from "./KeysTable.module.css";
 
-export const KeysTableSorted = () => {
+export const KeysTableSorted = (props) => {
+  const { handleModalOpen } = props;
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => keys, []);
 
@@ -65,18 +68,34 @@ export const KeysTableSorted = () => {
     console.log(selectedFlatRows.map((row) => row.original));
   }, [selectedFlatRows]);
 
+  // open the modal with data loaded (id is imp)
+  const handleEditModalOpen = (data) => {
+    handleModalOpen(data);
+  };
+
   return (
     <>
       <FilterBar filter={globalFilter} setFilter={setGlobalFilter} />
       <table className={styles.table} {...getTableProps()}>
         <thead className={styles.thead}>
           {headerGroups.map((group, index) => (
-            <tr key={index} className={styles.tr_header} {...group.getHeaderGroupProps}>
+            <tr
+              key={index}
+              className={styles.tr_header}
+              {...group.getHeaderGroupProps}
+            >
               {group.headers.map((column, index) => (
-                <th key={index} {...column.getHeaderProps(column.getSortByToggleProps())}>
+                <th
+                  key={index}
+                  {...column.getHeaderProps(column.getSortByToggleProps())}
+                >
                   {column.render("Header")}
                   <span>
-                    {column.isSorted ? (column.isSortedDesc ? "🔽" : "🔼") : ""}
+                    {column.isSorted
+                      ? column.isSortedDesc
+                        ? " 🔽"
+                        : " 🔼"
+                      : ""}
                   </span>
                 </th>
               ))}
@@ -87,9 +106,17 @@ export const KeysTableSorted = () => {
           {rows.map((row) => {
             prepareRow(row);
             return (
-              <tr className={styles.tr} {...row.getRowProps()}>
+              <tr
+                className={styles.tr}
+                {...row.getRowProps()}
+                onClick={() => handleEditModalOpen(row.original)}
+              >
                 {row.cells.map((cell, index) => {
-                  return <td key={index} {...cell.getCell}>{cell.render("Cell")}</td>;
+                  return (
+                    <td key={index} {...cell.getCell}>
+                      {cell.render("Cell")}
+                    </td>
+                  );
                 })}
               </tr>
             );

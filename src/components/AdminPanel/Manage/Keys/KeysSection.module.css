@@ -10,7 +10,7 @@ Copyright (c) Geekofia 2020 and beyond
   height: 100%;
   overflow-y: auto;
   /* padding: 0rem 1rem; */
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 .keys_column_header {

@@ -21,7 +21,7 @@ export const CheckBox = React.forwardRef(({ indeterminate, ...rest }, ref) => {
         type="checkbox"
         ref={resolvedRef}
         {...rest}
-        style={{ border: 0, outline: 0 }}
+        style={{ border: 0, outline: 0, width: "1rem", height: "1rem" }}
       />
     </>
   );
