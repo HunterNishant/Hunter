@@ -7,11 +7,12 @@ Copyright (c) Geekofia 2020 and beyond
 
 import React, { useState } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import DashBoard from "../DashBoard/DashBoard";
-import Login from "../Login/Login";
-import Manage from "../Manage/Manage";
+import DashBoard from "./DashBoard/DashBoard";
+import Login from "./Login/Login";
+import Manage from "./Manage/Manage";
 import styles from "./AdminPanel.module.css";
-import SideNav from "./SideNav";
+import SideNav from "./SideNav/SideNav";
+import { New } from "./New/New";
 
 function AdminPanel() {
   // eslint-disable-next-line
@@ -37,6 +38,7 @@ function AdminPanel() {
             />
             <Route exact path="/admin/dashboard" component={DashBoard} />
             <Route exact path="/admin/manage" component={Manage} />
+            <Route exact path="/admin/new" component={New} />
           </Switch>
         </>
       )}
