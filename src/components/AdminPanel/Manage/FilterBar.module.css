@@ -42,26 +42,30 @@ Copyright (c) Geekofia 2020 and beyond
   padding: 0.25rem;
   background: transparent;
   color: #fff;
-  width: 95%;
+  width: 100%;
   height: 100%;
   padding-left: 1rem;
   padding-right: 1rem;
   /* background: royalblue; */
 }
 
-.row_delete_section {
+.row_buttons_section {
   /* background: tomato; */
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
   /* background: rosybrown; */
   height: 100%;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+}
+
+.row_buttons_section svg {
   cursor: pointer;
   transition: all 200ms ease-in-out;
 }
 
-.row_delete_section:hover {
+.row_buttons_section svg:hover {
   transform: scale(1.1);
 }

@@ -35,7 +35,7 @@ export const FilterBar = ({ filter, setFilter }) => {
           }}
           placeholder="Search"
         />
-        <div className={styles.row_delete_section}>
+        <div className={styles.row_buttons_section}>
           <MdDelete size={32} />
         </div>
       </div>
