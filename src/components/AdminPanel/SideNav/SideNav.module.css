@@ -13,7 +13,7 @@ Copyright (c) Geekofia 2020 and beyond
   z-index: 1024;
   top: 0;
   left: 0;
-  background: #111;
+  /* background: #111; */
   overflow-x: hidden;
   overflow-y: auto;
   transition: all 200ms ease-in-out;
@@ -35,33 +35,34 @@ Copyright (c) Geekofia 2020 and beyond
   color: #f1f1f1;
 }
 
-.btn_sidenav_close {
+/* .btn_sidenav_close {
   position: absolute;
   top: 0;
   right: 0;
-  /* font-size: 2rem; */
+  font-size: 2rem;
   margin-top: 1rem;
-}
+} */
 
-.menu_btn {
+/* .menu_btn {
   margin-top: 1rem;
   cursor: pointer;
   transition: all 300ms ease-in-out;
-}
+} */
 
-.menu_btn:hover {
+/* .menu_btn:hover {
   transform: scale(1.1);
-}
+} */
 
-.menu_options_full {
-}
+/* .menu_options_full {
+} */
 
 .menu_options_min {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2rem;
+  justify-content: center;
   width: 100%;
+  height: 100%;
 }
 
 .menu_option_min {
@@ -72,7 +73,7 @@ Copyright (c) Geekofia 2020 and beyond
   justify-content: center;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  /* border-radius: 0.5rem; */
+  border-radius: 0.5rem;
   cursor: pointer;
   color: #fff;
 }
@@ -88,7 +89,8 @@ Copyright (c) Geekofia 2020 and beyond
 }
 
 .menu_option_min.active {
-  background: var(--bg-dark);
+  /* background: var(--bg-dark); */
+  background: chocolate;
 }
 
 /* .menu_link {
