@@ -15,7 +15,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/store" component={Store} />
           <Route exact path="/download" component={Download} />
-          <Route path="/admin" component={AdminPanel} />
+          <Route exact path="/admin" component={AdminPanel} />
           <Route component={Page404} />
           {/* <Route exact path="/cart" component={Cart} /> */}
           {/* <Route exact path="/about" component={About} /> */}
