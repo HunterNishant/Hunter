@@ -11,6 +11,9 @@ Copyright (c) Geekofia 2020 and beyond
   flex-direction: row;
   align-items: center;
   height: 3rem;
+  position: sticky;
+  top: 0;
+  background: var(--bg-dark);
 }
 
 .column_filter_wrapper {
@@ -25,10 +28,11 @@ Copyright (c) Geekofia 2020 and beyond
 }
 
 .global_filter_wrapper {
-  flex: 1;
   /* background: #000; */
+  flex: 1;
   height: 100%;
-  width: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
 .global_filter_input {
@@ -38,9 +42,26 @@ Copyright (c) Geekofia 2020 and beyond
   padding: 0.25rem;
   background: transparent;
   color: #fff;
-  width: 100%;
+  width: 95%;
   height: 100%;
   padding-left: 1rem;
   padding-right: 1rem;
   /* background: royalblue; */
+}
+
+.row_delete_section {
+  /* background: tomato; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* background: rosybrown; */
+  height: 100%;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+.row_delete_section:hover {
+  transform: scale(1.1);
 }

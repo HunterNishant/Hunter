@@ -9,7 +9,7 @@ Copyright (c) Geekofia 2020 and beyond
   display: flex;
   flex-direction: column;
   margin-left: 4rem;
-  padding: 1rem 2rem 2rem 2rem;
+  padding: 1rem 2rem 0.5rem 2rem;
   align-items: center;
   height: 100vh;
   /* background: #fff; */
@@ -52,4 +52,5 @@ Copyright (c) Geekofia 2020 and beyond
 
 .options_toolbar_close:hover {
   background: #383838;
+  cursor: pointer;
 }

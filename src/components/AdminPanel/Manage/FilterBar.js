@@ -8,7 +8,7 @@ Copyright (c) Geekofia 2020 and beyond
 import React, { useState } from "react";
 import { useAsyncDebounce } from "react-table";
 // icons
-import { MdFilterList } from "react-icons/md";
+import { MdFilterList, MdDelete } from "react-icons/md";
 // css
 import styles from "./FilterBar.module.css";
 
@@ -35,6 +35,9 @@ export const FilterBar = ({ filter, setFilter }) => {
           }}
           placeholder="Search"
         />
+        <div className={styles.row_delete_section}>
+          <MdDelete size={32} />
+        </div>
       </div>
     </div>
   );
