@@ -17,7 +17,7 @@ function ItemCard(props) {
   const {
     id,
     name,
-    type,
+    category,
     mrp,
     price,
     currency,
@@ -43,15 +43,13 @@ function ItemCard(props) {
         product_mrp: mrp,
         product_price: price,
         product_discount: mrp - price,
-        product_type: type,
+        product_type: category,
         product_quantity: quantity,
         total_price: quantity * price,
         total_discount: (mrp - price) * quantity,
       },
     };
-
-    console.log("[ItemCard] Init payment ");
-
+    console.log("Initializing payment...");
     initTransaction(productData);
   };
 

@@ -36,8 +36,6 @@ const initTransaction = async (props) => {
       notes,
     })
     .then((res) => {
-      console.log(res.data);
-
       const options = {
         key: process.env.REACT_APP_RAZPAY_KEY,
         currency: res.data.currency,
@@ -56,7 +54,7 @@ const initTransaction = async (props) => {
           await axios
             .post(`${process.env.REACT_APP_BACKEND_PROD}/check`, data)
             .then((res) => {
-              console.log(res.data);
+              console.log("Payment verified: OK");
               alert("Check your email for KEY and payment receipt");
             })
             .catch((err) => {
@@ -66,7 +64,7 @@ const initTransaction = async (props) => {
         },
         modal: {
           ondismiss: () => {
-            alert("Payment form closed");
+            console.log("Payment form closed");
           },
         },
       };
