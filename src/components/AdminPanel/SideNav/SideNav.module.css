@@ -79,12 +79,12 @@ Copyright (c) Geekofia 2020 and beyond
 }
 
 .menu_option_min + .menu_option_min {
-  margin-top: 0rem;
+  margin-top: 0.25rem;
 }
 
 .menu_option_min:hover:not(.active) {
   background: #fff;
-  color: #111;
+  color: chocolate;
   transition: all 200ms ease-in-out;
 }
 
