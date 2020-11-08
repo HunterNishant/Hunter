@@ -26,15 +26,23 @@ const handleCreateCategory = async (type, data, close) => {
 };
 
 export const AddCategorySec = ({ close }) => {
+  // eslint-disable-next-line
   const [name, bindName, resetName] = useInputText("");
+  // eslint-disable-next-line
   const [type, bindType, resetType] = useInputText("");
+  // eslint-disable-next-line
   const [mrp, bindMrp, resetMrp] = useInputFloat(0);
+  // eslint-disable-next-line
   const [price, bindPrice, resetPrice] = useInputFloat(0);
+  // eslint-disable-next-line
   const [currency, bindCurrency, resetCurrency] = useInputText("INR");
+  // eslint-disable-next-line
   const [description, bindDescription, resetDescription] = useInputText("");
+  // eslint-disable-next-line
   const [image, bindImage, resetImage] = useInputText(
     "https://res.cloudinary.com/chankruze/image/upload/v1604513114/Hunter/sx.png"
   );
+  // eslint-disable-next-line
   const [tag, bindTag, resetTag] = useInputText("");
 
   return (

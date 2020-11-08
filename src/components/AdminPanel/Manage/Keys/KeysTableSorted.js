@@ -5,7 +5,7 @@ Created: Thu Nov 05 2020 14:12:48 GMT+0530 (India Standard Time)
 Copyright (c) Geekofia 2020 and beyond
 */
 
-import React, { useEffect, useMemo } from "react";
+import React, { useMemo } from "react";
 import {
   useTable,
   useSortBy,
