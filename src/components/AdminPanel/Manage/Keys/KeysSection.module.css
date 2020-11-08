@@ -30,19 +30,3 @@ Copyright (c) Geekofia 2020 and beyond
 
 .keys_row_container {
 }
-
-.keys_section_root::-webkit-scrollbar {
-  width: 10px;
-}
-
-.keys_section_root::-webkit-scrollbar-track {
-  background: var(--bg-dark);
-}
-
-.keys_section_root::-webkit-scrollbar-thumb {
-  background: rgb(48, 48, 48);
-}
-
-.keys_section_root::-webkit-scrollbar-thumb:hover {
-  background: rgb(99, 99, 99);
-}

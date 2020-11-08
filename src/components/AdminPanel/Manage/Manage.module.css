@@ -9,7 +9,7 @@ Copyright (c) Geekofia 2020 and beyond
   display: flex;
   flex-direction: column;
   margin-left: 4rem;
-  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  padding: 0.5rem 1em 0.5rem 1rem;
   align-items: center;
   height: 100vh;
   /* background: #fff; */

@@ -16,7 +16,7 @@ Copyright (c) Geekofia 2020 and beyond
 }
 
 .login_box {
-  min-width: 20rem;
+  min-width: 25.75rem;
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -47,16 +47,26 @@ Copyright (c) Geekofia 2020 and beyond
 }
 
 .btn_login {
-  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  padding: 0.7rem 1.5rem;
   font-size: 1.1rem;
   color: #fff;
-  background: rebeccapurple;
+  background: rgb(32, 109, 252);
   border: 0;
   outline: 0;
   border-radius: 0.25rem;
   align-self: flex-end;
+  transition: all 200ms ease-in-out;
+  text-transform: uppercase;
+}
+
+.btn_login:hover {
+  background: rebeccapurple;
+  cursor: pointer;
 }
 
 .footer {
-  margin-top: 1rem;
+  color: rgb(255, 174, 0);
+  margin-top: 2rem;
 }
+
