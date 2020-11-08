@@ -18,11 +18,13 @@ Modal.setAppElement("#react_root");
 
 function CategoriesSection() {
   const [isEditCategoryModalOpen, setIsEditCategoryModalOpen] = useState(false);
-  const [rowData, setRowData] = useState(undefined);
+  const [rowData, setRowData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetchData("categories").then((categories) => {
       setRowData(categories);
+      setIsLoading(false);
     });
   }, []);
 
@@ -33,9 +35,9 @@ function CategoriesSection() {
 
   return (
     <div className={styles.categories_section_root}>
+      {isLoading && <p>Fetching data from database...</p>}
       <div className={styles.categories_row_container}>
-        {/* <KeysTable /> */}
-        {rowData && (
+        {rowData.length !== 0 && (
           <CategoriesTableSorted
             handleModalOpen={handleModalOpen}
             tableData={rowData}

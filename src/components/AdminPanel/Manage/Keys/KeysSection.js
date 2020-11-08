@@ -18,11 +18,13 @@ Modal.setAppElement("#react_root");
 
 function KeysSection() {
   const [isEditKeyModalOpen, setIsEditKeyModalOpen] = useState(false);
-  const [rowData, setRowData] = useState(undefined);
+  const [rowData, setRowData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetchData("keys").then((keys) => {
       setRowData(keys);
+      setIsLoading(false);
     });
   }, []);
 
@@ -33,8 +35,9 @@ function KeysSection() {
 
   return (
     <div className={styles.keys_section_root}>
+      {isLoading && <p>Fetching data from database...</p>}
       <div className={styles.keys_row_container}>
-        {rowData && (
+        {rowData.length !== 0 && (
           <KeysTableSorted
             handleModalOpen={handleModalOpen}
             tableData={rowData}
