@@ -12,7 +12,7 @@ import { FaMinus, FaPlus } from "react-icons/fa";
 import styles from "./ItemCard.module.css";
 
 function ItemCard(props) {
-  // imageUrl, name, id, price, mrp
+  // eslint-disable-next-line
   const { data, initTransaction, handleViewMore } = props;
   const {
     id,
@@ -91,12 +91,12 @@ function ItemCard(props) {
           <span className={styles.price}>{price}</span>
         </p>
         <p className={styles.card_text}>{description}</p>
-        <button
+        {/* <button
           className={styles.card_read_more}
           onClick={() => handleViewMore(true)}
         >
           full description
-        </button>
+        </button> */}
         <div className={styles.card_action_group}>
           <div className={styles.item_quantity_wrapper}>
             <button

@@ -105,6 +105,7 @@ Copyright (c) Geekofia 2020 and beyond
 }
 
 .card_text {
+  max-width: 100%;
   margin-top: 0.5rem;
   margin-bottom: 1rem;
   overflow: hidden;
