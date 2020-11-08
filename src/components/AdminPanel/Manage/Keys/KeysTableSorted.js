@@ -16,6 +16,8 @@ import {
 import { CheckBox } from "../CheckBox";
 import { COLUMNS } from "./KeyColumns";
 import { FilterBar } from "../FilterBar";
+// custom utils
+import { deleteDocMany } from "../../../../utils";
 // css
 import styles from "./KeysTable.module.css";
 
@@ -63,18 +65,26 @@ export const KeysTableSorted = (props) => {
 
   const { globalFilter } = state;
 
-  useEffect(() => {
-    console.log(selectedFlatRows.map((row) => row.original));
-  }, [selectedFlatRows]);
-
   // open the modal with data loaded (id is imp)
   const handleEditModalOpen = (data) => {
     handleModalOpen(data);
   };
 
+  const bulkDelete = async () => {
+    const selectedRowIds = selectedFlatRows.map((row) => row.original._id);
+    await deleteDocMany("keys", selectedRowIds).then(({ count, status }) =>
+      window.alert(`${count} keys deleted\nstatus: ${status}`)
+    );
+  };
+
   return (
     <>
-      <FilterBar filter={globalFilter} setFilter={setGlobalFilter} />
+      <FilterBar
+        filter={globalFilter}
+        setFilter={setGlobalFilter}
+        bulkDelete={bulkDelete}
+        bulkDeleteDisabled={selectedFlatRows.length === 0}
+      />
       <table className={styles.table} {...getTableProps()}>
         <thead className={styles.thead}>
           {headerGroups.map((group, index) => (
@@ -105,14 +115,16 @@ export const KeysTableSorted = (props) => {
           {rows.map((row) => {
             prepareRow(row);
             return (
-              <tr
-                className={styles.tr}
-                {...row.getRowProps()}
-                onClick={() => handleEditModalOpen(row.original)}
-              >
+              <tr className={styles.tr} {...row.getRowProps()}>
                 {row.cells.map((cell, index) => {
                   return (
-                    <td key={index} {...cell.getCell}>
+                    <td
+                      key={index}
+                      {...cell.getCell}
+                      onClick={() =>
+                        index !== 0 && handleEditModalOpen(row.original)
+                      }
+                    >
                       {cell.render("Cell")}
                     </td>
                   );

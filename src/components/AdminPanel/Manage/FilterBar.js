@@ -8,11 +8,12 @@ Copyright (c) Geekofia 2020 and beyond
 import React, { useState } from "react";
 import { useAsyncDebounce } from "react-table";
 // icons
+// eslint-disable-next-line
 import { MdFilterList, MdDelete } from "react-icons/md";
 // css
 import styles from "./FilterBar.module.css";
 
-export const FilterBar = ({ filter, setFilter }) => {
+export const FilterBar = ({ filter, setFilter, bulkDelete, bulkDeleteDisabled }) => {
   const [value, setValue] = useState(filter);
 
   // debounce event listener
@@ -36,7 +37,14 @@ export const FilterBar = ({ filter, setFilter }) => {
           placeholder="Search"
         />
         <div className={styles.row_buttons_section}>
-          <MdDelete size={32} />
+          {/* <MdDelete size={32} /> */}
+          <button
+            className={styles.btn_danger_button_section}
+            disabled={bulkDeleteDisabled}
+            onClick={() => bulkDelete()}
+          >
+            Bulk Delete
+          </button>
         </div>
       </div>
     </div>
