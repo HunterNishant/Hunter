@@ -11,7 +11,7 @@ import Login from "./Login/Login";
 import Manage from "./Manage/Manage";
 import styles from "./AdminPanel.module.css";
 import SideNav from "./SideNav/SideNav";
-import { Create } from "./Create/Create";
+import Create from "./Create/Create";
 import { generateSig, requestAuth } from "../../utils";
 
 function AdminPanel() {
@@ -65,7 +65,7 @@ function AdminPanel() {
           <SideNav activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
 
           {activeMenu === "manage" && <Manage />}
-          {activeMenu === "add" && <Create />}
+          {activeMenu === "create" && <Create />}
         </>
       )}
     </div>

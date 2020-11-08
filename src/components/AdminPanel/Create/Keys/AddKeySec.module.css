@@ -1,0 +1,130 @@
+/*
+Author: chankruze (chankruze@geekofia.in)
+Created: Sun Nov 08 2020 17:04:04 GMT+0530 (India Standard Time)
+
+Copyright (c) Geekofia 2020 and beyond
+*/
+
+.add_key_sec_root {
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
+  /* padding: 0rem 1rem; */
+  /* margin-top: 0.5rem; */
+  /* background: #ddf; */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.options_wrapper {
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* background: chocolate; */
+  /* border-bottom: 2px solid chocolate; */
+}
+
+.options_wrapper select {
+  color: #fff;
+  background: rgb(90, 90, 90);
+  padding: 0.5rem;
+  border: 0;
+  outline: 0;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+}
+
+.options_wrapper select option {
+  border: 0;
+  outline: 0;
+  font-size: 1rem;
+}
+
+/* .btn_refresh {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  border: 0;
+  outline: 0;
+  border-radius: 0.25rem;
+  background: #3cff3c;
+  color: rgb(0, 0, 0);
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-left: 1rem;
+} */
+
+.payload_wrapper {
+  flex: 1;
+  flex-direction: row;
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.left {
+  flex: 0.5;
+  min-width: 450px;
+  background: rgb(53, 53, 53);
+  position: relative;
+}
+
+.left span,
+.right span {
+  top: 0;
+  position: absolute;
+  right: 0;
+  padding: 0.125rem 0.5rem;
+  background: rgb(64, 121, 0);
+  border-bottom-left-radius: 0.25rem;
+}
+
+.left textarea {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  resize: none;
+  color: #fff;
+  white-space: pre-line;
+  font-size: 1.5rem;
+}
+
+.right {
+  flex: 1;
+  position: relative;
+  background: rgb(0, 0, 0);
+  overflow: auto;
+}
+
+.fab_save {
+  bottom: 0;
+  right: 0;
+  padding: 1rem;
+  background: #0066ff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  margin-right: 2rem;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+}
+
+.fab_save svg {
+  color: #fff;
+  font-size: 2rem;
+}
+
+.fab_save:hover {
+  background: rgb(64, 121, 0);
+}
