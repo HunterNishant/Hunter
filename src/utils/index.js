@@ -109,7 +109,7 @@ export const fetchData = async (type) => {
     headers: { "x-hunter-signature": sig },
   };
 
-  const { data: keys } = await axios
+  const { data: response } = await axios
     .post(
       `${process.env.REACT_APP_BACKEND_PROD}/admin/fetch/${type}`,
       { timestamp },
@@ -117,5 +117,81 @@ export const fetchData = async (type) => {
     )
     .catch((err) => console.log(err));
 
-  return keys || [];
+  return response || [];
+};
+
+// delete one item
+export const deleteDoc = async (type, id) => {
+  const { sig, timestamp } = await generateSig();
+
+  const config = {
+    headers: { "X-Hunter-Signature": sig },
+  };
+
+  const { data: response } = await axios
+    .post(
+      `${process.env.REACT_APP_BACKEND_PROD}/admin/delete/${type}`,
+      { timestamp, id },
+      config
+    )
+    .catch((err) => console.log(err));
+
+  return response || { status: "failed" };
+};
+
+// bulk delete
+export const deleteDocMany = async (type, ids) => {
+  const { sig, timestamp } = await generateSig();
+
+  const config = {
+    headers: { "x-hunter-signature": sig },
+  };
+
+  const { data: response } = await axios
+    .post(
+      `${process.env.REACT_APP_BACKEND_PROD}/admin/delete/${type}`,
+      { timestamp, ids },
+      config
+    )
+    .catch((err) => console.log(err));
+
+  return response || { status: "failed" };
+};
+
+// update one item
+export const updateDoc = async (type, data) => {
+  const { sig, timestamp } = await generateSig();
+
+  const config = {
+    headers: { "x-hunter-signature": sig },
+  };
+
+  const { data: response } = await axios
+    .post(
+      `${process.env.REACT_APP_BACKEND_PROD}/admin/update/${type}`,
+      { timestamp, data },
+      config
+    )
+    .catch((err) => console.log(err));
+
+  return response || { status: "failed" };
+};
+
+// create & save bulk
+export const createDocs = async (type, data) => {
+  const { sig, timestamp } = await generateSig();
+
+  const config = {
+    headers: { "x-hunter-signature": sig },
+  };
+
+  const { data: response } = await axios
+    .post(
+      `${process.env.REACT_APP_BACKEND_PROD}/admin/create/${type}`,
+      { timestamp, data },
+      config
+    )
+    .catch((err) => console.log(err));
+
+  return response || { status: "failed" };
 };
