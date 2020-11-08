@@ -22,7 +22,7 @@ export const useInputText = (initialValue) => {
   return [value, bind, reset];
 };
 
-export const useInputInt = (initialValue) => {
+export const useInputFloat = (initialValue) => {
   const [value, setValue] = useState(initialValue);
 
   const reset = () => setValue(initialValue);
@@ -30,7 +30,7 @@ export const useInputInt = (initialValue) => {
   const bind = {
     value,
     onChange: (e) => {
-      setValue(parseInt(e.target.value));
+      setValue(parseFloat(e.target.value));
     },
   };
 
