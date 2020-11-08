@@ -7,10 +7,8 @@ Copyright (c) Geekofia 2020 and beyond
 
 import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
-import {
-  useInputText,
-  useInputInt,
-} from "../../../../hooks/useGeekofia";
+import { useInputText, useInputFloat } from "../../../../hooks/useGeekofia";
+import { deleteDoc, updateDoc } from "../../../../utils";
 // icons
 // import { MdClose } from "react-icons/md";
 import styles from "./CategoryEditModal.module.css";
@@ -22,14 +20,15 @@ function CategoryEditModal(props) {
   const { isModalOpen, setModalOpen, data } = props;
 
   // custom useInputHook
+  const id = data._id;
   // eslint-disable-next-line
   const [name, bindName, resetName] = useInputText(data.name);
   // eslint-disable-next-line
   const [category, bindCategory, resetCategory] = useInputText(data.category);
   // eslint-disable-next-line
-  const [mrp, bindMrp, resetMrp] = useInputInt(data.mrp);
+  const [mrp, bindMrp, resetMrp] = useInputFloat(data.mrp);
   // eslint-disable-next-line
-  const [price, bindPrice, resetType] = useInputInt(data.price);
+  const [price, bindPrice, resetType] = useInputFloat(data.price);
   // eslint-disable-next-line
   const [currency, bindCurrency, resetCurrency] = useInputText(data.currency);
   // eslint-disable-next-line
@@ -41,10 +40,11 @@ function CategoryEditModal(props) {
   // eslint-disable-next-line
   const [tag, bindTag, resetTag] = useInputText(data.tag);
   // eslint-disable-next-line
-  const [newData, setNewData] = useState(data);
+  const [newData, setNewData] = useState(undefined);
 
   useEffect(() => {
     setNewData({
+      id,
       name,
       category,
       mrp,
@@ -54,7 +54,6 @@ function CategoryEditModal(props) {
       image,
       tag,
     });
-    console.log(newData);
     // eslint-disable-next-line
   }, [category, currency, description, image, mrp, name, price, tag]);
 
@@ -106,8 +105,22 @@ function CategoryEditModal(props) {
         </div>
 
         <div className={styles.modal_btn_group}>
-          <button className={styles.modal_btn_delete}>Delete</button>
-          <button className={styles.modal_btn_update}>Update</button>
+          <button
+            className={styles.modal_btn_delete}
+            onClick={async () =>
+              await deleteDoc("category", data._id).then(setModalOpen(false))
+            }
+          >
+            Delete
+          </button>
+          <button
+            className={styles.modal_btn_update}
+            onClick={async () =>
+              await updateDoc("category", newData).then(setModalOpen(false))
+            }
+          >
+            Update
+          </button>
           <button
             className={styles.modal_btn_cancel}
             onClick={() => setModalOpen(false)}
