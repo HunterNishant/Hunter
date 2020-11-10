@@ -62,15 +62,22 @@ const Navbar = () => {
           >
             {NavItems.map(({ title, path, icon }, i) => (
               <li key={title} className={styles.navbarItem}>
-                <Link
-                  to={path}
-                  key={i}
-                  className={`${styles.navbarLink} ${styles.active}`}
-                  onClick={closeMobileNavbar}
-                >
-                  {icon || ""}
-                  {title}
-                </Link>
+                {path.startsWith("https://") ? (
+                  <a href={path} className={styles.navbarLink}>
+                    {/* {icon || ""} */}
+                    {title}
+                  </a>
+                ) : (
+                  <Link
+                    to={path}
+                    key={i}
+                    className={`${styles.navbarLink} ${styles.active}`}
+                    onClick={closeMobileNavbar}
+                  >
+                    {icon || ""}
+                    {title}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
