@@ -10,8 +10,8 @@ Copyright (c) Geekofia 2020 and beyond
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgb(46, 46, 46);
-  border-bottom: 5px solid rgb(19, 19, 19);
+  /* background: rgb(46, 46, 46); */
+  /* border-bottom: 5px solid rgb(19, 19, 19); */
   margin-top: 2rem;
 }
 
@@ -20,7 +20,7 @@ Copyright (c) Geekofia 2020 and beyond
   width: 100%;
   display: flex;
   flex-direction: row;
-  background: rgb(36, 36, 36);
+  background: rgb(34, 34, 34);
   justify-content: space-evenly;
   color: rgb(201, 201, 201);
 }
