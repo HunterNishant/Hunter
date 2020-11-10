@@ -13,7 +13,7 @@ import styles from "./ManageOption.module.css";
 
 function ManageOption(props) {
   const { clickHandler } = props;
-  const { id, name } = props.data;
+  const { id, name, sub } = props.data;
 
   return (
     <div
@@ -22,7 +22,7 @@ function ManageOption(props) {
     >
       <h1 className={styles.option_title}>{name}</h1>
       <div className={styles.option_sub_title}>
-        Add, update, delete <b>{name}</b>
+        {sub} <b>{name}</b>
       </div>
       <div className={styles.option_action_group}>
         <CgChevronRight />

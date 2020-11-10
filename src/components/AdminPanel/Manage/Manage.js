@@ -10,6 +10,7 @@ import React, { useState } from "react";
 import ManageOption from "./ManageOption";
 import CategoriesSection from "./Categories/CategoriesSection";
 import KeysSection from "./Keys/KeysSection";
+import DownloadsSection from "./Downloads/DownloadsSection";
 // icons
 import { MdClose } from "react-icons/md";
 // css
@@ -18,6 +19,7 @@ import styles from "./Manage.module.css";
 const defaultSection = {
   name: "",
   id: 0,
+  sub: "",
 };
 
 function Manage() {
@@ -28,13 +30,22 @@ function Manage() {
       {selectedSection.id === 0 && (
         <div className={styles.options_menu}>
           <ManageOption
-            data={{ id: 1, name: "keys" }}
+            data={{ id: 1, name: "keys", sub: "Manage" }}
             clickHandler={setSelectedSection}
           />
           <ManageOption
             data={{
               id: 2,
               name: "categories",
+              sub: "Manage",
+            }}
+            clickHandler={setSelectedSection}
+          />
+          <ManageOption
+            data={{
+              id: 3,
+              name: "downloads",
+              sub: "Manage",
             }}
             clickHandler={setSelectedSection}
           />
@@ -55,6 +66,7 @@ function Manage() {
           </div>
           {selectedSection.id === 1 && <KeysSection />}
           {selectedSection.id === 2 && <CategoriesSection />}
+          {selectedSection.id === 3 && <DownloadsSection />}
         </>
       )}
     </div>
