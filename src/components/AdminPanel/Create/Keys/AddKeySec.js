@@ -19,9 +19,9 @@ const prepareData = (textData, type) => {
   const keysArray = textData.trim().split("\n");
 
   const keyObjects = keysArray.map((key) => {
-    if (key !== "") {
+    if (key.trim() !== "") {
       return {
-        key,
+        key: key.trim(),
         type,
         isActivated: false,
         isSold: false,
@@ -62,10 +62,11 @@ export const AddKeySec = () => {
     <div className={styles.add_key_sec_root}>
       <div className={styles.options_wrapper}>
         <select type="text" {...bindType} defaultValue={type}>
-          <option value="monthly">Monthly</option>
-          <option value="daily">Daily</option>
           <option value="hourly">Hourly</option>
+          <option value="daily">Daily</option>
           <option value="weekly">Weekly</option>
+          <option value="monthly">Monthly</option>
+          <option value="yearly">Yearly</option>
         </select>
       </div>
       <div className={styles.payload_wrapper}>

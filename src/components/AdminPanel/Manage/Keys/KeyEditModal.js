@@ -10,7 +10,6 @@ import Modal from "react-modal";
 import {
   useInputText,
   useInputCheckBox,
-  useInputFloat,
 } from "../../../../hooks/useGeekofia";
 
 import { deleteDoc, updateDoc } from "../../../../utils";
@@ -22,8 +21,6 @@ function KeyEditModal(props) {
 
   // custom useInputHook
   const id = data._id;
-  // eslint-disable-next-line
-  const [duration, bindDuration, resetDuration] = useInputFloat(data.duration);
   // eslint-disable-next-line
   const [key, bindKey, resetKey] = useInputText(data.key);
   // eslint-disable-next-line
@@ -44,7 +41,6 @@ function KeyEditModal(props) {
       type,
       isSold,
       isActivated,
-      duration,
     });
     // eslint-disable-next-line
   }, [duration, isActivated, isSold, key, type]);
@@ -78,16 +74,17 @@ function KeyEditModal(props) {
         <div>
           <p>Type</p>
           <select type="text" {...bindType}>
-            <option value="monthly">Monthly</option>
-            <option value="daily">Daily</option>
             <option value="hourly">Hourly</option>
+            <option value="daily">Daily</option>
             <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+            <option value="yearly">Weekly</option>
           </select>
         </div>
-        <div>
+        {/* <div>
           <p>Duration</p>
           <input type="number" placeholder={data.duration} {...bindDuration} />
-        </div>
+        </div> */}
 
         <div className={styles.modal_btn_group}>
           {/* Delete Button */}
