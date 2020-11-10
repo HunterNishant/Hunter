@@ -27,28 +27,37 @@ const handleCreateCategory = async (type, data, close) => {
 
 export const AddCategorySec = ({ close }) => {
   // eslint-disable-next-line
-  const [name, bindName, resetName] = useInputText("");
+  const [name, bindName, resetName] = useInputText("Monthly Bundle: Pack of 3");
   // eslint-disable-next-line
-  const [type, bindType, resetType] = useInputText("");
+  const [type, bindType, resetType] = useInputText("monthly");
+
+  const [
+    keysMultiplier,
+    bindKeysMultiplier,
+    // eslint-disable-next-line
+    resetKeysMultiplier,
+  ] = useInputText(3);
   // eslint-disable-next-line
-  const [mrp, bindMrp, resetMrp] = useInputFloat(0);
+  const [mrp, bindMrp, resetMrp] = useInputFloat(keysMultiplier * 1800);
   // eslint-disable-next-line
-  const [price, bindPrice, resetPrice] = useInputFloat(0);
+  const [price, bindPrice, resetPrice] = useInputFloat(keysMultiplier * 1600);
   // eslint-disable-next-line
   const [currency, bindCurrency, resetCurrency] = useInputText("INR");
   // eslint-disable-next-line
-  const [description, bindDescription, resetDescription] = useInputText("");
-  // eslint-disable-next-line
-  const [image, bindImage, resetImage] = useInputText(
-    "https://res.cloudinary.com/chankruze/image/upload/v1604513114/Hunter/sx.png"
+  const [description, bindDescription, resetDescription] = useInputText(
+    "Discount Deals. Genuine Steals."
   );
   // eslint-disable-next-line
-  const [tag, bindTag, resetTag] = useInputText("");
+  const [image, bindImage, resetImage] = useInputText(
+    "https://res.cloudinary.com/chankruze/image/upload/v1604210061/Hunter/hunter.png"
+  );
+  // eslint-disable-next-line
+  const [tag, bindTag, resetTag] = useInputText("Bundle");
 
   return (
     <div className={styles.add_category_sec_root}>
       <div className={styles.left}>
-        <h1>Add a new Product</h1>
+        {/* <h1>Add a new Product</h1> */}
         <div className={styles.add_category_div}>
           <p className={styles.add_category_p}>Title</p>
           <div className={styles.add_category_input_wrapper}>
@@ -56,13 +65,19 @@ export const AddCategorySec = ({ close }) => {
           </div>
         </div>
         <div className={styles.add_category_div}>
-          <p className={styles.add_category_p}>Type</p>
+          <p className={styles.add_category_p}>Duration</p>
           <div className={styles.add_category_input_wrapper}>
             <input
               type="text"
               {...bindType}
               placeholder="monthly, weekly etc."
             />
+          </div>
+        </div>
+        <div className={styles.add_category_div}>
+          <p className={styles.add_category_p}>Keys Quantity</p>
+          <div className={styles.add_category_input_wrapper}>
+            <input type="number" {...bindKeysMultiplier} placeholder="3" />
           </div>
         </div>
         <div className={styles.add_category_div}>
@@ -112,24 +127,17 @@ export const AddCategorySec = ({ close }) => {
         </div>
         <div className={styles.add_category_div}>
           <div className={styles.add_category_btn_group}>
-            <button
-              className={styles.btn_danger}
-              onClick={() =>
-                close({
-                  name: "",
-                  id: 0,
-                })
-              }
-            >
+            <button className={styles.btn_danger} onClick={() => close()}>
               Cancel
             </button>
             <button
               onClick={() =>
                 handleCreateCategory(
-                  "categories",
+                  "category",
                   {
                     name,
                     category: type,
+                    keysMultiplier,
                     mrp,
                     price,
                     currency,
