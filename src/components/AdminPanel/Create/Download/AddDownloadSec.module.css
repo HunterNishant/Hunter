@@ -1,0 +1,135 @@
+/*
+Author: chankruze (chankruze@geekofia.in)
+Created: Mon Nov 09 2020 13:20:53 GMT+0530 (India Standard Time)
+
+Copyright (c) Geekofia 2020 and beyond
+*/
+
+.add_download_sec_root {
+  width: 100%;
+  height: 100%;
+  /* padding: 0rem 1rem; */
+  /* margin-top: 0.5rem; */
+  /* background: #ddf; */
+  overflow-x: auto;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.left {
+  flex: 1.4;
+  /* padding-left: 0.5rem; */
+}
+
+.add_download_div {
+  /* background: chocolate; */
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.add_download_p {
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+  flex: 0.2;
+}
+
+.add_download_p.description {
+  align-self: flex-start;
+}
+
+.add_download_input_wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-left: 0.5rem;
+}
+
+.add_download_input_wrapper input {
+  border: 0;
+  outline: 0;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  border-radius: 0.25rem;
+  background: rgb(53, 53, 53);
+  color: #fff;
+}
+
+.add_download_input_wrapper input[type="text"] {
+  width: 85%;
+}
+
+.add_download_input_wrapper.textarea_wrapper {
+  height: 15rem;
+}
+
+.add_download_input_wrapper textarea {
+  resize: none !important;
+  width: 85%;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  font-family: sans-serif;
+  font-size: 1.1rem;
+  border-radius: 0.25rem;
+  white-space: pre-line;
+}
+
+.add_download_btn_group {
+  width: 100%;
+  /* background: tomato; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.5rem 1rem 1rem 1rem;
+}
+
+.add_download_btn_group button {
+  padding: 0.5rem 1.5rem;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  border: 0;
+  outline: 0;
+  border-radius: 0.25rem;
+  color: #fff;
+  background: rgb(0, 122, 223);
+  transition: all 300ms ease-in-out;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+.add_download_btn_group button:hover {
+  background: rgb(67, 134, 0);
+}
+
+.btn_danger {
+  background: red !important;
+}
+
+.btn_danger:hover {
+  background: rgb(177, 0, 0) !important;
+}
+
+.right {
+  flex: 1;
+  /* background: rgb(78, 78, 78); */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 0.5rem;
+}
+
+.span_preview {
+  position: absolute;
+  top: 0;
+  padding: 0.064rem 0.5rem;
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  color: rgb(255, 255, 255);
+  background: rgb(32, 114, 0);
+}

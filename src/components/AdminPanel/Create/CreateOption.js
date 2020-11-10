@@ -11,16 +11,16 @@ import styles from "./CreateOption.module.css";
 
 export const CreateOption = (props) => {
   const { clickHandler } = props;
-  const { id, name } = props.data;
+  const { id, name, sub } = props.data;
 
   return (
     <div
       className={styles.manage_option_root}
-      onClick={() => clickHandler({ name, id })}
+      onClick={() => clickHandler({ name, id, sub })}
     >
       <h1 className={styles.option_title}>{name}</h1>
       <div className={styles.option_sub_title}>
-        Add one/multiple <b>{name}</b>
+        {sub} <b>{name}</b>
       </div>
       <div className={styles.option_action_group}>
         <CgChevronRight />

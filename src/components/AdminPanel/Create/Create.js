@@ -14,27 +14,40 @@ import { AddCategorySec } from "./Categories/AddCategorySec";
 import { MdClose } from "react-icons/md";
 // css
 import styles from "./Create.module.css";
+import { AddDownloadSec } from "./Download/AddDownloadSec";
 
 const defaultSection = {
   name: "",
   id: 0,
+  sub: "",
 };
 
 function Create() {
   const [selectedSection, setSelectedSection] = useState(defaultSection);
+
+  const resetSelection = () => setSelectedSection(defaultSection);
 
   return (
     <div className={styles.create_root}>
       {selectedSection.id === 0 && (
         <div className={styles.options_menu}>
           <CreateOption
-            data={{ id: 1, name: "keys" }}
+            data={{ id: 1, name: "keys", sub: "Add one/multiple" }}
             clickHandler={setSelectedSection}
           />
           <CreateOption
             data={{
               id: 2,
-              name: "categories",
+              name: "category",
+              sub: "Create a new",
+            }}
+            clickHandler={setSelectedSection}
+          />
+          <CreateOption
+            data={{
+              id: 3,
+              name: "Download",
+              sub: "Add a new",
             }}
             clickHandler={setSelectedSection}
           />
@@ -44,18 +57,18 @@ function Create() {
         <>
           <div className={styles.options_toolbar}>
             <h1 className={styles.options_toolbar_section_name}>
-              {selectedSection.name}
+              {selectedSection.sub} {selectedSection.name}
             </h1>
             <div className={styles.options_toolbar_close}>
-              <MdClose
-                size={32}
-                onClick={() => setSelectedSection(defaultSection)}
-              />
+              <MdClose size={32} onClick={() => resetSelection()} />
             </div>
           </div>
           {selectedSection.id === 1 && <AddKeySec />}
           {selectedSection.id === 2 && (
-            <AddCategorySec close={setSelectedSection} />
+            <AddCategorySec close={resetSelection} />
+          )}
+          {selectedSection.id === 3 && (
+            <AddDownloadSec close={resetSelection} />
           )}
         </>
       )}
