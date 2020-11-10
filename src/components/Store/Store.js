@@ -22,7 +22,7 @@ import styles from "./Store.module.css";
 // import { products } from "./StoreItems"; // no need now
 import { loadScript } from "../../utils";
 import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
+// import Footer from "../Footer/Footer";
 
 // Init Transaction
 const initTransaction = async (props) => {
@@ -160,7 +160,7 @@ function Store() {
           </span>
         </Modal>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

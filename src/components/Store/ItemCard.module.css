@@ -23,6 +23,19 @@ Copyright (c) Geekofia 2020 and beyond
   border-radius: 0.5rem;
 }
 
+.card_tag {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-bottom-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: rgb(36, 36, 36);
+}
+
 .card_img_wrapper {
   height: 15rem;
   width: 100%;
@@ -32,6 +45,10 @@ Copyright (c) Geekofia 2020 and beyond
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.card.bundle .card_img_wrapper {
+  animation: flashBg 4s ease-in-out infinite;
 }
 
 .card_img_top {
@@ -59,7 +76,7 @@ Copyright (c) Geekofia 2020 and beyond
   align-items: center;
 }
 
-.card_title_tag {
+/* .card_title_tag {
   font-size: 0.7rem;
   font-weight: 600;
   line-height: 1.1rem;
@@ -74,7 +91,7 @@ Copyright (c) Geekofia 2020 and beyond
   align-items: center;
   justify-content: center;
   width: min-content;
-}
+} */
 
 .card_sub_title {
   margin-top: 0.25rem;
@@ -269,15 +286,121 @@ Screen: B/w 320px to 479px
   }
 }
 
-.card_tag {
-  position: absolute;
-  top: 0;
-  right: 0;
-  border-bottom-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
-  padding: 0.25rem 0.5rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  background: rgb(36, 36, 36);
+.card_total_keys {
+  color: #ffffff;
+  font-size: 1.1rem;
+}
+
+.card_total_keys span {
+  color: #d0ff00;
+}
+
+/* Animations */
+
+@keyframes flashBorder {
+  0% {
+    border-color: #ff4a4a;
+  }
+  25% {
+    border-color: #2fceff;
+  }
+  50% {
+    border-color: #00ffb3;
+  }
+  75% {
+    border-color: #a0ff12;
+  }
+  100% {
+    border-color: #ff4a4a;
+  }
+}
+
+@-webkit-keyframes flashBorder {
+  0% {
+    border-color: #ff4a4a;
+  }
+  25% {
+    border-color: #2fceff;
+  }
+  50% {
+    border-color: #00ffb3;
+  }
+  75% {
+    border-color: #a0ff12;
+  }
+  100% {
+    border-color: #ff4a4a;
+  }
+}
+
+@-moz-keyframes flashBorder {
+  0% {
+    border-color: #ff4a4a;
+  }
+  25% {
+    border-color: #2fceff;
+  }
+  50% {
+    border-color: #00ffb3;
+  }
+  75% {
+    border-color: #a0ff12;
+  }
+  100% {
+    border-color: #ff4a4a;
+  }
+}
+
+@keyframes flashBg {
+  0% {
+    background: #ff4a4a;
+  }
+  25% {
+    background: #2fceff;
+  }
+  50% {
+    background: #00ffb3;
+  }
+  75% {
+    background: #a0ff12;
+  }
+  100% {
+    background: #ff4a4a;
+  }
+}
+
+@-webkit-keyframes flashBg {
+  0% {
+    background: #ff4a4a;
+  }
+  25% {
+    background: #2fceff;
+  }
+  50% {
+    background: #00ffb3;
+  }
+  75% {
+    background: #a0ff12;
+  }
+  100% {
+    background: #ff4a4a;
+  }
+}
+
+@-moz-keyframes flashBg {
+  0% {
+    background: #ff4a4a;
+  }
+  25% {
+    background: #2fceff;
+  }
+  50% {
+    background: #00ffb3;
+  }
+  75% {
+    background: #a0ff12;
+  }
+  100% {
+    background: #ff4a4a;
+  }
 }

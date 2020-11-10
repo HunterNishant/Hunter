@@ -18,20 +18,25 @@ function ItemCard(props) {
     id,
     name,
     category,
-    mrp,
-    price,
+    keysMultiplier,
+    mrp: baseMrp,
+    price: basePrice,
     currency,
     description,
     image,
     tag,
   } = data;
-  const [quantity, setQuantity] = useState(0);
+
+  const [mrp, setMrp] = useState(baseMrp);
+  const [price, setPrice] = useState(basePrice);
+  const [keysCount, setKeysCount] = useState(keysMultiplier);
+  const [quantity, setQuantity] = useState(1);
 
   const handleBuyNow = () => {
     const productData = {
       id,
       name,
-      amount: price * quantity * 100,
+      amount: price * 100,
       currency,
       description,
       receipt: `receipt_${nanoid()}`,
@@ -39,14 +44,14 @@ function ItemCard(props) {
         "https://res.cloudinary.com/chankruze/image/upload/v1604210061/Hunter/hunter.png",
       notes: {
         product_name: name,
-        product_duration: name.split(" ").slice(-2).join(" "),
-        product_mrp: mrp,
-        product_price: price,
-        product_discount: mrp - price,
+        product_mrp: baseMrp,
+        product_price: basePrice,
+        product_discount: baseMrp - basePrice,
         product_type: category,
         product_quantity: quantity,
-        total_price: quantity * price,
-        total_discount: (mrp - price) * quantity,
+        keys_count: keysCount,
+        total_price: price,
+        total_discount: mrp - price,
       },
     };
     console.log("Initializing payment...");
@@ -54,17 +59,25 @@ function ItemCard(props) {
   };
 
   useEffect(() => {
-    if (tag) {
-      setQuantity(1);
-    }
-  }, [tag]);
+    setMrp(baseMrp * quantity);
+    setPrice(basePrice * quantity);
+    setKeysCount(keysMultiplier * quantity);
+    // eslint-disable-next-line
+  }, [quantity]);
 
   return (
-    <div className={styles.card}>
+    <div
+      className={`${styles.card} ${keysMultiplier > 1 && `${styles.bundle}`}`}
+    >
       {tag && (
         <span
           className={styles.card_tag}
-          style={{ backgroundColor: `${tag === "hot" ? "red" : "blue"}` }}
+          style={{
+            backgroundColor: `${
+              tag === "hot" || tag === "bundle" ? "white" : "blue"
+            }`,
+            color: `${tag === "bundle" && "#000"}`,
+          }}
         >
           {tag}
         </span>
@@ -75,21 +88,21 @@ function ItemCard(props) {
       </div>
 
       <div className={styles.card_body}>
-        <p className={styles.card_title}>
-          {name}
-          {/* {tag && (
-            <span
-              className={styles.card_title_tag}
-              style={{ backgroundColor: `${tag === "hot" ? "red" : "blue"}` }}
-            >
-              {tag}
-            </span>
-          )} */}
-        </p>
+        {/* Name */}
+        <p className={styles.card_title}>{name}</p>
+        {/* Mrp / Price */}
         <p className={styles.card_sub_title}>
           <span className={styles.mrp}>{mrp}</span>
           <span className={styles.price}>{price}</span>
         </p>
+
+        {/* Duration Type */}
+        {/* <p>{category}</p> */}
+        {/* Keys Count */}
+        <p className={styles.card_total_keys}>
+          Total Keys: <span>{keysCount}</span>
+        </p>
+        {/* Description */}
         <p className={styles.card_text}>{description}</p>
         {/* <button
           className={styles.card_read_more}
@@ -97,6 +110,7 @@ function ItemCard(props) {
         >
           full description
         </button> */}
+        {/* Action Group */}
         <div className={styles.card_action_group}>
           <div className={styles.item_quantity_wrapper}>
             <button
