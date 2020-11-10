@@ -6,7 +6,7 @@ Copyright (c) Geekofia 2020 and beyond
 */
 
 import React from "react";
-import Footer from "../Footer/Footer";
+// import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import styles from "./Home.module.css";
 
@@ -15,7 +15,7 @@ function Home() {
     <>
       <Navbar />
       <div className={styles.home}>Home</div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
