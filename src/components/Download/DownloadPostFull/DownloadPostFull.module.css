@@ -1,0 +1,182 @@
+/*
+Author: chankruze (chankruze@geekofia.in)
+Created: Mon Nov 09 2020 15:21:17 GMT+0530 (India Standard Time)
+
+Copyright (c) Geekofia 2020 and beyond
+*/
+
+.download_full_root {
+  background: rgb(24, 24, 24);
+  border-radius: 0.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
+  position: relative;
+}
+
+.post_wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin-left: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-right: auto;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.25rem;
+  /* height: 2rem;
+  width: 2rem; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 300ms ease-in-out;
+  background: rgb(37, 37, 37);
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+  border-bottom-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.close:hover {
+  background: #000;
+}
+
+.close svg {
+  color: #fff;
+  font-size: 2rem;
+  transition: all 300ms ease-in-out;
+}
+
+.close svg:hover {
+  transform: scale(1.1);
+}
+
+.title {
+  padding: 0rem 1rem 1rem 0rem;
+  color: rgb(253, 255, 145);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 2.8rem;
+  line-height: 3rem;
+}
+
+.info_bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.tag {
+  background: rgb(0, 118, 214);
+  text-transform: uppercase;
+  color: #fff;
+  padding: 0rem 0.5rem;
+  border-radius: 0.25rem;
+  width: min-content;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.date {
+  color: rgb(255, 255, 255);
+  justify-self: flex-end;
+  margin-left: auto;
+  font-weight: 500;
+  font-size: 1.2rem;
+  border-bottom: 1px solid rgb(0, 219, 183);
+}
+
+.sub_title:before {
+  content: "> ";
+}
+
+.sub_title {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: rgb(0, 255, 42);
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: normal;
+  font-size: 1.3rem;
+}
+
+.description {
+  padding: 1rem 0rem;
+  color: #fff;
+  font-weight: 300;
+  /* font-size: 1.2rem; */
+  /* font-family: "Hind Madurai", sans-serif; */
+  font-size: 1.1rem;
+  font-family: "Poppins";
+  display: flex;
+  flex-direction: column;
+}
+
+.description img {
+  max-height: 350px;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  align-self: center;
+}
+
+.description p {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.action_group {
+  /* padding: 1rem; */
+  align-self: flex-end;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.action_group > * {
+  outline: 0;
+  border: 0;
+  padding: 0.7rem 1.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn_download {
+  color: #fff;
+  background: rgb(5, 161, 70);
+  border-radius: 0.5rem;
+  transition: all 300ms ease-in-out;
+}
+
+.btn_download:hover {
+  background: rgb(0, 121, 50);
+}
+
+.a_discuss {
+  color: rgb(212, 245, 27);
+  padding: 0;
+  margin-right: 2rem;
+  border-bottom: 2px solid transparent;
+  transition: all 300ms ease-in-out;
+  font-size: 1.2rem;
+}
+
+.a_discuss:hover {
+  color: #fff;
+  border-bottom: 2px solid chocolate;
+}

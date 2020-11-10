@@ -1,0 +1,117 @@
+/*
+Author: chankruze (chankruze@geekofia.in)
+Created: Mon Nov 09 2020 15:11:53 GMT+0530 (India Standard Time)
+
+Copyright (c) Geekofia 2020 and beyond
+*/
+
+.download_post_root {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  height: 7rem;
+  background: rgb(37, 37, 37);
+  border: 1px solid rgb(63, 63, 63);
+  flex-direction: row;
+  display: flex;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+
+.download_post_root:hover {
+  background: rgb(63, 63, 63);
+}
+
+.left {
+  /* background: chocolate; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 6.5rem;
+  height: 100%;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.mid {
+  flex: 1;
+  margin-left: 0.5rem;
+  /* background: cornflowerblue; */
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+}
+
+.right {
+  flex: 0.25;
+  /* background: crimson; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right > * {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.logo {
+  color: rgb(255, 0, 0);
+  height: 100%;
+  width: 100%;
+  padding: 0.25rem;
+}
+
+.title {
+  flex: 1;
+  color: rgb(255, 255, 255);
+  font-size: 1.8rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  /* font-family: 'Didact Gothic', sans-serif; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  align-self: center;
+  /* background: rgb(109, 109, 109); */
+}
+
+/* .sub_title {
+  flex: 0.5;
+  color: rgb(230, 230, 230);
+  font-size: 1.1rem;
+  padding: 0rem 0.5rem 0.25rem 0.5rem;
+  font-weight: 400;
+  font-family: 'Nunito Sans', sans-serif;
+  overflow: hidden;
+  line-height: 1.4rem;
+  text-overflow: ellipsis;
+  background: cornflowerblue; 
+}
+*/
+
+.tag_wrapper {
+  flex: 1;
+  color: #fff;
+  /* background: cornflowerblue; */
+}
+
+.tag_wrapper span {
+  padding: 0rem 0.5rem 0.15rem 0.5rem;
+  background: rgb(0, 112, 15);
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  border-radius: 0.25rem;
+  align-self: center;
+}
+
+.date_wrapper {
+  flex: 0.5;
+  color: rgb(233, 255, 199);
+  /* background: chartreuse; */
+}
