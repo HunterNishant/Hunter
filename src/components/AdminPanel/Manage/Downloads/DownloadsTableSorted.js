@@ -72,10 +72,10 @@ export const DownloadsTableSorted = (props) => {
   const bulkDelete = async () => {
     const selectedRowIds = selectedFlatRows.map((row) => row.original._id);
     await deleteDocMany(
-      "categories",
+      "downloads",
       selectedRowIds
     ).then(({ count, status }) =>
-      window.alert(`${count} categories deleted\nstatus: ${status}`)
+      window.alert(`${count} download posts deleted\nstatus: ${status}`)
     );
   };
 
