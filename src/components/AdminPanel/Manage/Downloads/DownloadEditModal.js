@@ -75,10 +75,9 @@ export const DownloadEditModal = (props) => {
           <p>Image</p>
           <input type="text" placeholder={data.image} {...bindImage} />
         </div>
-        <div>
+        <div className={styles.desc_wrapper}>
           <p>Description</p>
-          <input
-            type="text"
+          <textarea
             placeholder={data.description}
             {...bindDescription}
           />

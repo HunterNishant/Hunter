@@ -121,6 +121,7 @@ Copyright (c) Geekofia 2020 and beyond
   font-family: "Poppins";
   display: flex;
   flex-direction: column;
+  white-space: pre-line;
 }
 
 .description img {

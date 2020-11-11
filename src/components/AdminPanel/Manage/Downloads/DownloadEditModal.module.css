@@ -138,6 +138,23 @@ Copyright (c) Geekofia 2020 and beyond
   width: 100%;
 } */
 
+.modal_body div.desc_wrapper {
+  height: 15rem;
+  max-height: 15rem;
+}
+
+.modal_body div textarea {
+  resize: none !important;
+  width: 85%;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  font-family: sans-serif;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  white-space: pre-line;
+}
+
 /* modal button group */
 .modal_btn_group {
   padding-top: 1rem;

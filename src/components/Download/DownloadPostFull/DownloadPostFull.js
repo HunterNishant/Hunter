@@ -27,12 +27,13 @@ export const DownloadPostFull = ({ selectedPost, close }) => {
         <h3 className={styles.sub_title}>{sub}</h3>
         <div className={styles.description}>
           {image && <img src={image} alt="Screenshot" />}
-
-          <p>{description}</p>
+          {description && description.replace(/\\n/g, "\n")}
         </div>
 
         <div className={styles.action_group}>
-          <a href="https://discord.gg/EfUxsY7" className={styles.a_discuss}>Discuss</a>
+          <a href="https://discord.gg/EfUxsY7" className={styles.a_discuss}>
+            Discuss
+          </a>
           <a href={link} className={styles.btn_download}>
             Download
           </a>
