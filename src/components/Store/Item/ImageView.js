@@ -42,6 +42,7 @@ export const ImageView = (props) => {
         <div className={styles.thumb_row}>
           {screenshots.map((image, i) => (
             <img
+              key={i}
               className={styles.thumb_image}
               src={image}
               alt={`Screenshot ${i}`}

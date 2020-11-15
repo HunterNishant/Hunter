@@ -6,7 +6,6 @@ Copyright (c) Geekofia 2020 and beyond
 */
 
 import React, { useEffect, useState } from "react";
-import { nanoid } from "nanoid";
 import { FaMinus, FaPlus } from "react-icons/fa";
 // css
 import styles from "./ItemCard.module.css";
@@ -15,57 +14,48 @@ function ItemCard(props) {
   // eslint-disable-next-line
   const {
     data,
-    initTransaction,
     setIsProductPageOpen,
     setSelectedProduct,
+    setPaymentData,
+    setPaymentModalOpen,
   } = props;
+
   const {
-    id,
     name,
-    shortDesc,
     category,
     keysMultiplier,
-    mrp: baseMrp,
-    price: basePrice,
-    currency,
+    mrp,
+    price,
+    shortDesc,
     image,
     tag,
   } = data;
 
-  const [mrp, setMrp] = useState(baseMrp);
-  const [price, setPrice] = useState(basePrice);
+  // razor pay
+  const [rpzMrp, setRpzMrp] = useState(mrp.inr);
+  const [rpzPrice, setRpzPrice] = useState(price.inr);
+  // common
   const [keysCount, setKeysCount] = useState(keysMultiplier);
   const [quantity, setQuantity] = useState(1);
 
-  const handleBuyNow = () => {
-    const productData = {
-      id,
+  const handleBuyNow = async () => {
+    const paymentData = {
+      quantity,
+      keysMultiplier,
+      price,
       name,
-      amount: price * 100,
-      currency,
-      description: name,
-      receipt: `receipt_${nanoid()}`,
-      image:
-        "https://res.cloudinary.com/chankruze/image/upload/v1604210061/Hunter/hunter.png",
-      notes: {
-        product_name: name,
-        product_mrp: baseMrp,
-        product_price: basePrice,
-        product_discount: baseMrp - basePrice,
-        product_type: category,
-        product_quantity: quantity,
-        keys_count: keysCount,
-        total_price: price,
-        total_discount: mrp - price,
-      },
+      category,
+      image,
     };
-    console.log("Initializing payment...");
-    initTransaction(productData);
+    setPaymentData(paymentData);
+    setPaymentModalOpen(true);
   };
 
   useEffect(() => {
-    setMrp(baseMrp * quantity);
-    setPrice(basePrice * quantity);
+    // razor pay
+    setRpzMrp(mrp.inr * quantity);
+    setRpzPrice(price.inr * quantity);
+    // common
     setKeysCount(keysMultiplier * quantity);
     // eslint-disable-next-line
   }, [quantity]);
@@ -103,8 +93,8 @@ function ItemCard(props) {
         <p className={styles.card_title}>{name}</p>
         {/* Mrp / Price */}
         <p className={styles.card_sub_title}>
-          <span className={styles.mrp}>{mrp}</span>
-          <span className={styles.price}>{price}</span>
+          <span className={styles.mrp}>{rpzMrp}</span>
+          <span className={styles.price}>{rpzPrice}</span>
         </p>
 
         {/* Duration Type */}

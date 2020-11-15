@@ -7,70 +7,56 @@ Copyright (c) Geekofia 2020 and beyond
 
 import React, { useEffect, useState } from "react";
 import { ImageView } from "./ImageView";
-import { nanoid } from "nanoid";
 import { FaMinus, FaPlus } from "react-icons/fa";
 // css
 import styles from "./ItemCardFull.module.css";
 import { MdArrowBack } from "react-icons/md";
-// import { PayNowButton } from "../PayNow/PayNowButton";
 
 export const ItemCardFull = (props) => {
   // eslint-disable-next-line
   const {
     data,
-    initTransaction,
     setIsProductPageOpen,
     setSelectedProduct,
+    setPaymentData,
+    setPaymentModalOpen,
   } = props;
-  console.log(data);
   const {
-    id,
     name,
     category,
     keysMultiplier,
-    mrp: baseMrp,
-    price: basePrice,
-    currency,
+    mrp,
+    price,
     description,
     image,
-    tag,
     screenshots,
   } = data;
 
-  const [mrp, setMrp] = useState(baseMrp);
-  const [price, setPrice] = useState(basePrice);
+  // razor pay
+  const [rpzMrp, setRpzMrp] = useState(mrp.inr);
+  const [rpzPrice, setRpzPrice] = useState(price.inr);
+  // common
   const [keysCount, setKeysCount] = useState(keysMultiplier);
   const [quantity, setQuantity] = useState(1);
 
   const handleBuyNow = () => {
-    const productData = {
-      id,
+    const paymentData = {
+      quantity,
+      keysMultiplier,
+      price,
       name,
-      amount: price * 100,
-      currency,
-      description: name,
-      receipt: `receipt_${nanoid()}`,
-      image:
-        "https://res.cloudinary.com/chankruze/image/upload/v1604210061/Hunter/hunter.png",
-      notes: {
-        product_name: name,
-        product_mrp: baseMrp,
-        product_price: basePrice,
-        product_discount: baseMrp - basePrice,
-        product_type: category,
-        product_quantity: quantity,
-        keys_count: keysCount,
-        total_price: price,
-        total_discount: mrp - price,
-      },
+      category,
+      image,
     };
-    console.log("Initializing payment...");
-    initTransaction(productData);
+    setPaymentData(paymentData);
+    setPaymentModalOpen(true);
   };
 
   useEffect(() => {
-    setMrp(baseMrp * quantity);
-    setPrice(basePrice * quantity);
+    // razor pay
+    setRpzMrp(mrp.inr * quantity);
+    setRpzPrice(price.inr * quantity);
+    // common
     setKeysCount(keysMultiplier * quantity);
     // eslint-disable-next-line
   }, [quantity]);
@@ -92,8 +78,8 @@ export const ItemCardFull = (props) => {
         <p className={styles.item_title}>{name}</p>
         {/* Mrp / Price */}
         <p className={styles.item_sub_title}>
-          <span className={styles.mrp}>{mrp}</span>
-          <span className={styles.price}>{price}</span>
+          <span className={styles.mrp}>{rpzMrp}</span>
+          <span className={styles.price}>{rpzPrice}</span>
         </p>
         {/* Keys Count */}
         <p className={styles.item_total_keys}>
@@ -141,7 +127,6 @@ export const ItemCardFull = (props) => {
             >
               Buy Now
             </button>
-            {/* <PayNowButton data={{ quantity }} /> */}
           </div>
         </div>
       </div>
