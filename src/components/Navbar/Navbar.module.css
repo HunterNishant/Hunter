@@ -15,7 +15,7 @@ Copyright (c) Geekofia 2020 and beyond
 
 /* center element */
 .container {
-  max-width: 1000px;
+  max-width: 1200px;
   padding-left: 1.4rem;
   padding-right: 1.4rem;
   margin-left: auto;
@@ -29,8 +29,8 @@ Copyright (c) Geekofia 2020 and beyond
   right: 0;
   position: fixed;
   height: var(--navbar-height);
-  background-color: var(--navbar-bg-dark);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  background-color: rgba(29, 29, 29, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   z-index: 10;
   /* border-bottom: 1px solid rgb(0, 255, 149); */
 }
@@ -47,15 +47,16 @@ Copyright (c) Geekofia 2020 and beyond
 .navbarLogo {
   /* background-color: var(--navbar-text-color-focus); */
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 52px;
+  height: 52px;
   margin-right: 0.5em;
+  animation: flashColor 30s ease-in-out infinite;
 }
 
 /* brand name */
 .brandName {
   font-size: 2rem;
-  font-family: 'Pacifico', cursive;
+  font-family: "Pacifico", cursive;
   text-transform: capitalize;
   color: var(--color-green);
   /* background: -webkit-linear-gradient(#c31432,#240b36);
@@ -72,7 +73,7 @@ Copyright (c) Geekofia 2020 and beyond
 
 /* list logo */
 .navbarItem svg {
-    margin-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 /* links */
@@ -260,5 +261,115 @@ Copyright (c) Geekofia 2020 and beyond
 
   .navbar .navbarLink:last-child {
     margin-right: 0;
+  }
+}
+
+/* Animations */
+
+@keyframes flashColor {
+  0% {
+    color: transparent;
+  }
+  10% {
+    color: #8e44ad;
+  }
+  20% {
+    color: #1abc9c;
+  }
+  30% {
+    color: #d35400;
+  }
+  40% {
+    color: blue;
+  }
+  50% {
+    color: #34495e;
+  }
+  60% {
+    color: blue;
+  }
+  70% {
+    color: #2980b9;
+  }
+  80% {
+    color: #f1c40f;
+  }
+  90% {
+    color: #2980b9;
+  }
+  100% {
+    color: pink;
+  }
+}
+
+@-webkit-keyframes flashColor {
+  0% {
+    color: transparent;
+  }
+  10% {
+    color: #8e44ad;
+  }
+  20% {
+    color: #1abc9c;
+  }
+  30% {
+    color: #d35400;
+  }
+  40% {
+    color: blue;
+  }
+  50% {
+    color: #34495e;
+  }
+  60% {
+    color: blue;
+  }
+  70% {
+    color: #2980b9;
+  }
+  80% {
+    color: #f1c40f;
+  }
+  90% {
+    color: #2980b9;
+  }
+  100% {
+    color: pink;
+  }
+}
+
+@-moz-keyframes flashColor {
+  0% {
+    color: transparent;
+  }
+  10% {
+    color: #8e44ad;
+  }
+  20% {
+    color: #1abc9c;
+  }
+  30% {
+    color: #d35400;
+  }
+  40% {
+    color: blue;
+  }
+  50% {
+    color: #34495e;
+  }
+  60% {
+    color: blue;
+  }
+  70% {
+    color: #2980b9;
+  }
+  80% {
+    color: #f1c40f;
+  }
+  90% {
+    color: #2980b9;
+  }
+  100% {
+    color: pink;
   }
 }
