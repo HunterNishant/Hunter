@@ -46,3 +46,10 @@ Copyright (c) Geekofia 2020 and beyond
 .categories_section_root::-webkit-scrollbar-thumb:hover {
   background: rgb(99, 99, 99);
 }
+
+.empty_data {
+  color: red;
+  font-size: 1.5rem;
+  margin: auto;
+  text-transform: uppercase;
+}

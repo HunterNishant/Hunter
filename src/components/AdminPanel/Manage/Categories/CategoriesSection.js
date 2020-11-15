@@ -36,6 +36,9 @@ function CategoriesSection() {
   return (
     <div className={styles.categories_section_root}>
       {isLoading && <p>Fetching data from database...</p>}
+      {!isLoading && rowData.length === 0 && (
+        <p className={styles.empty_data}>No categories found</p>
+      )}
       <div className={styles.categories_row_container}>
         {rowData.length !== 0 && (
           <CategoriesTableSorted

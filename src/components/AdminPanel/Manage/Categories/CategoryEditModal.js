@@ -24,7 +24,17 @@ function CategoryEditModal(props) {
   // eslint-disable-next-line
   const [name, bindName, resetName] = useInputText(data.name);
   // eslint-disable-next-line
+  const [shortDesc, bindShortDesc, resetShortDesc] = useInputText(
+    data.shortDesc
+  );
+  // eslint-disable-next-line
   const [category, bindCategory, resetCategory] = useInputText(data.category);
+  const [
+    keysMultiplier,
+    bindKeysMultiplier,
+    // eslint-disable-next-line
+    resetKeysMultiplier,
+  ] = useInputText(data.keysMultiplier);
   // eslint-disable-next-line
   const [mrp, bindMrp, resetMrp] = useInputFloat(data.mrp);
   // eslint-disable-next-line
@@ -40,22 +50,41 @@ function CategoryEditModal(props) {
   // eslint-disable-next-line
   const [tag, bindTag, resetTag] = useInputText(data.tag);
   // eslint-disable-next-line
+  const [screenshots, bindScreenshots, resetScreenshots] = useInputText(
+    data.screenshots ? Array.prototype.join.call(data.screenshots, ", ") : ""
+  );
+  // eslint-disable-next-line
   const [newData, setNewData] = useState(undefined);
 
   useEffect(() => {
     setNewData({
       id,
       name,
+      shortDesc,
       category,
+      keysMultiplier,
       mrp,
       price,
       currency,
       description,
       image,
       tag,
+      screenshots: screenshots.split(",").map((t) => t.trim()),
     });
     // eslint-disable-next-line
-  }, [category, currency, description, image, mrp, name, price, tag]);
+  }, [
+    category,
+    currency,
+    description,
+    image,
+    keysMultiplier,
+    mrp,
+    name,
+    shortDesc,
+    price,
+    tag,
+    screenshots,
+  ]);
 
   return (
     <Modal
@@ -80,6 +109,10 @@ function CategoryEditModal(props) {
           <input type="text" placeholder={data.category} {...bindCategory} />
         </div>
         <div>
+          <p>Keys Multiplier</p>
+          <input type="number" {...bindKeysMultiplier} />
+        </div>
+        <div>
           <p>MRP</p>
           <input type="number" {...bindMrp} />
         </div>
@@ -92,12 +125,24 @@ function CategoryEditModal(props) {
           <input type="text" {...bindCurrency} />
         </div>
         <div>
+          <p>Short Desc</p>
+          <input type="text" placeholder={data.shortDesc} {...bindShortDesc} />
+        </div>
+        <div className={styles.desc_wrapper}>
           <p>Description</p>
-          <input type="text" {...bindDescription} />
+          <textarea
+            className={styles.desc_txt_area}
+            type="text"
+            {...bindDescription}
+          />
         </div>
         <div>
           <p>Logo</p>
           <input type="text" {...bindImage} />
+        </div>
+        <div>
+          <p>Screenshots</p>
+          <input type="text" placeholder={screenshots} {...bindScreenshots} />
         </div>
         <div>
           <p>Tag</p>

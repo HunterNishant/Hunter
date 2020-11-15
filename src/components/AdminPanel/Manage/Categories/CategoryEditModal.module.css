@@ -9,11 +9,11 @@ Copyright (c) Geekofia 2020 and beyond
   border: 0;
   outline: 0;
   border-radius: 4px;
-  max-width: 600px;
-  min-height: 300px;
+  max-width: 1000px;
+  max-height: 700px;
   color: #fff;
   background: rgb(31, 31, 31);
-  margin: 5rem auto;
+  margin: 2rem auto;
   padding: 0 1rem 1rem 1rem;
   position: relative;
   overflow-x: hidden;
@@ -126,7 +126,7 @@ Copyright (c) Geekofia 2020 and beyond
   font-size: 1rem;
 }
 
-.modal_body div select option{
+.modal_body div select option {
   border: 0;
   outline: 0;
   font-size: 1rem;
@@ -187,6 +187,23 @@ Copyright (c) Geekofia 2020 and beyond
 .modal_btn_cancel:hover {
   background: rgb(66, 66, 66);
   color: #fff;
+}
+
+.modal_body div.desc_wrapper {
+  height: 25rem;
+  max-height: 30rem;
+}
+
+.desc_txt_area {
+  resize: none !important;
+  width: 85%;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  font-family: sans-serif;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  white-space: pre-line;
 }
 
 /* modal scrollbar */
