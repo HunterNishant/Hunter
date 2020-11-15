@@ -14,22 +14,28 @@ export const DownloadPostFull = ({ selectedPost, close }) => {
   return (
     <div className={styles.download_full_root}>
       <div className={styles.post_wrapper}>
+        {/* close button */}
         <span className={styles.close} onClick={() => close()}>
           <MdClose />
         </span>
+        {/* title */}
         <h1 className={styles.title}>{title}</h1>
+        {/* info bar */}
         <div className={styles.info_bar}>
           {tags && tags.map((tag) => <p className={styles.tag}>{tag}</p>)}
           <p className={styles.date}>
             <Moment format="DD/MM/YYYY HH:MM A">{date}</Moment>
           </p>
         </div>
-        <h3 className={styles.sub_title}>{sub}</h3>
+        {/* sub title */}
+        {sub && <h3 className={styles.sub_title}>{sub}</h3>}
+        {/* description */}
         <div className={styles.description}>
+          {/* image */}
           {image && <img src={image} alt="Screenshot" />}
           {description && description.replace(/\\n/g, "\n")}
         </div>
-
+        {/* download & discuss */}
         <div className={styles.action_group}>
           <a href="https://discord.gg/EfUxsY7" className={styles.a_discuss}>
             Discuss
