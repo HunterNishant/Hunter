@@ -1,0 +1,18 @@
+/*
+Author: chankruze (chankruze@geekofia.in)
+Created: Sat Nov 14 2020 04:04:57 GMT+0530 (India Standard Time)
+
+Copyright (c) Geekofia 2020 and beyond
+*/
+
+.features_root {
+  display: flex;
+  flex-direction: row;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  /* height: 40rem; */
+  overflow: hidden;
+}

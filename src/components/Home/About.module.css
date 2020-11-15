@@ -1,0 +1,80 @@
+/*
+Author: chankruze (chankruze@geekofia.in)
+Created: Fri Nov 13 2020 15:58:03 GMT+0530 (India Standard Time)
+
+Copyright (c) Geekofia 2020 and beyond
+*/
+
+.about_root {
+  display: flex;
+  flex-direction: row;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  /* height: 40rem; */
+  overflow: hidden;
+}
+/* Left Section */
+.left {
+  flex: 1;
+  /* background: rgba(20, 20, 20, 0.2); */
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1.5rem;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.section_title {
+  font-family: "Nunito Sans", sans-serif;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: rgb(126, 126, 126);
+  text-align: center;
+}
+
+.section_heading {
+  font-size: 3rem;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(251, 255, 0);
+  margin-top: 0.25rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.section_text {
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
+  font-size: 1.1rem;
+  font-family: "Poppins";
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.icon_wrapper {
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  margin-right: 1rem;
+  /* background: rgb(36, 36, 36); */
+}
+
+.icon_wrapper svg {
+  color: #00ac00;
+}
+
+/* Right Section */
+/* .right {
+  flex: 1;
+  background: rgb(41, 41, 41);
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+} */
