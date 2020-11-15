@@ -6,7 +6,7 @@ Copyright (c) Geekofia 2020 and beyond
 */
 
 :root {
-  --card-width: 21rem;
+  --card-width: 22rem;
   --card-width-mob: 21rem;
 }
 
@@ -132,17 +132,16 @@ Copyright (c) Geekofia 2020 and beyond
 }
 
 .card_read_more {
-  color: #d6d6d6;
-  padding: 0 0.5rem;
-  /* background: rgb(36, 36, 36); */
+  width: 100%;
+  color: #ffffff;
+  padding: 0.7rem 1.5rem;
+  background: rgb(0, 119, 255);
   outline: 0;
-  background: transparent;
-  border: 1px solid #1f1f1f;
-  padding: 0.25rem 0.5rem;
-  font-size: 0.8rem;
-  border-radius: 0.25rem;
-  text-transform: capitalize;
+  border: 0;
+  font-size: 1rem;
+  text-transform: uppercase;
   transition: all 200ms ease-in-out;
+  cursor: pointer;
 }
 
 .card_read_more:hover {
@@ -296,60 +295,6 @@ Screen: B/w 320px to 479px
 }
 
 /* Animations */
-
-@keyframes flashBorder {
-  0% {
-    border-color: #ff4a4a;
-  }
-  25% {
-    border-color: #2fceff;
-  }
-  50% {
-    border-color: #00ffb3;
-  }
-  75% {
-    border-color: #a0ff12;
-  }
-  100% {
-    border-color: #ff4a4a;
-  }
-}
-
-@-webkit-keyframes flashBorder {
-  0% {
-    border-color: #ff4a4a;
-  }
-  25% {
-    border-color: #2fceff;
-  }
-  50% {
-    border-color: #00ffb3;
-  }
-  75% {
-    border-color: #a0ff12;
-  }
-  100% {
-    border-color: #ff4a4a;
-  }
-}
-
-@-moz-keyframes flashBorder {
-  0% {
-    border-color: #ff4a4a;
-  }
-  25% {
-    border-color: #2fceff;
-  }
-  50% {
-    border-color: #00ffb3;
-  }
-  75% {
-    border-color: #a0ff12;
-  }
-  100% {
-    border-color: #ff4a4a;
-  }
-}
 
 @keyframes flashBg {
   0% {

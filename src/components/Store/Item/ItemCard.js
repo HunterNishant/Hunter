@@ -13,16 +13,21 @@ import styles from "./ItemCard.module.css";
 
 function ItemCard(props) {
   // eslint-disable-next-line
-  const { data, initTransaction, handleViewMore } = props;
+  const {
+    data,
+    initTransaction,
+    setIsProductPageOpen,
+    setSelectedProduct,
+  } = props;
   const {
     id,
     name,
+    shortDesc,
     category,
     keysMultiplier,
     mrp: baseMrp,
     price: basePrice,
     currency,
-    description,
     image,
     tag,
   } = data;
@@ -38,7 +43,7 @@ function ItemCard(props) {
       name,
       amount: price * 100,
       currency,
-      description,
+      description: name,
       receipt: `receipt_${nanoid()}`,
       image:
         "https://res.cloudinary.com/chankruze/image/upload/v1604210061/Hunter/hunter.png",
@@ -64,6 +69,12 @@ function ItemCard(props) {
     setKeysCount(keysMultiplier * quantity);
     // eslint-disable-next-line
   }, [quantity]);
+
+  // eslint-disable-next-line
+  const handleFullPost = () => {
+    setIsProductPageOpen(true);
+    setSelectedProduct(data);
+  };
 
   return (
     <div
@@ -102,14 +113,16 @@ function ItemCard(props) {
         <p className={styles.card_total_keys}>
           Total Keys: <span>{keysCount}</span>
         </p>
-        {/* Description */}
-        <p className={styles.card_text}>{description}</p>
-        {/* <button
+        {/* Short Description */}
+        {shortDesc && <p className={styles.card_text}>{shortDesc}</p>}
+
+        {/* Description Page Full */}
+        <button
           className={styles.card_read_more}
-          onClick={() => handleViewMore(true)}
+          onClick={() => handleFullPost()}
         >
-          full description
-        </button> */}
+          Read More
+        </button>
         {/* Action Group */}
         <div className={styles.card_action_group}>
           <div className={styles.item_quantity_wrapper}>

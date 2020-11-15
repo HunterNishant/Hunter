@@ -1,0 +1,95 @@
+/*
+Author: chankruze (chankruze@geekofia.in)
+Created: Sat Nov 14 2020 01:00:24 GMT+0530 (India Standard Time)
+
+Copyright (c) Geekofia 2020 and beyond
+*/
+
+.image_view_root {
+  /* min-width: 35rem; */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.current_image_wrapper {
+  max-width: 100%;
+  position: relative;
+}
+
+.current_image {
+  width: 100%;
+  object-fit: cover;
+  /* transform-origin: 65% 75%; */
+  /* transition: transform 0.5s, filter 0.5s ease-out; */
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+
+/* .img-hover-zoom--point-zoom img {
+  transform-origin: 65% 75%;
+  transition: transform 1s, filter .5s ease-out;
+} */
+
+/* The Transformation */
+/* .current_image_wrapper:hover img {
+  transform: scale(2);
+} */
+
+.btn_full_screen {
+  top: 0;
+  right: 0;
+  position: absolute;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.2);
+  height: 2rem;
+  width: 2rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.btn_full_screen:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* .btn_full_screen {
+  left: 0;
+  right: 0;
+  top: 50%;
+  bottom: 50%;
+  margin: auto;
+  position: absolute;
+  border: 0;
+  outline: 0;
+  padding: 1rem 2rem;
+  height: 4rem;
+  font-size: 1rem;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.5);
+  color: #fff;
+} */
+
+/* .btn_full_screen:hover {
+  background: rgba(255, 255, 255, 0.8);
+} */
+
+.thumb_row {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 0.5rem;
+  align-items: flex-end;
+  overflow-x: auto;
+  justify-self: flex-end;
+  flex: 1;
+}
+
+.thumb_image {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  cursor: pointer;
+  background: rgb(255, 255, 255);
+  padding: 0.15rem;
+  margin-right: 0.25rem;
+}

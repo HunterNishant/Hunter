@@ -6,23 +6,22 @@ Copyright (c) Geekofia 2020 and beyond
 */
 
 import React, { useState, useEffect } from "react";
-import Modal from "react-modal";
 import axios from "axios";
 // components
-import ItemCard from "./ItemCard";
+import ItemCard from "./Item/ItemCard";
 // icons
 // import { MdViewStream, MdViewWeek } from "react-icons/md";
-import { VscChromeClose } from "react-icons/vsc";
+// import { VscChromeClose } from "react-icons/vsc";
 // spinners
 import { HashLoader } from "react-spinners";
 // css
-import modalStyles from "../common/ModalCommon.module.css";
 import styles from "./Store.module.css";
 // utils
 // import { products } from "./StoreItems"; // no need now
 import { loadScript } from "../../utils";
 import Navbar from "../Navbar/Navbar";
-// import Footer from "../Footer/Footer";
+import { ItemCardFull } from "./Item/ItemCardFull";
+import Footer from "../Footer/Footer";
 
 // Init Transaction
 const initTransaction = async (props) => {
@@ -83,12 +82,11 @@ const getProducts = async () => {
   return products;
 };
 
-Modal.setAppElement("#react_root");
-
 function Store() {
   // eslint-disable-next-line
   const [listVertical, setListVertical] = useState(false);
-  const [isProductModalOpen, setIsProductModalOpen] = useState(false);
+  const [isProductPageOpen, setIsProductPageOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const [products, setProducts] = useState([]);
 
   // const toggleListDirection = () => {
@@ -98,7 +96,7 @@ function Store() {
   useEffect(() => {
     // load razorpay checkout script
     loadScript("https://checkout.razorpay.com/v1/checkout.js")
-      .then((res) => console.log("Razorpay checkout script loaded"))
+      // .then((res) => console.log("Razorpay checkout script loaded"))
       .catch((err) => console.log(err));
   }, []);
 
@@ -120,47 +118,43 @@ function Store() {
         </button>
       </div> */}
         {/* Product Listing */}
-        <div
-          className={`${styles.products_wrapper} ${
-            listVertical
-              ? `${styles.list_vertical}`
-              : `${styles.list_horizontal}`
-          }`}
-        >
-          {products.length > 0 ? (
-            products.map((data, index) => (
-              <ItemCard
-                key={index}
-                data={data}
-                initTransaction={initTransaction}
-                handleViewMore={setIsProductModalOpen}
-              />
-            ))
-          ) : (
-            <div className={styles.loader}>
-              <HashLoader color="green" />
-            </div>
-          )}
-          {/* {products &&
-          products.map((data, index) => (
-            <ItemCard key={index} details={data} />
-          ))} */}
-        </div>
-        <Modal
-          className={modalStyles.modal}
-          overlayClassName={modalStyles.modalOverlay}
-          isOpen={isProductModalOpen}
-        >
-          {/* Close Button */}
-          <span
-            className={modalStyles.close}
-            onClick={() => setIsProductModalOpen(false)}
+        {!isProductPageOpen && (
+          <div
+            className={`${styles.products_wrapper} ${
+              listVertical
+                ? `${styles.list_vertical}`
+                : `${styles.list_horizontal}`
+            }`}
           >
-            <VscChromeClose />
-          </span>
-        </Modal>
+            {products.length > 0 ? (
+              products.map((data, index) => (
+                <ItemCard
+                  key={index}
+                  data={data}
+                  initTransaction={initTransaction}
+                  setIsProductPageOpen={setIsProductPageOpen}
+                  setSelectedProduct={setSelectedProduct}
+                />
+              ))
+            ) : (
+              <div className={styles.loader}>
+                <HashLoader color="green" />
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Product Full Post */}
+        {isProductPageOpen && selectedProduct !== null && (
+          <ItemCardFull
+            data={selectedProduct}
+            initTransaction={initTransaction}
+            setIsProductPageOpen={setIsProductPageOpen}
+            setSelectedProduct={setSelectedProduct}
+          />
+        )}
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

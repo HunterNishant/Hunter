@@ -10,12 +10,16 @@ Copyright (c) Geekofia 2020 and beyond
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  margin-top: calc(var(--navbar-height) + 1rem);
-  margin-bottom: 2rem;
+  /* margin-top: calc(var(--navbar-height) + 1rem); */
+  padding-top: calc(var(--navbar-height) + 2rem);
+  padding-bottom: 2rem;
   /* background: chocolate; */
   /* min-height: 100vh; */
   /* overflow-x: hidden; */
   overflow-y: auto;
+  background: url("https://www.pubgmobile.com/en-US/images/shop_bg.jpg")
+    no-repeat;
+  background-size: cover;
 }
 
 .filter_wrapper {
@@ -62,6 +66,6 @@ Copyright (c) Geekofia 2020 and beyond
 }
 
 .loader {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 }
