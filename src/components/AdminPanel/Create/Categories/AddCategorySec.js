@@ -5,10 +5,10 @@ Created: Sun Nov 08 2020 17:03:52 GMT+0530 (India Standard Time)
 Copyright (c) Geekofia 2020 and beyond
 */
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useInputText, useInputFloat } from "../../../../hooks/useGeekofia";
 import { createDocs } from "../../../../utils";
-import ItemCard from "../../../Store/ItemCard";
+import ItemCard from "../../../Store/Item/ItemCard";
 import styles from "./AddCategorySec.module.css";
 
 const handleCreateCategory = async (type, data, close) => {
@@ -27,16 +27,16 @@ const handleCreateCategory = async (type, data, close) => {
 
 export const AddCategorySec = ({ close }) => {
   // eslint-disable-next-line
-  const [name, bindName, resetName] = useInputText("Monthly Bundle: Pack of 3");
+  const [name, bindName, resetName] = useInputText("Monthly Bundle: Pack of 4");
   // eslint-disable-next-line
   const [type, bindType, resetType] = useInputText("monthly");
-
+  // eslint-disable-next-line
   const [
     keysMultiplier,
     bindKeysMultiplier,
     // eslint-disable-next-line
     resetKeysMultiplier,
-  ] = useInputText(3);
+  ] = useInputText(4);
   // eslint-disable-next-line
   const [mrp, bindMrp, resetMrp] = useInputFloat(keysMultiplier * 1800);
   // eslint-disable-next-line
@@ -52,7 +52,40 @@ export const AddCategorySec = ({ close }) => {
     "https://res.cloudinary.com/chankruze/image/upload/v1604210061/Hunter/hunter.png"
   );
   // eslint-disable-next-line
+  const [screenshots, bindScreenshots, resetScreenshots] = useInputText(
+    Array.prototype.join.call(["https://bhosdi-change-kro-isko.com"])
+  );
+  // eslint-disable-next-line
   const [tag, bindTag, resetTag] = useInputText("Bundle");
+  // eslint-disable-next-line
+  const [newData, setNewData] = useState({});
+
+  useEffect(() => {
+    setNewData({
+      name,
+      category: type,
+      keysMultiplier,
+      mrp,
+      price,
+      currency,
+      description,
+      image,
+      tag,
+      screenshots: screenshots.split(",").map((t) => t.trim()),
+    });
+    // eslint-disable-next-line
+  }, [
+    type,
+    currency,
+    description,
+    image,
+    keysMultiplier,
+    mrp,
+    name,
+    price,
+    tag,
+    screenshots,
+  ]);
 
   return (
     <div className={styles.add_category_sec_root}>
@@ -77,7 +110,7 @@ export const AddCategorySec = ({ close }) => {
         <div className={styles.add_category_div}>
           <p className={styles.add_category_p}>Keys Quantity</p>
           <div className={styles.add_category_input_wrapper}>
-            <input type="number" {...bindKeysMultiplier} placeholder="3" />
+            <input type="number" {...bindKeysMultiplier} placeholder="4" />
           </div>
         </div>
         <div className={styles.add_category_div}>
@@ -131,23 +164,7 @@ export const AddCategorySec = ({ close }) => {
               Cancel
             </button>
             <button
-              onClick={() =>
-                handleCreateCategory(
-                  "category",
-                  {
-                    name,
-                    category: type,
-                    keysMultiplier,
-                    mrp,
-                    price,
-                    currency,
-                    description,
-                    image,
-                    tag,
-                  },
-                  close
-                )
-              }
+              onClick={() => handleCreateCategory("category", newData, close)}
             >
               Save
             </button>
@@ -161,12 +178,14 @@ export const AddCategorySec = ({ close }) => {
           data={{
             name,
             category: type,
+            keysMultiplier,
             mrp,
             price,
             currency,
             description,
             image,
             tag,
+            screenshots: screenshots.split(",").map((t) => t.trim()),
             count: 0,
           }}
           initTransaction={null}
