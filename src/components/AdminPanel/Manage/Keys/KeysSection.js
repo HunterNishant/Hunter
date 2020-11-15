@@ -36,6 +36,9 @@ function KeysSection() {
   return (
     <div className={styles.keys_section_root}>
       {isLoading && <p>Fetching data from database...</p>}
+      {!isLoading && rowData.length === 0 && (
+        <p className={styles.empty_data}>No keys found</p>
+      )}
       <div className={styles.keys_row_container}>
         {rowData.length !== 0 && (
           <KeysTableSorted

@@ -30,3 +30,10 @@ Copyright (c) Geekofia 2020 and beyond
 
 .keys_row_container {
 }
+
+.empty_data {
+  color: red;
+  font-size: 1.5rem;
+  margin: auto;
+  text-transform: uppercase;
+}

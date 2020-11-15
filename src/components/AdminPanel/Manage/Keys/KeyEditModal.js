@@ -43,7 +43,7 @@ function KeyEditModal(props) {
       isActivated,
     });
     // eslint-disable-next-line
-  }, [duration, isActivated, isSold, key, type]);
+  }, [isActivated, isSold, key, type]);
 
   return (
     <Modal
