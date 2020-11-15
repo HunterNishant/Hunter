@@ -195,3 +195,66 @@ export const createDocs = async (type, data) => {
 
   return response || { status: "failed" };
 };
+
+// Init Transaction
+export const initRazorPayTransaction = async (
+  paymentData,
+  successCallback,
+  errorCallback,
+  cancelCallback,
+  processingCallback
+) => {
+  processingCallback(true);
+  const { amount, currency, receipt, notes, description, image } = paymentData;
+
+  await axios
+    .post(`${process.env.REACT_APP_BACKEND_PROD}/order`, {
+      amount,
+      currency,
+      receipt,
+      notes,
+    })
+    .then((res) => {
+      const options = {
+        key: process.env.REACT_APP_RAZPAY_KEY,
+        currency: res.data.currency,
+        amount: res.data.amount,
+        order_id: res.data.id,
+        description,
+        image,
+        handler: async (response) => {
+          const data = {
+            orderCreationId: res.data.id,
+            razorpayPaymentId: response.razorpay_payment_id,
+            razorpayOrderId: response.razorpay_order_id,
+            razorpaySignature: response.razorpay_signature,
+          };
+
+          await axios
+            .post(`${process.env.REACT_APP_BACKEND_PROD}/check`, data)
+            .then((res) => {
+              processingCallback(false);
+              successCallback(res);
+            })
+            .catch((err) => {
+              processingCallback(false);
+              errorCallback(err);
+            });
+        },
+        modal: {
+          ondismiss: () => {
+            processingCallback(false);
+            cancelCallback(true);
+          },
+        },
+      };
+
+      const paymentObject = new window.Razorpay(options);
+      paymentObject.open();
+    })
+    .catch((error) => {
+      processingCallback(false);
+      errorCallback(error);
+      console.log(error);
+    });
+};
