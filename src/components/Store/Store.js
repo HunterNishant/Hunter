@@ -9,6 +9,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 // components
 import ItemCard from "./Item/ItemCard";
+import Modal from "react-modal";
 // icons
 // import { MdViewStream, MdViewWeek } from "react-icons/md";
 // import { VscChromeClose } from "react-icons/vsc";
@@ -22,57 +23,7 @@ import { loadScript } from "../../utils";
 import Navbar from "../Navbar/Navbar";
 import { ItemCardFull } from "./Item/ItemCardFull";
 import Footer from "../Footer/Footer";
-
-// Init Transaction
-const initTransaction = async (props) => {
-  const { amount, currency, receipt, notes, description, image } = props;
-
-  await axios
-    .post(`${process.env.REACT_APP_BACKEND_PROD}/order`, {
-      amount,
-      currency,
-      receipt,
-      notes,
-    })
-    .then((res) => {
-      const options = {
-        key: process.env.REACT_APP_RAZPAY_KEY,
-        currency: res.data.currency,
-        amount: res.data.amount,
-        order_id: res.data.id,
-        description,
-        image,
-        handler: async (response) => {
-          const data = {
-            orderCreationId: res.data.id,
-            razorpayPaymentId: response.razorpay_payment_id,
-            razorpayOrderId: response.razorpay_order_id,
-            razorpaySignature: response.razorpay_signature,
-          };
-
-          await axios
-            .post(`${process.env.REACT_APP_BACKEND_PROD}/check`, data)
-            .then((res) => {
-              console.log("Payment verified: OK");
-              alert("Check your email for KEY and payment receipt");
-            })
-            .catch((err) => {
-              console.log(err);
-              alert("You're too smart to trick me!");
-            });
-        },
-        modal: {
-          ondismiss: () => {
-            console.log("Payment form closed");
-          },
-        },
-      };
-
-      const paymentObject = new window.Razorpay(options);
-      paymentObject.open();
-    })
-    .catch((error) => console.log(error));
-};
+import { PaymentModal } from "./PayNow/PaymentModal";
 
 // fetch latest products from database
 const getProducts = async () => {
@@ -82,17 +33,21 @@ const getProducts = async () => {
   return products;
 };
 
+Modal.setAppElement("#react_root");
+
 function Store() {
   // eslint-disable-next-line
   const [listVertical, setListVertical] = useState(false);
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
   const [isProductPageOpen, setIsProductPageOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [products, setProducts] = useState([]);
+  const [paymentData, setPaymentData] = useState(null);
 
   // const toggleListDirection = () => {
   //   setListVertical(!listVertical);
   // };
-
+  
   useEffect(() => {
     // load razorpay checkout script
     loadScript("https://checkout.razorpay.com/v1/checkout.js")
@@ -131,9 +86,10 @@ function Store() {
                 <ItemCard
                   key={index}
                   data={data}
-                  initTransaction={initTransaction}
                   setIsProductPageOpen={setIsProductPageOpen}
                   setSelectedProduct={setSelectedProduct}
+                  setPaymentData={setPaymentData}
+                  setPaymentModalOpen={setIsPaymentModalOpen}
                 />
               ))
             ) : (
@@ -148,9 +104,19 @@ function Store() {
         {isProductPageOpen && selectedProduct !== null && (
           <ItemCardFull
             data={selectedProduct}
-            initTransaction={initTransaction}
             setIsProductPageOpen={setIsProductPageOpen}
             setSelectedProduct={setSelectedProduct}
+            setPaymentData={setPaymentData}
+            setPaymentModalOpen={setIsPaymentModalOpen}
+          />
+        )}
+
+        {/* hidden by default */}
+        {isPaymentModalOpen && paymentData && (
+          <PaymentModal
+            isPaymentModalOpen={isPaymentModalOpen}
+            setIsPaymentModalOpen={setIsPaymentModalOpen}
+            itemData={paymentData}
           />
         )}
       </div>
