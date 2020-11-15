@@ -91,7 +91,7 @@ export const DownloadEditModal = (props) => {
           <button
             className={styles.modal_btn_delete}
             onClick={async () =>
-              await deleteDoc("sub", data._id).then(setModalOpen(false))
+              await deleteDoc("download", data._id).then(setModalOpen(false))
             }
           >
             Delete

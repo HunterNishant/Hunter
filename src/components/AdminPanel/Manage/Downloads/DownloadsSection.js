@@ -36,6 +36,9 @@ function DownloadsSection() {
   return (
     <div className={styles.downloads_section_root}>
       {isLoading && <p>Fetching data from database...</p>}
+      {!isLoading && rowData.length === 0 && (
+        <p className={styles.empty_data}>No download posts found</p>
+      )}
       <div className={styles.downloads_row_container}>
         {rowData.length !== 0 && (
           <DownloadsTableSorted
