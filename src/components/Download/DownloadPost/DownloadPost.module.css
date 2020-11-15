@@ -6,17 +6,18 @@ Copyright (c) Geekofia 2020 and beyond
 */
 
 .download_post_root {
-  max-width: 1000px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 1rem;
   margin-bottom: 1rem;
   border-radius: 0.5rem;
-  height: 7rem;
+  height: 6rem;
   background: rgb(37, 37, 37);
-  border: 1px solid rgb(63, 63, 63);
+  /* border: 1px solid rgb(63, 63, 63); */
   flex-direction: row;
   display: flex;
+  justify-content: flex-start;
   overflow: hidden;
   cursor: pointer;
   position: relative;
@@ -31,14 +32,14 @@ Copyright (c) Geekofia 2020 and beyond
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 6.5rem;
+  width: 5.9rem;
   height: 100%;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }
 
 .mid {
-  flex: 1;
+  /* flex: 1; */
   margin-left: 0.5rem;
   /* background: cornflowerblue; */
   display: flex;
@@ -47,11 +48,13 @@ Copyright (c) Geekofia 2020 and beyond
 }
 
 .right {
-  flex: 0.25;
   /* background: crimson; */
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-left: auto;
+  margin-right: 1rem;
+  align-self: center;
 }
 
 .right > * {
@@ -71,7 +74,7 @@ Copyright (c) Geekofia 2020 and beyond
   flex: 1;
   color: rgb(255, 255, 255);
   font-size: 1.8rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   /* font-family: 'Didact Gothic', sans-serif; */
   overflow: hidden;
@@ -95,23 +98,84 @@ Copyright (c) Geekofia 2020 and beyond
 }
 */
 
-.tag_wrapper {
-  flex: 1;
-  color: #fff;
-  /* background: cornflowerblue; */
-}
-
 .tag_wrapper span {
+  color: #fff;
   padding: 0rem 0.5rem 0.15rem 0.5rem;
-  background: rgb(0, 112, 15);
+  background: rgb(0, 118, 214);
   margin-left: 0.25rem;
   margin-right: 0.25rem;
   border-radius: 0.25rem;
   align-self: center;
+  font-size: 0.9rem;
 }
 
 .date_wrapper {
-  flex: 0.5;
-  color: rgb(233, 255, 199);
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  color: rgb(245, 255, 230);
   /* background: chartreuse; */
+}
+
+.download_post_root.sxfile {
+  animation: flashBg 1s ease-in-out infinite;
+  /* background: #ff0000; */
+  border: 0;
+}
+
+.download_post_root.sxfile:hover {
+  /* animation: flashBg 1s ease-in-out infinite; */
+  background: #000000;
+  animation: none;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .card {
+    width: var(--card-width-mob);
+  }
+
+  .card_title {
+    font-size: 1.6rem;
+  }
+
+  .card_title_tag {
+    font-size: 0.6rem;
+  }
+}
+
+.card_total_keys {
+  color: #ffffff;
+  font-size: 1.1rem;
+}
+
+.card_total_keys span {
+  color: #d0ff00;
+}
+
+/* Animations */
+
+@keyframes flashBg {
+  0% {
+    background: #ff4a4a;
+  }
+  100% {
+    background: #000000;
+  }
+}
+
+@-webkit-keyframes flashBg {
+  0% {
+    background: #ff4a4a;
+  }
+  100% {
+    background: #000000;
+  }
+}
+
+@-moz-keyframes flashBg {
+  0% {
+    background: #ff4a4a;
+  }
+  100% {
+    background: #000000;
+  }
 }

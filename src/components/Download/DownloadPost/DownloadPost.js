@@ -17,7 +17,12 @@ export const DownloadPost = ({ data, setRenderFullPost, setSelectedPost }) => {
   };
 
   return (
-    <div className={styles.download_post_root} onClick={showFullPost}>
+    <div
+      className={`${styles.download_post_root} ${
+        tags && tags.includes("sx-file") && `${styles.sxfile}`
+      }`}
+      onClick={showFullPost}
+    >
       {/* Left */}
       <div className={styles.left}>
         {/* <GiNinjaHead className={styles.logo} /> */}
@@ -35,10 +40,10 @@ export const DownloadPost = ({ data, setRenderFullPost, setSelectedPost }) => {
       {/* Right */}
       <div className={styles.right}>
         <div className={styles.tag_wrapper}>
-          {tags && tags.map((tag) => <span>{tag}</span>)}
+          {tags && tags.map((tag) => <span>{tag.toUpperCase()}</span>)}
         </div>
         <div className={styles.date_wrapper}>
-          <Moment format="MM-DD-YYYY HH:mm A">{date}</Moment>
+          <Moment format="MM-DD-YYYY hh:mm A">{date}</Moment>
         </div>
       </div>
     </div>
