@@ -1,0 +1,52 @@
+/*
+Author: chankruze (chankruze@geekofia.in)
+Created: Sun Nov 15 2020 20:10:01 GMT+0530 (India Standard Time)
+
+Copyright (c) Geekofia 2020 and beyond
+*/
+
+.modal {
+  border: 0;
+  outline: 0;
+  border-radius: 4px;
+  min-width: 500px;
+  max-width: 1000px;
+  min-height: 300px;
+  color: #fff;
+  background: rgb(31, 31, 31);
+  margin: 5rem auto;
+  padding: 1rem;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.modalOverlay {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.close {
+  font-size: 1.5rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+  padding-right: 0.25rem;
+}
+
+.close:hover {
+  transform: scale(1.1);
+}
+
+.payment_status {
+  margin-top: auto;
+  margin-bottom: auto;
+}
