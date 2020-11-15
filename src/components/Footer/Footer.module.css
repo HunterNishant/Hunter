@@ -101,3 +101,12 @@ Copyright (c) Geekofia 2020 and beyond
 .ul_horizontal li + li {
   margin-left: 1.5rem;
 }
+
+.the_dev {
+  text-decoration: none;
+  color: #009e47;
+}
+
+.the_dev:hover {
+  text-decoration: underline;
+}

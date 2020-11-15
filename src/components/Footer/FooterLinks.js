@@ -6,7 +6,7 @@ Copyright (c) Geekofia 2020 and beyond
 */
 
 import {
-  FaInstagram,
+  // FaInstagram,
   FaDiscord,
   FaTelegram,
 } from "react-icons/fa";
@@ -37,9 +37,9 @@ export const SocialLinks = [
     url: "https://t.me/hunter_org_in",
     icon: <FaTelegram size={32} />,
   },
-  {
-    name: "Instagram",
-    url: "https://instagram.com/hunternishant",
-    icon: <FaInstagram size={32} />,
-  },
+  // {
+  //   name: "Instagram",
+  //   url: "https://instagram.com/hunternishant",
+  //   icon: <FaInstagram size={32} />,
+  // },
 ];

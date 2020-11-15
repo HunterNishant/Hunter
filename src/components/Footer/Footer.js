@@ -18,12 +18,10 @@ function Footer() {
     <div className={styles.footer_container}>
       <footer className={styles.footer}>
         <div className={styles.left}>
-          <h2 className={styles.sec_title}>
-            Hunter
-          </h2>
+          <h2 className={styles.sec_title}>Hunter</h2>
           <p>
-            Lorem ips facere veritatis quam voluptatibus odit asperiores fugiat
-            nulla repudiandae qui?
+            The Ultimate official <b>SX VIP + Bypass</b> partner & distributor. World's first cheat
+            with bypass inbuilt with the emulator. Cheat on the go!
           </p>
           <ul className={styles.ul_horizontal}>
             {SocialLinks.map((link, index) => (
@@ -34,9 +32,7 @@ function Footer() {
           </ul>
         </div>
         <div className={styles.mid}>
-          <h2 className={styles.sec_title}>
-            Links
-          </h2>
+          <h2 className={styles.sec_title}>Links</h2>
           <ul>
             {SiteLinks.map((link, index) => (
               <li key={index} className={styles.li}>
@@ -61,7 +57,12 @@ function Footer() {
       </footer>
       <div className={styles.credits}>
         <p>Copyright &copy; Hunter 2020 &amp; beyond</p>
-        <p>Developed with ❤ by chankruze</p>
+        <p>
+          Developed with ❤ by{" "}
+          <a className={styles.the_dev} href="https://github.com/chankruze">
+            chankruze
+          </a>
+        </p>
       </div>
     </div>
   );
