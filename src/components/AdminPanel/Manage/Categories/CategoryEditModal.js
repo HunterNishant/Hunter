@@ -37,9 +37,11 @@ function CategoryEditModal(props) {
   ] = useInputText(data.keysMultiplier);
   // eslint-disable-next-line
   const [mrpInr, bindMrpInr, resetMrpInr] = useInputFloat(data.mrp.inr);
+  // eslint-disable-next-line
   const [mrpUsd, bindMrpUsd, resetMrpUsd] = useInputFloat(data.mrp.usd);
   // eslint-disable-next-line
   const [priceInr, bindPriceInr, resetPriceInr] = useInputFloat(data.price.inr);
+  // eslint-disable-next-line
   const [priceUsd, bindPriceUsd, resetPriceUsd] = useInputFloat(data.price.usd);
   // eslint-disable-next-line
   // const [currency, bindCurrency, resetCurrency] = useInputText(data.currency);
