@@ -6,6 +6,7 @@ Copyright (c) Geekofia 2020 and beyond
 */
 
 import { MdAddCircleOutline, MdEdit } from "react-icons/md";
+import { RiLogoutBoxRLine } from "react-icons/ri";
 
 export const MenuOptions = [
   // {
@@ -22,5 +23,10 @@ export const MenuOptions = [
     icon: <MdAddCircleOutline />,
     link: "/admin/create",
     name: "create",
+  },
+  {
+    icon: <RiLogoutBoxRLine />,
+    link: "/admin/logout",
+    name: "logout",
   },
 ];

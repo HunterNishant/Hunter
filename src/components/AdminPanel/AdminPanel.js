@@ -13,11 +13,27 @@ import styles from "./AdminPanel.module.css";
 import SideNav from "./SideNav/SideNav";
 import Create from "./Create/Create";
 import { generateSig, requestAuth } from "../../utils";
+import { Redirect } from "react-router-dom";
 
 function AdminPanel() {
   // eslint-disable-next-line
   const [isAuthenticated, setIsAuthenticated] = useState(false); // this blocks routes
   const [activeMenu, setActiveMenu] = useState("manage"); // this blocks routes
+
+  const idleTimerRef = React.useRef(null);
+  const sessionTimeoutRef = React.useRef(null);
+
+  const logOut = () => {
+    setIsAuthenticated(false);
+    window.localStorage.clear();
+    console.log("Admin logged out");
+    clearTimeout(sessionTimeoutRef.current);
+  };
+
+  const onIdleHandler = () => {
+    console.log("User is idle");
+    sessionTimeoutRef.current = setTimeout(logOut, 5000);
+  };
 
   useEffect(() => {
     const localStorage = window.localStorage;
@@ -37,20 +53,10 @@ function AdminPanel() {
     }
   }, [isAuthenticated]);
 
-  const idleTimerRef = React.useRef(null);
-  const sessionTimeoutRef = React.useRef(null);
-
-  const logOut = () => {
-    setIsAuthenticated(false);
+  if (activeMenu === "logout") {
     window.localStorage.clear();
-    console.log("Admin logged out");
-    clearTimeout(sessionTimeoutRef.current);
-  };
-
-  const onIdleHandler = () => {
-    console.log("User is idle");
-    sessionTimeoutRef.current = setTimeout(logOut, 5000);
-  };
+    return <Redirect to="/store" />;
+  }
 
   return (
     <div className={styles.AdminPanel}>
