@@ -97,6 +97,10 @@ Copyright (c) Geekofia 2020 and beyond
   color: #fff;
 }
 
+.modal_body div input[type="number"] + input[type="number"] {
+  margin-left: 0.5rem;
+}
+
 /* input number */
 .modal_body div input[type="number"] {
   border: 0;
@@ -108,6 +112,7 @@ Copyright (c) Geekofia 2020 and beyond
   background: transparent;
   border-bottom: 1px solid rgb(0, 255, 255);
   color: #fff;
+  background: rgb(14, 14, 14);
 }
 
 /* checkbox */

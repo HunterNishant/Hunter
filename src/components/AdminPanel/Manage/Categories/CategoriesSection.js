@@ -23,6 +23,7 @@ function CategoriesSection() {
 
   useEffect(() => {
     fetchData("categories").then((categories) => {
+      // console.log(categories);
       setRowData(categories);
       setIsLoading(false);
     });

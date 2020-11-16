@@ -21,26 +21,48 @@ export const COLUMNS = [
   {
     Header: "MRP",
     Footer: "MRP",
-    accessor: "mrp",
+    columns: [
+      {
+        Header: "INR",
+        Footer: "INR",
+        accessor: "mrp.inr",
+      },
+      {
+        Header: "USD",
+        Footer: "USD",
+        accessor: "mrp.usd",
+      },
+    ],
   },
   {
     Header: "Price",
     Footer: "Price",
-    accessor: "price",
+    columns: [
+      {
+        Header: "INR",
+        Footer: "INR",
+        accessor: "price.inr",
+      },
+      {
+        Header: "USD",
+        Footer: "USD",
+        accessor: "price.usd",
+      },
+    ],
   },
+  // {
+  //   Header: "Currency",
+  //   Footer: "Currency",
+  //   accessor: "currency",
+  // },
   {
-    Header: "Currency",
-    Footer: "Currency",
-    accessor: "currency",
-  },
-  {
-    Header: "Tag",
-    Footer: "Tag",
+    Header: "Category",
+    Footer: "Category",
     accessor: "tag",
   },
   {
-    Header: "Count",
-    Footer: "Count",
+    Header: "Keys",
+    Footer: "Keys",
     accessor: "count",
   },
   {

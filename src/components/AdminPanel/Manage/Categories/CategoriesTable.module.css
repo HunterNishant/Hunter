@@ -7,8 +7,8 @@ Copyright (c) Geekofia 2020 and beyond
 
 .table {
   width: 100%;
-  border-collapse: collapse;
-  border: 1px solid rgb(0, 131, 44);
+  /* border-collapse: collapse; */
+  /* border: 1px solid rgb(0, 131, 44); */
 }
 
 /* .tfoot td */
@@ -26,13 +26,14 @@ Copyright (c) Geekofia 2020 and beyond
   height: 3rem;
   border-bottom: 1px solid rgb(0, 131, 44);
   /* border-radius: 0.25rem; */
+  text-align: center;
 }
 
 .tbody td {
   /* text-align: center; */
   padding: 0.5rem;
   padding-left: 1rem;
-  border-bottom: 1px solid rgb(0, 131, 44)
+  border-bottom: 1px solid rgb(0, 131, 44);
   /* border-radius: 0.25rem; */
 }
 
@@ -43,6 +44,7 @@ Copyright (c) Geekofia 2020 and beyond
   /* background: rgb(22, 22, 22); */
   color: #fff;
   padding: 0.25rem;
+  text-align: center;
 }
 
 .tr:hover {

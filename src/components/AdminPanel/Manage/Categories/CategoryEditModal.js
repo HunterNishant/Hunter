@@ -36,11 +36,13 @@ function CategoryEditModal(props) {
     resetKeysMultiplier,
   ] = useInputText(data.keysMultiplier);
   // eslint-disable-next-line
-  const [mrp, bindMrp, resetMrp] = useInputFloat(data.mrp);
+  const [mrpInr, bindMrpInr, resetMrpInr] = useInputFloat(data.mrp.inr);
+  const [mrpUsd, bindMrpUsd, resetMrpUsd] = useInputFloat(data.mrp.usd);
   // eslint-disable-next-line
-  const [price, bindPrice, resetType] = useInputFloat(data.price);
+  const [priceInr, bindPriceInr, resetPriceInr] = useInputFloat(data.price.inr);
+  const [priceUsd, bindPriceUsd, resetPriceUsd] = useInputFloat(data.price.usd);
   // eslint-disable-next-line
-  const [currency, bindCurrency, resetCurrency] = useInputText(data.currency);
+  // const [currency, bindCurrency, resetCurrency] = useInputText(data.currency);
   // eslint-disable-next-line
   const [description, bindDescription, resetDescription] = useInputText(
     data.description
@@ -63,9 +65,9 @@ function CategoryEditModal(props) {
       shortDesc,
       category,
       keysMultiplier,
-      mrp,
-      price,
-      currency,
+      mrp: { inr: mrpInr, usd: mrpUsd },
+      price: { inr: priceInr, usd: priceUsd },
+      // currency,
       description,
       image,
       tag,
@@ -74,14 +76,16 @@ function CategoryEditModal(props) {
     // eslint-disable-next-line
   }, [
     category,
-    currency,
+    // currency,
     description,
     image,
     keysMultiplier,
-    mrp,
+    mrpInr,
+    mrpUsd,
+    priceInr,
+    priceUsd,
     name,
     shortDesc,
-    price,
     tag,
     screenshots,
   ]);
@@ -114,15 +118,13 @@ function CategoryEditModal(props) {
         </div>
         <div>
           <p>MRP</p>
-          <input type="number" {...bindMrp} />
+          <input type="number" {...bindMrpInr} placeholder="INR" />
+          <input type="number" {...bindMrpUsd} placeholder="USD" />
         </div>
         <div>
           <p>Price</p>
-          <input type="number" {...bindPrice} />
-        </div>
-        <div>
-          <p>Currency</p>
-          <input type="text" {...bindCurrency} />
+          <input type="number" {...bindPriceInr} placeholder="INR" />
+          <input type="number" {...bindPriceUsd} placeholder="USD" />
         </div>
         <div>
           <p>Short Desc</p>
