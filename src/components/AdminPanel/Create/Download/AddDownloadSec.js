@@ -30,15 +30,11 @@ export const AddDownloadSec = ({ close }) => {
     "This update is important, download it now!"
   );
   // eslint-disable-next-line
-  const [image, bindImage, resetImage] = useInputText(
-    "https://akcheat.com/uploads/monthly_2020_11/2031533448_2020-11-0514_47_24-Window.png.593cdd1017fcdb370616a418c523d415.png"
-  );
-  // eslint-disable-next-line
   const [description, bindDescription, resetDescription] = useInputText(
     "Praesent dapibus, neque id cursus faucibus, tortor neque egestas auguae, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus."
   );
   // eslint-disable-next-line
-  const [link, bindLink, resetLink] = useInputText(
+  const [downloadLink, bindDownloadLink, resetDownloadLink] = useInputText(
     "https://cdn.discordapp.com/attachments/747790760673411113/773837946548781066/Brutal_SXAntiban.rar"
   );
   // eslint-disable-next-line
@@ -50,13 +46,12 @@ export const AddDownloadSec = ({ close }) => {
     setNewData({
       title,
       sub,
-      link,
-      image,
+      downloadLink,
       description,
       tags: tags.split(",").map((t) => t.trim()),
     });
     // eslint-disable-next-line
-  }, [title, sub, image, description, tags]);
+  }, [title, sub, downloadLink, description, tags]);
 
   return (
     <div className={styles.add_download_sec_root}>
@@ -83,16 +78,16 @@ export const AddDownloadSec = ({ close }) => {
             <textarea {...bindDescription} />
           </div>
         </div>
-        <div className={styles.add_download_div}>
+        {/* <div className={styles.add_download_div}>
           <p className={styles.add_download_p}>Image URL</p>
           <div className={styles.add_download_input_wrapper}>
             <input type="text" {...bindImage} />
           </div>
-        </div>
+        </div> */}
         <div className={styles.add_download_div}>
           <p className={styles.add_download_p}>Download Link</p>
           <div className={styles.add_download_input_wrapper}>
-            <input type="text" {...bindLink} />
+            <input type="text" {...bindDownloadLink} />
           </div>
         </div>
         <div className={styles.add_download_div}>
@@ -101,6 +96,8 @@ export const AddDownloadSec = ({ close }) => {
             <input type="text" {...bindTags} />
           </div>
         </div>
+
+        <DownloadPostFull selectedPost={newData} />
 
         <div className={styles.add_download_div}>
           <div className={styles.add_download_btn_group}>
@@ -116,10 +113,6 @@ export const AddDownloadSec = ({ close }) => {
             </button>
           </div>
         </div>
-      </div>
-      <div className={styles.right}>
-        {/* <span className={styles.span_preview}>Preview</span> */}
-        <DownloadPostFull selectedPost={newData} />
       </div>
     </div>
   );

@@ -15,12 +15,11 @@ Copyright (c) Geekofia 2020 and beyond
   overflow-y: auto;
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
-.left {
-  flex: 1.4;
-  /* padding-left: 0.5rem; */
-}
+/* .left {
+} */
 
 .add_download_div {
   /* background: chocolate; */
@@ -115,7 +114,6 @@ Copyright (c) Geekofia 2020 and beyond
 }
 
 .right {
-  flex: 1;
   /* background: rgb(78, 78, 78); */
   position: relative;
   display: flex;

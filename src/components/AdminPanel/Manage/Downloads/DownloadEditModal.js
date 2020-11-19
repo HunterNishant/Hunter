@@ -25,13 +25,19 @@ export const DownloadEditModal = (props) => {
   // eslint-disable-next-line
   const [sub, bindSub, resetDownload] = useInputText(data.sub);
   // eslint-disable-next-line
-  const [image, bindImage, resetImage] = useInputText(data.image);
+  // const [image, bindImage, resetImage] = useInputText(data.image);
+    // eslint-disable-next-line
+  const [downloadLink, binddownloadLink, resetdownloadLink] = useInputText(
+    data.downloadLink
+  );
   // eslint-disable-next-line
   const [description, bindDescription, resetDescription] = useInputText(
     data.description
   );
   // eslint-disable-next-line
-  const [tags, bindTags, resetTags] = useInputText(Array.prototype.join.call(data.tags, ", "));
+  const [tags, bindTags, resetTags] = useInputText(
+    Array.prototype.join.call(data.tags, ", ")
+  );
   // eslint-disable-next-line
   const [newData, setNewData] = useState(undefined);
 
@@ -40,12 +46,12 @@ export const DownloadEditModal = (props) => {
       id,
       title,
       sub,
-      image,
       description,
+      downloadLink,
       tags: tags.split(",").map((t) => t.trim()),
     });
     // eslint-disable-next-line
-  }, [id, title, sub, image, description, tags]);
+  }, [id, title, sub, downloadLink, description, tags]);
 
   console.log(newData);
 
@@ -71,16 +77,17 @@ export const DownloadEditModal = (props) => {
           <p>Sub</p>
           <input type="text" placeholder={data.sub} {...bindSub} />
         </div>
-        <div>
+        {/* <div>
           <p>Image</p>
           <input type="text" placeholder={data.image} {...bindImage} />
+        </div> */}
+        <div>
+          <p>Download Link</p>
+          <input type="text" placeholder={data.image} {...binddownloadLink} />
         </div>
         <div className={styles.desc_wrapper}>
           <p>Description</p>
-          <textarea
-            placeholder={data.description}
-            {...bindDescription}
-          />
+          <textarea placeholder={data.description} {...bindDescription} />
         </div>
         <div>
           <p>Tags</p>
