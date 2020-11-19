@@ -111,31 +111,6 @@ Copyright (c) Geekofia 2020 and beyond
   font-size: 1.3rem;
 }
 
-.description {
-  padding: 1rem 0rem;
-  color: #fff;
-  font-weight: 300;
-  /* font-size: 1.2rem; */
-  /* font-family: "Hind Madurai", sans-serif; */
-  font-size: 1.1rem;
-  font-family: "Poppins";
-  display: flex;
-  flex-direction: column;
-  white-space: pre-line;
-}
-
-.description img {
-  max-height: 350px;
-  max-width: 100%;
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-  align-self: center;
-}
-
-.description p {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
 .action_group {
   /* padding: 1rem; */
   align-self: flex-end;
@@ -180,4 +155,65 @@ Copyright (c) Geekofia 2020 and beyond
 .a_discuss:hover {
   color: #fff;
   border-bottom: 2px solid chocolate;
+}
+
+.description_wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.description {
+  padding: 1rem 0rem;
+  color: #fff;
+  font-weight: 300;
+  /* font-size: 1.2rem; */
+  /* font-family: "Hind Madurai", sans-serif; */
+  font-size: 1.1rem;
+  font-family: "Poppins";
+  display: flex;
+  flex-direction: column;
+  white-space: pre-line;
+}
+
+.description img {
+  max-height: 300px;
+  max-width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  align-self: center;
+}
+
+/* .description p {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+} */
+
+.ext_links_wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ext_links_wrapper a {
+  text-decoration: none;
+  color: rgb(25, 144, 255);
+}
+
+.ext_links_wrapper a:hover {
+  color: rgb(0, 165, 115);
+}
+
+.screenshots_wrapper,
+.yt_videos_wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.yt_videos_wrapper {
 }
