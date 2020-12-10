@@ -19,7 +19,7 @@ export const DownloadPost = ({ data, setRenderFullPost, setSelectedPost }) => {
   return (
     <div
       className={`${styles.download_post_root} ${
-        tags && tags.includes("sx-file") && `${styles.sxfile}`
+        tags && tags.includes("sx-vip") && `${styles.sxvip}`
       }`}
       onClick={showFullPost}
     >

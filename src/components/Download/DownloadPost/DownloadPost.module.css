@@ -116,13 +116,13 @@ Copyright (c) Geekofia 2020 and beyond
   /* background: chartreuse; */
 }
 
-.download_post_root.sxfile {
+.download_post_root.sxvip {
   animation: flashBg 1s ease-in-out infinite;
   /* background: #ff0000; */
   border: 0;
 }
 
-.download_post_root.sxfile:hover {
+.download_post_root.sxvip:hover {
   /* animation: flashBg 1s ease-in-out infinite; */
   background: #000000;
   animation: none;
