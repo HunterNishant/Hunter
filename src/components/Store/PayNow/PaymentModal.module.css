@@ -9,8 +9,8 @@ Copyright (c) Geekofia 2020 and beyond
   border: 0;
   outline: 0;
   border-radius: 4px;
-  min-width: 500px;
-  max-width: 1000px;
+  min-width: 300px;
+  max-width: 600px;
   min-height: 300px;
   color: #fff;
   background: rgb(31, 31, 31);
@@ -21,6 +21,7 @@ Copyright (c) Geekofia 2020 and beyond
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .modalOverlay {

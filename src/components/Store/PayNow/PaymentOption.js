@@ -30,6 +30,10 @@ export const PaymentOption = ({ options, setOption }) => {
                 >
                   <span className={styles.option_icon}></span>
                   <span className={styles.option_name}>{option.name}</span>
+                  <span className={styles.option_name}>
+                    {" "}
+                    ({option.currency})
+                  </span>
                 </button>
               </div>
             )}

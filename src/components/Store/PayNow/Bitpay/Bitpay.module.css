@@ -1,0 +1,88 @@
+/*
+Author: chankruze (chankruze@geekofia.in)
+Created: Fri Dec 11 2020 16:14:04 GMT+0530 (India Standard Time)
+
+Copyright (c) Geekofia 2020 and beyond
+*/
+
+.bitpay_wrapper {
+  /* background-color: blue; */
+  padding: 1rem;
+}
+
+.bitpay_wrapper .email_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.bitpay_wrapper .email_wrapper input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 0;
+  outline: 0;
+  font-size: 1.1rem;
+  border-radius: 0.25rem;
+  margin: 1rem;
+}
+.bitpay_wrapper .email_wrapper p {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  text-align: center;
+  font-family: "Alata";
+}
+
+.bitpay_wrapper .email_wrapper .error {
+}
+
+.bitpay_wrapper .email_wrapper button {
+  padding: 0.5rem 1.5rem;
+  border: 0;
+  background-color: rgb(0, 168, 112);
+  border-radius: 0.25rem;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 150ms ease-in-out;
+  align-self: flex-end;
+  margin: 0.5rem 0;
+}
+
+.bitpay_wrapper .email_wrapper button:hover {
+  background-color: rgb(0, 136, 91);
+}
+
+.bitpay_wrapper .email_wrapper button:disabled {
+  background-color: rgb(59, 59, 59);
+  cursor: not-allowed;
+}
+
+.payment_status {
+  text-align: center;
+}
+
+.payment_status h2 {
+  font-weight: 400;
+  /* font-family: "Alata"; */
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+}
+
+.payment_status .info {
+  padding: 1rem;
+  font-size: 1rem;
+  color: #dadada;
+}
+
+.info b {
+  color: green;
+  font-style: italic;
+}
+
+.info b code {
+  color: #fff;
+  background-color: #000;
+  border-radius: 0.25rem;
+  padding: 0.125rem 0.25rem;
+}

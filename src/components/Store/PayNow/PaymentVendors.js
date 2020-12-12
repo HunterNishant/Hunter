@@ -21,4 +21,9 @@ export const vendors = [
     name: "paypal",
     currency: "USD",
   },
+  {
+    id: 3,
+    name: "bitpay",
+    currency: "USD",
+  },
 ];

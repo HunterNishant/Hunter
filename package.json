@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.0",
     "crypto-js": "^4.0.0",
+    "geekofia-hooks": "^1.0.3",
     "moment": "^2.29.1",
     "nanoid": "^3.1.16",
     "react": "^17.0.1",

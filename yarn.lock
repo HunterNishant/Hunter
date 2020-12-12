@@ -5178,6 +5178,11 @@ functional-red-black-tree@^1.0.1:
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
+geekofia-hooks@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/geekofia-hooks/-/geekofia-hooks-1.0.3.tgz#6126cc01e4424b286ad2c0d4527a0cb33d3e8449"
+  integrity sha512-N5WQumnKvKKLWmgi2Ipm3Hq862BSyX8h6pnfnTzBsovqfL9HKDKa/IeXiU9nqNfHYNFj19XrTT8LicXWvjLpjg==
+
 gensync@^1.0.0-beta.1:
   version "1.0.0-beta.1"
   resolved "https://registry.yarnpkg.com/gensync/-/gensync-1.0.0-beta.1.tgz#58f4361ff987e5ff6e1e7a210827aa371eaac269"

@@ -20,6 +20,7 @@ import { vendors } from "./PaymentVendors";
 import styles from "./PaymentModal.module.css";
 import { PaymentStatus } from "./PaymentStatus";
 import { Paypal } from "./Paypal/Paypal";
+import { Bitpay } from "./Bitpay/Bitpay";
 
 // prepare data according to user selection
 const prepareRazorpayData = ({
@@ -80,7 +81,7 @@ const preparePaypalData = ({
             value: price.usd.toFixed(2),
           },
           quantity,
-          description: `${keysMultiplier} ${category} key(s)`,
+          description: `${quantity * keysMultiplier} ${category} key(s)`,
         },
       ],
     },
@@ -140,7 +141,7 @@ export const PaymentModal = ({
         case 2:
           setPaypalData(preparePaypalData(itemData));
           break;
-        // defsult
+        // default
         default:
           break;
       }
@@ -168,20 +169,27 @@ export const PaymentModal = ({
       )}
 
       {/* Payment status */}
-      {selectedPaymentOption.id !== 0 && selectedPaymentOption.id !== 2 && (
-        <div className={styles.payment_status}>
-          <PaymentStatus
-            isProcessing={isProcessing}
-            isSuccess={!isProcessing && isSuccess}
-            isErrored={!isProcessing && isErrored}
-            isCancelled={!isProcessing && isCancelled}
-          />
-        </div>
-      )}
+      {selectedPaymentOption.id !== 0 &&
+        selectedPaymentOption.id !== 2 &&
+        selectedPaymentOption.id !== 3 && (
+          <div className={styles.payment_status}>
+            <PaymentStatus
+              isProcessing={isProcessing}
+              isSuccess={!isProcessing && isSuccess}
+              isErrored={!isProcessing && isErrored}
+              isCancelled={!isProcessing && isCancelled}
+            />
+          </div>
+        )}
 
       {/* Render paypal option */}
       {selectedPaymentOption.id === 2 && paypalData && (
         <Paypal paypalData={paypalData} cancelCallback={cancelCallback} />
+      )}
+
+      {/* Render paypal option */}
+      {selectedPaymentOption.id === 3 && (
+        <Bitpay itemData={itemData} cancelCallback={cancelCallback} />
       )}
     </Modal>
   );
