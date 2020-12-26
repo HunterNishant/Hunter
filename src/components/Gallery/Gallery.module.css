@@ -1,0 +1,65 @@
+/*
+Author: chankruze (chankruze@geekofia.in)
+Created: Fri Dec 25 2020 10:33:06 GMT+0530 (India Standard Time)
+
+Copyright (c) Geekofia 2020 and beyond
+*/
+
+.gallery_root {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: calc(var(--navbar-height));
+  padding-bottom: 2rem;
+  overflow-y: auto;
+  background: url("https://www.pubgmobile.com/en-US/images/shop_bg.jpg")
+    no-repeat;
+  background-size: cover;
+}
+
+.section_heading {
+  font-family: "Alata";
+  /* text-decoration: underline; */
+  border-bottom: 1px solid #fff;
+  margin: 0.25rem 0;
+}
+
+.section_heading span {
+  color: #0f0;
+}
+
+.images_wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 0.5rem;
+}
+
+.image_wrapper {
+  max-width: 300px;
+  max-height: 200px;
+  /* background: #f0f; */
+  margin: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border-radius: 0.25rem; */
+  cursor: pointer;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.image_wrapper img {
+  width: 100%;
+  max-height: 100%;
+  border-radius: 0.25rem;
+  transition: transform 0.5s ease;
+}
+
+.image_wrapper img:hover {
+  transform: scale(1.05);
+}
