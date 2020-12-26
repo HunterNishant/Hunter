@@ -10,6 +10,7 @@ import React, { useState } from "react";
 import { CreateOption } from "./CreateOption";
 import { AddKeySec } from "./Keys/AddKeySec";
 import { AddCategorySec } from "./Categories/AddCategorySec";
+import AddScreenshotsSec from "./Screenshots/AddScreenshotsSec";
 // icons
 import { MdClose } from "react-icons/md";
 // css
@@ -51,6 +52,14 @@ function Create() {
             }}
             clickHandler={setSelectedSection}
           />
+          <CreateOption
+            data={{
+              id: 4,
+              name: "Screenshot",
+              sub: "Add a new",
+            }}
+            clickHandler={setSelectedSection}
+          />
         </div>
       )}
       {selectedSection.id !== 0 && (
@@ -69,6 +78,9 @@ function Create() {
           )}
           {selectedSection.id === 3 && (
             <AddDownloadSec close={resetSelection} />
+          )}
+          {selectedSection.id === 4 && (
+            <AddScreenshotsSec close={resetSelection} />
           )}
         </>
       )}
