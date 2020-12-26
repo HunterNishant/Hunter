@@ -11,6 +11,7 @@ import {
   // MdShoppingCart,
   // MdInfo,
   MdFileDownload,
+  MdImage
 } from "react-icons/md";
 // import { FaTelegram, FaDiscord } from "react-icons/fa";
 
@@ -24,6 +25,11 @@ export const NavItems = [
     title: "Telegram",
     path: "https://t.me/hunter_org_in",
     // icon: <FaTelegram size={24} />,
+  },
+  {
+    title: "Gallery",
+    path: "/gallery",
+    icon: <MdImage size={24} />,
   },
   // {
   //   title: "Instagram",

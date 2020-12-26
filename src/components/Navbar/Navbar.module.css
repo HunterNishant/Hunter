@@ -50,7 +50,7 @@ Copyright (c) Geekofia 2020 and beyond
   width: 52px;
   height: 52px;
   margin-right: 0.5em;
-  animation: flashColor 30s ease-in-out infinite;
+  /* animation: flashColor 30s ease-in-out infinite; */
 }
 
 /* brand name */
