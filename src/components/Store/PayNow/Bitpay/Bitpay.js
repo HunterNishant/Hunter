@@ -5,7 +5,7 @@ Created: Fri Dec 11 2020 16:13:51 GMT+0530 (India Standard Time)
 Copyright (c) Geekofia 2020 and beyond
 */
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useInputText } from "geekofia-hooks";
 import { nanoid } from "nanoid";
 import axios from "axios";
@@ -37,6 +37,7 @@ const prepareBitpayData = (
 
 // check valid email
 const checkEmail = (email) => {
+  // eslint-disable-next-line
   const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(email);
 };
