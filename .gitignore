@@ -9,3 +9,5 @@ build*
 *.log
 debug*
 *test.txt
+# Local Netlify folder
+.netlify
