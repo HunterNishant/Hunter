@@ -7,6 +7,7 @@ Copyright (c) Geekofia 2020 and beyond
 
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Image, { Shimmer } from "react-shimmer";
 import Navbar from "../Navbar/Navbar";
 import ImageFullModal from "./ImageFullModal";
 
@@ -42,8 +43,7 @@ const Gallery = () => {
       <div className={styles.gallery_root}>
         {/* Section Heading */}
         <h1 className={styles.section_heading}>
-          <span>{images !== null ? images.length : "Fetching"}</span> Customer
-          Reviews
+          <span>{images !== null && images.length}</span> Customer Reviews
         </h1>
         {images === null && (
           <div>
@@ -65,7 +65,12 @@ const Gallery = () => {
                   })
                 }
               >
-                <img src={url} alt={`Client Review ${index}`} />
+                {/* <img src={url} alt={`Client Review ${index}`} /> */}
+                <Image
+                  src={url}
+                  alt={`Client Review ${index}`}
+                  fallback={<Shimmer width={300} height={200} />}
+                />
               </div>
             ))}
           </div>
